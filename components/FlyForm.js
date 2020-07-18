@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 
 class FlyForm extends Component {
   state = {
@@ -18,36 +18,58 @@ class FlyForm extends Component {
     this.setState({ color: text })
   }
 
-  alert = (name, color) => {
-    alert('Name: ' + name + ' Color: ' + color)
+  handleSize = (text) => {
+    this.setState({ size: text })
+  }
+
+  handleType = (text) => {
+    this.setState({ type: text })
+  }
+
+  handleAmount = (text) => {
+    this.setState({ amount: text })
   }
 
 render() {
     return (
         <View>
-          <Text style={styles.header}>Name</Text>
+          <Text style={styles.label}>Name</Text>
           <TextInput style={styles.input}
             placeholder = "Enter Fly Name"
             onChangeText = {this.handleName}
           />
 
-          <Text style={styles.header}>Color</Text>
+          <Text style={styles.label}>Color</Text>
           <TextInput style={styles.input}
             placeholder = "Enter Fly Color"
             onChangeText = {this.handleColor}
           />
 
-          <TouchableOpacity style={styles.button}
-            onPress = {() => this.alert(this.state.name, this.state.color)}>
-            <Text style={styles.button}>Check</Text>
-          </TouchableOpacity>
+          <Text style={styles.label}>Size</Text>
+          <TextInput style={styles.input}
+            placeholder = "Enter Fly Size"
+            onChangeText = {this.handleSize}
+          />
+
+          <Text style={styles.label}>Size</Text>
+          <TextInput style={styles.input}
+            placeholder = "Enter Fly Type"
+            onChangeText = {this.handleType}
+          />
+
+          <Text style={styles.label}>Size</Text>
+          <TextInput style={styles.input}
+            placeholder = "Enter Fly Amount"
+            keyboardType = 'number-pad'
+            onChangeText = {this.handleAmount}
+          />
         </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  header: {
+  label: {
     flex: 1,
     textAlign: 'center',
   },
@@ -55,13 +77,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     textAlign: 'center',
-  },
-  button: {
-    backgroundColor: '#00a8d5',
-    color: 'white',
-    width: '50%',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 })
 
