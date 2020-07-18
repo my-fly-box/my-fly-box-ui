@@ -15,7 +15,7 @@ export default function AddFly() {
 
         <TouchableOpacity style={styles.button}
           onPress = {() => {alert('Submit Fly')}}>
-          <Text style={styles.button}>Check</Text>
+          <Text style={styles.button}>Submit</Text>
         </TouchableOpacity>
       </View>
     </View>
