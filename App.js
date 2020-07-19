@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component }  from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
@@ -7,10 +7,16 @@ import FlyBox from './containers/FlyBox';
 import AddFly from './containers/AddFly';
 import EditFly from './containers/EditFly';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Provider } from 'react-redux';
+import { createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import rootReducer from "./reducers"
+
 
 const Tab = createMaterialBottomTabNavigator();
 const FlyBoxStack = createStackNavigator();
 const AddFlyStack = createStackNavigator();
+const store = createStore(rootReducer, composeWithDevTools());
 
 function MyTabs() {
   return (
@@ -94,12 +100,18 @@ function AddFlyContainer() {
   )
 }
 
-export default function App() {
-  return (
-    <NavigationContainer>
-      <MyTabs />
-    </NavigationContainer>
-  );
+class App extends Component {
+
+
+  render() {
+    return (
+      <Provider store={store}>
+        <NavigationContainer>
+         <MyTabs />
+       </NavigationContainer>
+      </Provider>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -110,3 +122,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   }
 });
+
+export default App;
