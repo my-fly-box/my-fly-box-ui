@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import FlyBox from './containers/FlyBox';
 import AddFly from './containers/AddFly';
 import EditFly from './containers/EditFly';
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Tab = createMaterialBottomTabNavigator();
 const FlyBoxStack = createStackNavigator();
@@ -13,9 +14,29 @@ const AddFlyStack = createStackNavigator();
 
 function MyTabs() {
   return (
-    <Tab.Navigator initialRouteName="MyFlyBox">
-      <Tab.Screen name="MyFlyBox" component={FlyBoxContainer} />
-      <Tab.Screen name="AddFly" component={AddFlyContainer} />
+    <Tab.Navigator 
+      initialRouteName="MyFlyBox"
+      activeColor={"white"}
+      barStyle={{ backgroundColor: '#2A9D8F' }}
+      >
+        <Tab.Screen 
+          name="MyFlyBox" 
+          component={FlyBoxContainer}
+          options={{
+            tabBarLabel: 'My Fly Box',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="hook" color={color} size={25} />
+          )
+          }} />
+        <Tab.Screen 
+          name="AddFly" 
+          component={AddFlyContainer}
+          options={{
+            tabBarLabel: 'Add Fly',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="plus" color={color} size={25} />
+          )
+          }}/>
     </Tab.Navigator>
   );
 }
@@ -23,8 +44,32 @@ function MyTabs() {
 function FlyBoxContainer() {
   return (
     <FlyBoxStack.Navigator>
-      <FlyBoxStack.Screen name="MyFlyBox" component={FlyBox} />
-      <FlyBoxStack.Screen name="EditFly" component={EditFly} /> 
+      <FlyBoxStack.Screen 
+        name="MyFlyBox" 
+        component={FlyBox}
+        options={{
+          title: 'My Fly Box',
+          headerStyle: {
+            backgroundColor: '#2A9D8F',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          },
+          }} />
+      <FlyBoxStack.Screen 
+        name="EditFly" 
+        component={EditFly}
+        options={{
+          title: 'Edit Fly Information',
+          headerStyle: {
+            backgroundColor: '#2A9D8F',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          }} /> 
     </FlyBoxStack.Navigator>
   )
 }
@@ -32,7 +77,19 @@ function FlyBoxContainer() {
 function AddFlyContainer() {
   return (
     <AddFlyStack.Navigator>
-      <AddFlyStack.Screen name="AddFly" component={AddFly} />
+      <AddFlyStack.Screen 
+        name="AddFly"
+        component={AddFly}
+        options={{
+          title: 'My Fly Box',
+          headerStyle: {
+            backgroundColor: '#2A9D8F',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          }} />
     </AddFlyStack.Navigator>
   )
 }
@@ -51,5 +108,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  }
 });
