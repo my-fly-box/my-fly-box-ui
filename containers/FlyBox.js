@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, FlatList } from 'react-native';
 import Fly from '../components/Fly';
+import { setFlies } from '../actions'
+import { connect } from "react-redux";
 
 // Rachael: this is mocked out data that will be removed once the API requests are up and running
 const TestFlies = [
@@ -48,17 +50,24 @@ const FlatListItemSeparator = () => {
     )
 }
 
+class FlyBox extends Component {
+    constructor(props) {
+        super(props);
+    }
 
-export default function FlyBox({ navigation }) {
-    const checkFlyBox = () => {
-        if (TestFlies.length > 0) {
+    async componentDidMount() {
+        this.props.setFlies(TestFlies)
+    }
+
+    checkFlyBox = () => {
+        if (this.props.currentFlies.length > 0) {
             return (
                 <FlatList
                     style={styles.fly}
                     ItemSeparatorComponent={FlatListItemSeparator} 
-                    data={TestFlies}
+                    data={this.props.currentFlies}
                     renderItem={({item}) => 
-                        <Fly fly={item} navigation={navigation} />
+                        <Fly fly={item} navigation={this.props.navigation} />
                     }
                 />
             )
@@ -72,17 +81,20 @@ export default function FlyBox({ navigation }) {
         }
     }
 
-    return (
-        <View style={styles.container}>
-            <View style={styles.header}>
-                <Text style={styles.headerFont}>Fly Name</Text>
-                <Text style={styles.headerFont}>Fly Type</Text>
-                <Text style={styles.headerFont}>Size</Text>
-                <Text style={styles.headerFont}>Edit</Text>
+    render() {
+        return (
+            <View style={styles.container}>
+                <View style={styles.header}>
+                    <Text style={styles.headerFont}>Fly Name</Text>
+                    <Text style={styles.headerFont}>Fly Type</Text>
+                    <Text style={styles.headerFont}>Size</Text>
+                    <Text style={styles.headerFont}>Edit</Text>
+                </View>
+                {this.checkFlyBox()}
             </View>
-            {checkFlyBox()}
-        </View>
-    )
+        )
+    }
+    
 }
 
 const styles = StyleSheet.create({
@@ -109,3 +121,13 @@ const styles = StyleSheet.create({
         color: "#2A9D8F"
     }
   });
+
+  const mapStateToProps = state => ({
+    currentFlies: state.currentFlies,
+  })
+
+  const mapDispatchToProps = (dispatch) => ({
+    setFlies: data => dispatch( setFlies(data) ),
+  })
+
+  export default connect(mapStateToProps, mapDispatchToProps)(FlyBox);

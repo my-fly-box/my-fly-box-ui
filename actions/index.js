@@ -1,4 +1,4 @@
-export const getFlies = data => ({
-	type: 'GET_FLIES',
+export const setFlies = data => ({
+	type: 'SET_FLIES',
 	data
 })
