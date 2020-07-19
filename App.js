@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import FlyBox from './containers/FlyBox';
 import AddFly from './containers/AddFly';
 import EditFly from './containers/EditFly';
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Tab = createMaterialBottomTabNavigator();
 const FlyBoxStack = createStackNavigator();
@@ -13,9 +14,29 @@ const AddFlyStack = createStackNavigator();
 
 function MyTabs() {
   return (
-    <Tab.Navigator initialRouteName="MyFlyBox">
-      <Tab.Screen name="MyFlyBox" component={FlyBoxContainer} />
-      <Tab.Screen name="AddFly" component={AddFlyContainer} />
+    <Tab.Navigator 
+      style={styles.navBar} initialRouteName="MyFlyBox"
+      activeColor={"white"}
+      barStyle={{ backgroundColor: '#2A9D8F' }}
+      >
+        <Tab.Screen 
+          name="MyFlyBox" 
+          component={FlyBoxContainer}
+          options={{
+            tabBarLabel: 'My Fly Box',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="hook" color={color} size={25} />
+          )
+          }} />
+        <Tab.Screen 
+          name="AddFly" 
+          component={AddFlyContainer}
+          options={{
+            tabBarLabel: 'Add Fly',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="plus" color={color} size={25} />
+          )
+          }}/>
     </Tab.Navigator>
   );
 }
@@ -52,4 +73,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  navBar: {
+    backgroundColor: "#264653"
+  }
 });
