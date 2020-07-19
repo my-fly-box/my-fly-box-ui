@@ -4,9 +4,9 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 export default function Fly({ navigation, fly }) {
 return (
     <View style={styles.container}>
-        <Text> {fly.name}</Text> 
-        <Text> {fly.category} </Text>
-        <Text> {fly.size} </Text>
+        <Text style={styles.name}> {fly.name}</Text> 
+        <Text style={styles.text}> {fly.category} </Text>
+        <Text style={styles.text}> {fly.size} </Text>
         <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate('EditFly')}>
@@ -21,7 +21,17 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "row",
         justifyContent: 'space-around',
-        padding: 5,
+        paddingVertical: 15
+    },
+    name: {
+        fontSize: 17,
+        fontFamily: 'Helvetica-Bold',
+        color: '#7A5C58',
+    },
+    text: {
+        fontSize: 15,
+        fontFamily: 'Helvetica',
+        color: '#7A5C58',
     },
     button: {
         backgroundColor: '#264653',
