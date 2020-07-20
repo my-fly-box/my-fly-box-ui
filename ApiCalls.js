@@ -9,3 +9,19 @@ export const fetchFlies = async () => {
     console.error(error);
   }
 };
+
+export const addFlyToAPI = async (flyData) => {
+  try {
+    const response = await fetch('https://my-fly-box-api.herokuapp.com/api/v1/flies', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify(flyData),
+    });
+    const flyDataResponse = await response.json();
+    return flyDataResponse;
+  } catch (error) {
+    console.error(error);
+  }
+};
