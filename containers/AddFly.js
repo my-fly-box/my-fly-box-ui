@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import FlyForm from '../components/FlyForm';
 import { connect } from "react-redux";
 import { addFly, clearFlyEntry } from '../actions';
+import { addFlyToAPI } from "../ApiCalls";
 
 class AddFly extends Component {
     constructor(props) {
@@ -10,18 +11,13 @@ class AddFly extends Component {
     }
 
   addFly = () => {
-    return fetch('https://my-fly-box-api.herokuapp.com/api/v1/flies', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify(this.props.currentFlyEntry),
-      })
-      .then(response => response.json())
+    const currentFlyEntry = this.props.currentFlyEntry
+    addFlyToAPI(currentFlyEntry)
       .then(data => {
-          this.props.addFly(data.data.attributes);
+          this.props.addFly(data.data);
           this.props.clearFlyFields();
-        })
+        }
+    )
   }
 
   render() {

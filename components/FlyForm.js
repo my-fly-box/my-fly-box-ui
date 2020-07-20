@@ -81,12 +81,6 @@ render() {
             value={this.props.currentFlyEntry.amount}
             onChangeText = {this.handleAmount}
           />
-
-        <TouchableOpacity
-          onPress = {() => this.checkState(this.props.currentFlyEntry.name, this.props.currentFlyEntry.color, 
-          this.props.currentFlyEntry.size, this.props.currentFlyEntry.category, this.props.currentFlyEntry.amount)}>
-          <Text style={styles.button}>Check State</Text>
-        </TouchableOpacity>
         </View>
     )
   }
