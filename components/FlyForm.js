@@ -1,33 +1,40 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { updateFlyEntry } from '../actions'
+import { connect } from "react-redux";
 
 class FlyForm extends Component {
   state = {
     name: '',
     color: '',
     size: '',
-    type: '',
-    amount: null
+    category: '',
+    amount: ''
   }
 
   handleName = (text) => {
     this.setState({ name: text })
+    this.props.updateFlyEntry('name', text)
   }
 
   handleColor = (text) => {
     this.setState({ color: text })
+    this.props.updateFlyEntry('color', text)
   }
 
   handleSize = (text) => {
     this.setState({ size: text })
+    this.props.updateFlyEntry('size', text)
   }
 
   handleType = (text) => {
-    this.setState({ type: text })
+    this.setState({ category: text })
+    this.props.updateFlyEntry('category', text)
   }
 
   handleAmount = (text) => {
     this.setState({ amount: text })
+    this.props.updateFlyEntry('amount', text)
   }
 
   checkState = (name, color, size, type, amount) => {
@@ -41,28 +48,29 @@ render() {
           <Text style={styles.label}>Name</Text>
           <TextInput style={styles.input}
             placeholder = "Enter Fly Name"
-            value={this.state.name}
+            value={this.props.currentFlyEntry.name}
             onChangeText = {this.handleName}
           />
 
           <Text style={styles.label}>Color</Text>
           <TextInput style={styles.input}
             placeholder = "Enter Fly Color"
-            value={this.state.color}
+            value={this.props.currentFlyEntry.color}
             onChangeText = {this.handleColor}
           />
 
           <Text style={styles.label}>Size</Text>
           <TextInput style={styles.input}
             placeholder = "Enter Fly Size"
-            value={this.state.size}
+            keyboardType = 'number-pad'
+            value={this.props.currentFlyEntry.size}
             onChangeText = {this.handleSize}
           />
 
-          <Text style={styles.label}>Type</Text>
+          <Text style={styles.label}>Category</Text>
           <TextInput style={styles.input}
-            placeholder = "Enter Fly Type"
-            value={this.state.type}
+            placeholder = "Enter Fly Category"
+            value={this.props.currentFlyEntry.category}
             onChangeText = {this.handleType}
           />
 
@@ -70,15 +78,9 @@ render() {
           <TextInput style={styles.input}
             placeholder = "Enter Fly Amount"
             keyboardType = 'number-pad'
-            value={this.state.amount}
+            value={this.props.currentFlyEntry.amount}
             onChangeText = {this.handleAmount}
           />
-
-        <TouchableOpacity
-          onPress = {() => this.checkState(this.state.name, this.state.color, 
-          this.state.size, this.state.type, this.state.amount)}>
-          <Text style={styles.button}>Check State</Text>
-        </TouchableOpacity>
         </View>
     )
   }
@@ -94,4 +96,12 @@ const styles = StyleSheet.create({
   },
 })
 
-export default FlyForm;
+const mapStateToProps = state => ({
+  currentFlyEntry: state.currentFlyEntry,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  updateFlyEntry: (name, data) => dispatch( updateFlyEntry(name, data) ),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(FlyForm);
