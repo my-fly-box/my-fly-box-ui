@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { updateFlyEntry } from '../actions'
+import { connect } from "react-redux";
 
 class FlyForm extends Component {
   state = {
     name: '',
     color: '',
-    size: '',
-    type: '',
+    size: null,
+    category: '',
     amount: null
   }
 
   handleName = (text) => {
     this.setState({ name: text })
+    this.props.updateFlyEntry('name', text)
   }
 
   handleColor = (text) => {
@@ -23,7 +26,7 @@ class FlyForm extends Component {
   }
 
   handleType = (text) => {
-    this.setState({ type: text })
+    this.setState({ category: text })
   }
 
   handleAmount = (text) => {
@@ -55,6 +58,7 @@ render() {
           <Text style={styles.label}>Size</Text>
           <TextInput style={styles.input}
             placeholder = "Enter Fly Size"
+            keyboardType = 'number-pad'
             value={this.state.size}
             onChangeText = {this.handleSize}
           />
@@ -94,4 +98,12 @@ const styles = StyleSheet.create({
   },
 })
 
-export default FlyForm;
+// const mapStateToProps = state => ({
+//     currentFlies: state.currentFlies,
+//   })
+
+const mapDispatchToProps = (dispatch) => ({
+  updateFlyEntry: (name, data) => dispatch( updateFlyEntry(name, data) ),
+})
+
+export default connect(null, mapDispatchToProps)(FlyForm);
