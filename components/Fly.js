@@ -1,8 +1,25 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
 import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
+import { deleteFly } from "../ApiCalls";
 
 export default function Fly({ navigation, fly }) {
+  
+  const deletionAlert = (flyId) =>
+    Alert.alert(
+      "Remove Fly",
+      "Are you sure you want to remove this fly from your fly box? Doing so will remove this fly from any fish caught.",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => deleteFly(flyId) }
+      ],
+      { cancelable: false }
+    );
+
   return (
     <View style={styles.container}>
       <Text style={styles.name}> {fly.attributes.name}</Text>
@@ -11,7 +28,7 @@ export default function Fly({ navigation, fly }) {
       <TouchableOpacity onPress={() => navigation.navigate("EditFly")}>
         <AntDesign name="edit" color={"#264653"} size={20} />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate("EditFly")}>
+      <TouchableOpacity onPress={() => deletionAlert(fly.id)}>
         <MaterialCommunityIcons name="hook-off" color={"#264653"} size={20} />
       </TouchableOpacity>
     </View>
