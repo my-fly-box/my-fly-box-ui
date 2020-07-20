@@ -5,6 +5,9 @@ import { connect } from "react-redux";
 import { addFly, clearFlyEntry } from '../actions';
 
 class AddFly extends Component {
+    constructor(props) {
+        super(props);
+    }
 
   addFly = () => {
     // return fetch('https://my-fly-box-api.herokuapp.com/api/v1/flies', {
@@ -22,10 +25,6 @@ class AddFly extends Component {
     this.props.clearFlyFields()
   }
 
-  cancelFlyEntry = () => {
-    this.props.clearFlyFields()
-  }
-
   render() {
     return (
       <View style={styles.container}>
@@ -33,12 +32,18 @@ class AddFly extends Component {
         
         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
           <TouchableOpacity style={styles.button}
-              onPress = {() => {this.cancelFlyEntry()}}>
+              onPress = {() => {
+                this.props.clearFlyFields();
+                this.props.navigation.navigate('MyFlyBox');
+                }}>
             <Text style={styles.button}>Cancel</Text>
           </TouchableOpacity>
         
           <TouchableOpacity style={styles.button}
-              onPress = {() => {this.addFly()}}>
+              onPress = {() => {
+                this.addFly()
+                this.props.navigation.navigate('MyFlyBox');
+                }}>
             <Text style={styles.button}>Submit</Text>
           </TouchableOpacity>
         </View>
