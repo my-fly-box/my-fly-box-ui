@@ -20,6 +20,10 @@ class FlyBox extends Component {
     fetchFlies().then((data) => this.props.setFlies(data.data));
   }
 
+  async componentDidUpdate() {
+    fetchFlies().then((data) => this.props.setFlies(data.data));
+  }
+
   checkFlyBox = () => {
     if (this.props.currentFlies.length > 0) {
       return (
