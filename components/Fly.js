@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function Fly({ navigation, fly }) {
   return (
@@ -7,11 +8,11 @@ export default function Fly({ navigation, fly }) {
       <Text style={styles.name}> {fly.attributes.name}</Text>
       <Text style={styles.text}> {fly.attributes.category} </Text>
       <Text style={styles.text}> {fly.attributes.size} </Text>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("EditFly")}
-      >
-        <Text style={styles.buttonText}>Edit Fly</Text>
+      <TouchableOpacity onPress={() => navigation.navigate("EditFly")}>
+        <AntDesign name="edit" color={"#264653"} size={20} />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("EditFly")}>
+        <MaterialCommunityIcons name="hook-off" color={"#264653"} size={20} />
       </TouchableOpacity>
     </View>
   );
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     padding: 5,
     alignItems: "center",
     alignSelf: "center",
-    width: 60,
+    width: 40,
     borderRadius: 5,
   },
   buttonText: {
