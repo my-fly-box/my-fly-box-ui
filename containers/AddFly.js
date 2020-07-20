@@ -10,19 +10,18 @@ class AddFly extends Component {
     }
 
   addFly = () => {
-    // return fetch('https://my-fly-box-api.herokuapp.com/api/v1/flies', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json;charset=utf-8'
-    //     },
-    //     body: JSON.stringify(this.props.currentFlyEntry),
-    //   })
-    //   .then(response => response.json())
-    //   .then(data => {
-    //       this.props.addFly(data)
-    //     })
-    this.props.addFly(this.props.currentFlyEntry);
-    this.props.clearFlyFields()
+    return fetch('https://my-fly-box-api.herokuapp.com/api/v1/flies', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(this.props.currentFlyEntry),
+      })
+      .then(response => response.json())
+      .then(data => {
+          this.props.addFly(data.data.attributes);
+          this.props.clearFlyFields();
+        })
   }
 
   render() {
