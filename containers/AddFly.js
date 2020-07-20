@@ -7,23 +7,23 @@ import { addFly, clearFlyEntry } from '../actions';
 class AddFly extends Component {
 
   addFly = () => {
-    // fetch('https://my-fly-box-api.herokuapp.com/api/v1/flies', {
+    // return fetch('https://my-fly-box-api.herokuapp.com/api/v1/flies', {
     //     method: 'POST',
     //     headers: {
     //       'Content-Type': 'application/json;charset=utf-8'
     //     },
     //     body: JSON.stringify(this.props.currentFlyEntry),
     //   })
-    //   .then(response => console.log(response.json()))
-    // //   .then(data => {
-    // //       this.props.addFly(data)
-    // //     })
+    //   .then(response => response.json())
+    //   .then(data => {
+    //       this.props.addFly(data)
+    //     })
     this.props.addFly(this.props.currentFlyEntry);
-    this.props.clearFlyField()
+    this.props.clearFlyFields()
   }
 
   cancelFlyEntry = () => {
-    this.props.clearFlyField()
+    this.props.clearFlyFields()
   }
 
   render() {
@@ -68,7 +68,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => ({
     addFly: data => dispatch( addFly(data) ),
-    clearFlyField: () => dispatch( clearFlyEntry() ),
+    clearFlyFields: () => dispatch( clearFlyEntry() ),
   })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddFly);

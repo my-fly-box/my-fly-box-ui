@@ -7,9 +7,9 @@ class FlyForm extends Component {
   state = {
     name: '',
     color: '',
-    size: null,
+    size: '',
     category: '',
-    amount: null
+    amount: ''
   }
 
   handleName = (text) => {
@@ -48,14 +48,14 @@ render() {
           <Text style={styles.label}>Name</Text>
           <TextInput style={styles.input}
             placeholder = "Enter Fly Name"
-            value={this.state.name}
+            value={this.props.currentFlyEntry.name}
             onChangeText = {this.handleName}
           />
 
           <Text style={styles.label}>Color</Text>
           <TextInput style={styles.input}
             placeholder = "Enter Fly Color"
-            value={this.state.color}
+            value={this.props.currentFlyEntry.color}
             onChangeText = {this.handleColor}
           />
 
@@ -63,14 +63,14 @@ render() {
           <TextInput style={styles.input}
             placeholder = "Enter Fly Size"
             keyboardType = 'number-pad'
-            value={this.state.size}
+            value={this.props.currentFlyEntry.size}
             onChangeText = {this.handleSize}
           />
 
           <Text style={styles.label}>Category</Text>
           <TextInput style={styles.input}
             placeholder = "Enter Fly Category"
-            value={this.state.category}
+            value={this.props.currentFlyEntry.category}
             onChangeText = {this.handleType}
           />
 
@@ -78,13 +78,13 @@ render() {
           <TextInput style={styles.input}
             placeholder = "Enter Fly Amount"
             keyboardType = 'number-pad'
-            value={this.state.amount}
+            value={this.props.currentFlyEntry.amount}
             onChangeText = {this.handleAmount}
           />
 
         <TouchableOpacity
-          onPress = {() => this.checkState(this.state.name, this.state.color, 
-          this.state.size, this.state.type, this.state.amount)}>
+          onPress = {() => this.checkState(this.props.currentFlyEntry.name, this.props.currentFlyEntry.color, 
+          this.props.currentFlyEntry.size, this.props.currentFlyEntry.category, this.props.currentFlyEntry.amount)}>
           <Text style={styles.button}>Check State</Text>
         </TouchableOpacity>
         </View>
@@ -102,8 +102,12 @@ const styles = StyleSheet.create({
   },
 })
 
+const mapStateToProps = state => ({
+  currentFlyEntry: state.currentFlyEntry,
+})
+
 const mapDispatchToProps = (dispatch) => ({
   updateFlyEntry: (name, data) => dispatch( updateFlyEntry(name, data) ),
 })
 
-export default connect(null, mapDispatchToProps)(FlyForm);
+export default connect(mapStateToProps, mapDispatchToProps)(FlyForm);
