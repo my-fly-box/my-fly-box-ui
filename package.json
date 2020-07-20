@@ -33,11 +33,16 @@
     "babel-preset-expo": "~8.1.0",
     "jest": "^26.1.0",
     "jest-expo": "^38.0.2",
+    "react-native-testing-library": "^2.1.1",
     "react-test-renderer": "^16.13.1",
-    "redux-devtools": "^3.5.0"
+    "redux-devtools": "^3.5.0",
+    "redux-mock-store": "^1.5.4"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base)"
+    ]
   },
   "private": true
 }
