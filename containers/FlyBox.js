@@ -57,6 +57,7 @@ class FlyBox extends Component {
           <Text style={styles.headerFont}>Fly Type</Text>
           <Text style={styles.headerFont}>Size</Text>
           <Text style={styles.headerFont}>Edit</Text>
+          <Text style={styles.headerFont}>Delete</Text>
         </View>
         {this.checkFlyBox()}
       </View>
