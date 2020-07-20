@@ -2,28 +2,17 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import FlyForm from '../components/FlyForm';
 import { connect } from "react-redux";
-import { addFly } from '../actions';
-
-const TestAddFlies = 
-    {
-        id: 6,
-        name: "Pandas in Pajamas",
-        size: 2,
-        color: "red",
-        category: "unpleasing to fish",
-        amount: 8,
-        isFavorite: false,
-        user_id: 1,
-        created_at: "07/18/2020",
-        updated_at: null
-    }
-
-
+import { addFly, clearFlyEntry } from '../actions';
 
 class AddFly extends Component {
 
   addFly = (flyToAdd) => {
-    this.props.addFly(flyToAdd)
+    this.props.addFly(this.props.currentFlyEntry);
+    this.props.clearFlyField()
+  }
+
+  cancelFlyEntry = () => {
+    this.props.clearFlyField()
   }
 
   render() {
@@ -33,12 +22,12 @@ class AddFly extends Component {
         
         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
           <TouchableOpacity style={styles.button}
-              onPress = {() => {alert('Go to Home Page')}}>
+              onPress = {() => {this.cancelFlyEntry()}}>
             <Text style={styles.button}>Cancel</Text>
           </TouchableOpacity>
         
           <TouchableOpacity style={styles.button}
-              onPress = {() => {alert('Fly Added')}}>
+              onPress = {() => {this.addFly()}}>
             <Text style={styles.button}>Submit</Text>
           </TouchableOpacity>
         </View>
@@ -62,12 +51,13 @@ const styles = StyleSheet.create({
     },
 })
 
-// const mapStateToProps = state => ({
-//     currentFlies: state.currentFlies,
-//   })
+const mapStateToProps = state => ({
+    currentFlyEntry: state.currentFlyEntry,
+  })
 
 const mapDispatchToProps = (dispatch) => ({
     addFly: data => dispatch( addFly(data) ),
+    clearFlyField: () => dispatch( clearFlyEntry() ),
   })
 
-export default connect(null, mapDispatchToProps)(AddFly);
+export default connect(mapStateToProps, mapDispatchToProps)(AddFly);

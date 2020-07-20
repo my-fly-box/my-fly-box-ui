@@ -13,3 +13,7 @@ export const updateFlyEntry = (field, data) => ({
 	field,
 	data
 })
+
+export const clearFlyEntry = () => ({
+	type: 'CLEAR_FLY_ENTRY',
+})

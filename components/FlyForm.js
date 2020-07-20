@@ -19,18 +19,22 @@ class FlyForm extends Component {
 
   handleColor = (text) => {
     this.setState({ color: text })
+    this.props.updateFlyEntry('color', text)
   }
 
   handleSize = (text) => {
     this.setState({ size: text })
+    this.props.updateFlyEntry('size', text)
   }
 
   handleType = (text) => {
     this.setState({ category: text })
+    this.props.updateFlyEntry('category', text)
   }
 
   handleAmount = (text) => {
     this.setState({ amount: text })
+    this.props.updateFlyEntry('amount', text)
   }
 
   checkState = (name, color, size, type, amount) => {
@@ -63,10 +67,10 @@ render() {
             onChangeText = {this.handleSize}
           />
 
-          <Text style={styles.label}>Type</Text>
+          <Text style={styles.label}>Category</Text>
           <TextInput style={styles.input}
-            placeholder = "Enter Fly Type"
-            value={this.state.type}
+            placeholder = "Enter Fly Category"
+            value={this.state.category}
             onChangeText = {this.handleType}
           />
 
@@ -97,10 +101,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 })
-
-// const mapStateToProps = state => ({
-//     currentFlies: state.currentFlies,
-//   })
 
 const mapDispatchToProps = (dispatch) => ({
   updateFlyEntry: (name, data) => dispatch( updateFlyEntry(name, data) ),
