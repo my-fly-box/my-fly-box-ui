@@ -5,6 +5,9 @@ export const currentFlyEntry = (state = {
 	category: '',
 	amount: '' }, action) => {
 	switch(action.type) {
+		case 'SET_CURRENT_FLY':
+			state = action.data.attributes
+			return state
 		case 'UPDATE_FLY_ENTRY':
 			state[action.field] = action.data
 			return state
