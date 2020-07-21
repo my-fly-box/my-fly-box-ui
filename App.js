@@ -6,6 +6,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import FlyBox from './containers/FlyBox';
 import AddFly from './containers/AddFly';
 import EditFly from './containers/EditFly';
+import FishCaught from './containers/FishCaught';
+import AddFish from './containers/AddFish';
+import EditFish from './containers/EditFish';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { Provider } from 'react-redux';
 import { createStore } from "redux";
@@ -16,6 +19,7 @@ import rootReducer from "./reducers"
 const Tab = createMaterialBottomTabNavigator();
 const FlyBoxStack = createStackNavigator();
 const AddFlyStack = createStackNavigator();
+const FishStack = createStackNavigator();
 const store = createStore(rootReducer, composeWithDevTools());
 
 function MyTabs() {
@@ -43,6 +47,15 @@ function MyTabs() {
               <MaterialCommunityIcons name="plus" color={color} size={25} />
           )
           }}/>
+        <Tab.Screen 
+          name="FishCaught" 
+          component={FishContainer}
+          options={{
+            tabBarLabel: 'Fish Caught',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="fish" color={color} size={25} />
+          )
+          }} />
     </Tab.Navigator>
   );
 }
@@ -97,6 +110,52 @@ function AddFlyContainer() {
           },
           }} />
     </AddFlyStack.Navigator>
+  )
+}
+
+function FishContainer() {
+  return (
+    <FishStack.Navigator>
+      <FishStack.Screen 
+        name="FishCaught" 
+        component={FishCaught}
+        options={{
+          title: 'Fish Caught',
+          headerStyle: {
+            backgroundColor: '#2A9D8F',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          },
+          }} />
+      <FishStack.Screen 
+        name="EditFish" 
+        component={EditFish}
+        options={{
+          title: 'Edit Fish Information',
+          headerStyle: {
+            backgroundColor: '#2A9D8F',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          }} /> 
+      <FishStack.Screen 
+        name="AddFish" 
+        component={AddFish}
+        options={{
+          title: 'Add Fish Information',
+          headerStyle: {
+            backgroundColor: '#2A9D8F',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          }} /> 
+    </FishStack.Navigator>
   )
 }
 
