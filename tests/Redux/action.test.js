@@ -84,5 +84,4 @@ describe('action creators', () => {
 
 		expect(result).toEqual(expectedAction);
 	})
-
 })

@@ -12,7 +12,6 @@ describe('currentFlyEntry Reducer', () => {
 			amount: '' }
 	})
 
-
 	it("should return the intial state", () => {
 		const expectedResult = intialState
 		
@@ -50,5 +49,4 @@ describe('currentFlyEntry Reducer', () => {
 
     expect(result).toEqual(intialState)
 	})
-
 })

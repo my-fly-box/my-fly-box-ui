@@ -112,5 +112,4 @@ describe('currentFlies Reducer', () => {
 
     expect(result).toEqual(expectedResult)
   })
-
 })
