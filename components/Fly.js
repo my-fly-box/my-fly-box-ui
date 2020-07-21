@@ -9,9 +9,11 @@ export default function Fly({ navigation, fly }) {
       <Text style={styles.text}> {fly.attributes.size} </Text>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate("EditFly")}
+        onPress={() => {
+          navigation.navigate("EditFly")}
+        }
       >
-        <Text style={styles.buttonText}>Edit Fly</Text>
+        <Text id={fly.attributes.id} style={styles.buttonText}>Edit Fly</Text>
       </TouchableOpacity>
     </View>
   );
