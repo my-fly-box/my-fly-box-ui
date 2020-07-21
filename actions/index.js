@@ -17,3 +17,8 @@ export const updateFlyEntry = (field, data) => ({
 export const clearFlyEntry = () => ({
 	type: 'CLEAR_FLY_ENTRY',
 })
+
+export const setCurrentFly = (data) => ({
+	type: 'SET_CURRENT_FLY',
+	data
+})
