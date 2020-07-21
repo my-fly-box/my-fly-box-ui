@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-export default Fish = ({ navigation }) => {
+export default function FishCaught ({ navigation }) {
   return (
     <View>
       <TouchableOpacity
