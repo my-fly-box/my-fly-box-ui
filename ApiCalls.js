@@ -25,3 +25,21 @@ export const addFlyToAPI = async (flyData) => {
     console.error(error);
   }
 };
+
+export const deleteFly = async (flyId) => {
+    try {
+      const response = await fetch(
+        `https://my-fly-box-api.herokuapp.com/api/v1/flies/${flyId}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+        }
+      );
+      const deletionResponse = await response.json();
+      console.log(deletionResponse);
+    } catch (error) {
+      console.error(error);
+    }
+  };
