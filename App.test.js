@@ -7,5 +7,6 @@ import renderer from 'react-test-renderer'
 describe('App', () => {
   it('renders the App', () => {
     
+    expect(true).toBe(true)
   })
 })
