@@ -25,3 +25,21 @@ export const addFlyToAPI = async (flyData) => {
     console.error(error);
   }
 };
+
+export const addUpdatedFly = async (flyData) => {
+  console.log(flyData)
+  try {
+    const response = await fetch(`https://my-fly-box-api.herokuapp.com/api/v1/flies/${flyData.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify(flyData.attributes),
+    });
+    const flyDataResponse = await response.json();
+    console.log(flyDataResponse)
+    return flyDataResponse;
+  } catch (error) {
+    console.error(error);
+  }
+}
