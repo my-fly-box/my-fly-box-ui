@@ -20,6 +20,10 @@ class FlyBox extends Component {
     fetchFlies().then((data) => this.props.setFlies(data.data));
   }
 
+  async componentDidUpdate() {
+    fetchFlies().then((data) => this.props.setFlies(data.data));
+  }
+
   checkFlyBox = () => {
     if (this.props.currentFlies.length > 0) {
       return (
@@ -57,6 +61,7 @@ class FlyBox extends Component {
           <Text style={styles.headerFont}>Fly Type</Text>
           <Text style={styles.headerFont}>Size</Text>
           <Text style={styles.headerFont}>Edit</Text>
+          <Text style={styles.headerFont}>Delete</Text>
         </View>
         {this.checkFlyBox()}
       </View>

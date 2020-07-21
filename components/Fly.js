@@ -1,19 +1,35 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
+import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
+import { deleteFly } from "../ApiCalls";
 
 export default function Fly({ navigation, fly }) {
+  
+  const deletionAlert = (flyId) =>
+    Alert.alert(
+      "Remove Fly",
+      "Are you sure you want to remove this fly from your fly box? Doing so will remove this fly from any fish caught.",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => deleteFly(flyId) }
+      ],
+      { cancelable: false }
+    );
+
   return (
     <View style={styles.container}>
       <Text style={styles.name}> {fly.attributes.name}</Text>
       <Text style={styles.text}> {fly.attributes.category} </Text>
       <Text style={styles.text}> {fly.attributes.size} </Text>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => {
-          navigation.navigate("EditFly")}
-        }
-      >
-        <Text id={fly.attributes.id} style={styles.buttonText}>Edit Fly</Text>
+      <TouchableOpacity onPress={() => navigation.navigate("EditFly")}>
+        <AntDesign name="edit" color={"#264653"} size={20} />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => deletionAlert(fly.id)}>
+        <MaterialCommunityIcons name="hook-off" color={"#264653"} size={20} />
       </TouchableOpacity>
     </View>
   );
@@ -41,7 +57,7 @@ const styles = StyleSheet.create({
     padding: 5,
     alignItems: "center",
     alignSelf: "center",
-    width: 60,
+    width: 40,
     borderRadius: 5,
   },
   buttonText: {
