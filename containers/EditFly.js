@@ -15,13 +15,12 @@ class EditFly extends Component {
 
     componentDidMount = () => {
         const selectedFly = this.props.currentFlies.find(fly => fly.id === event.target.id)
-        console.log(selectedFly)
         this.setState({selectedFly: selectedFly})
         this.setCurrentFly(selectedFly)
     }
 
     setCurrentFly = (selectedFly) => {
-        this.props.setCurrentFly(selectedFly)
+        this.props.setCurrentFly(selectedFly.attributes)
     }
 
     updateFly = () => {
@@ -77,27 +76,3 @@ const mapStateToProps = (state) => ({
   });
   
   export default connect(mapStateToProps, mapDispatchToProps)(EditFly);
-// export default function EditFly({ navigation }) {
-//     console.log(event.target.id)
-//     return (
-//         <View style={styles.container}>
-//             <Text>Edit Fly</Text>
-//             <FlyForm />
-//         </View>
-//     )
-// }
-
-// const styles = StyleSheet.create({
-//     container: {
-//       flex: 1,
-//       paddingTop: 45,
-//     },
-//     button: {
-//       backgroundColor: '#00a8d5',
-//       color: 'white',
-//       margin: 5,
-//       height: 35,
-//       justifyContent: 'center',
-//       alignItems: 'center',
-//     },
-//   })
