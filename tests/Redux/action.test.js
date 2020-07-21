@@ -1,4 +1,4 @@
-import * as actions from '../actions/index'
+import * as actions from '../../actions/index';
 
 describe('action creators', () => {
 	it('should have a type of SET_FLIES', () => {
