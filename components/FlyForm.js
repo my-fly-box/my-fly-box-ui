@@ -37,11 +37,6 @@ class FlyForm extends Component {
     this.props.updateFlyEntry('amount', text)
   }
 
-  checkState = (name, color, size, type, amount) => {
-    alert('name: ' + name + ' color: ' + color + ' size: ' + size + ' type: ' + type
-    + ' amount: ' + amount)
-  }
-
 render() {
     return (
         <View>

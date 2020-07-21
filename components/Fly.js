@@ -26,7 +26,7 @@ export default function Fly({ navigation, fly }) {
       <Text style={styles.text}> {fly.attributes.category} </Text>
       <Text style={styles.text}> {fly.attributes.size} </Text>
       <TouchableOpacity onPress={() => navigation.navigate("EditFly")}>
-        <AntDesign name="edit" color={"#264653"} size={20} />
+        <AntDesign id={fly.id} name="edit" color={"#264653"} size={20} />
       </TouchableOpacity>
       <TouchableOpacity onPress={() => deletionAlert(fly.id)}>
         <MaterialCommunityIcons name="hook-off" color={"#264653"} size={20} />
