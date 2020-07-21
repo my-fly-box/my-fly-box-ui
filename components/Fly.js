@@ -12,7 +12,6 @@ class Fly extends Component{
   }
 
   addSelectedFlyId = () => {
-    console.log(this.props.fly.id)
     this.props.setSelectedFlyId(this.props.fly.id)
   }
   
