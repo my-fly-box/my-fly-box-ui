@@ -26,12 +26,12 @@ class FishForm extends Component {
 
   handleLength = (text) => {
 		this.setState({ length: text })
-		this.props.updateFishEntry('length', text)
+		this.props.updateFishEntry('length', parseInt(text))
   }
 
   handleWeight = (text) => {
 		this.setState({ weight: text })
-		this.props.updateFishEntry('weight', text)
+		this.props.updateFishEntry('weight', parseInt(text))
   }
 
   handleLocation = (text) => {
@@ -41,7 +41,7 @@ class FishForm extends Component {
 	
 	handleFlyId = (value) => {
 		this.setState({ flyName: value })
-		this.props.updateFishEntry('flyId', value)
+		this.props.updateFishEntry('fly_id', parseInt(value))
 	}
 	
 	mapCurrentFlies = () => {

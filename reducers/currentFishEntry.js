@@ -4,7 +4,7 @@ const defaultFishState = {
 	length: '',
 	weight: '',
 	location: '',
-	flyId: '' }
+	fly_id: '' }
 
 export const currentFishEntry = (state = defaultFishState, action) => {
 	switch(action.type) {
@@ -19,7 +19,7 @@ export const currentFishEntry = (state = defaultFishState, action) => {
 				length: '',
 				weight: '',
 				location: '',
-				flyId: '' }
+				fly_id: '' }
 		default:
 			return state
 	}

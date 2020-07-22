@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { connect } from "react-redux";
 import FishForm from '../components/FishForm'
 import { clearFishEntry } from '../actions';
-
+import { addFishToAPI } from "../ApiCalls";
 
 class AddFish extends Component {
   constructor(props) {
@@ -26,6 +26,7 @@ class AddFish extends Component {
         
           <TouchableOpacity style={styles.button}
             onPress = {() => {
+              addFishToAPI(this.props.currentFishEntry)
               this.props.navigation.navigate('FishCaught');
               this.props.clearFishEntry();
               }}>
@@ -52,12 +53,12 @@ const styles = StyleSheet.create({
   },
 })
 
-// const mapStateToProps = state => ({
-//   currentFlyEntry: state.currentFlyEntry,
-// })
+const mapStateToProps = state => ({
+  currentFishEntry: state.currentFishEntry,
+})
 
 const mapDispatchToProps = (dispatch) => ({
   clearFishEntry: () => dispatch( clearFishEntry() ),
 })
 
-export default connect(null, mapDispatchToProps)(AddFish);
+export default connect(mapStateToProps, mapDispatchToProps)(AddFish);
