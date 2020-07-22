@@ -14,7 +14,7 @@ class EditFly extends Component {
     }
 
     componentDidMount = () => {
-        const selectedFly = this.props.currentFlies.find(fly => fly.id === event.target.id)
+        const selectedFly = this.props.currentFlies.find(fly => fly.id == this.props.selectedFlyId)
         this.setState({selectedFly: selectedFly})
         this.setCurrentFly(selectedFly)
     }
@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => ({
     currentFlies: state.currentFlies,
+    selectedFlyId: state.selectedFlyId
   });
   
   const mapDispatchToProps = (dispatch) => ({

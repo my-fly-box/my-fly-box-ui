@@ -1,11 +1,21 @@
-import React from "react";
+import React, { Component } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
 import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
+import { setSelectedFlyId } from '../actions'
 import { deleteFly } from "../ApiCalls";
+import { render } from "react-dom";
+import { connect } from "react-redux";
 
-export default function Fly({ navigation, fly }) {
+class Fly extends Component{
+  constructor({ navigation, fly })  {
+    super( {navigation, fly} )
+  }
+
+  addSelectedFlyId = () => {
+    this.props.setSelectedFlyId(this.props.fly.id)
+  }
   
-  const deletionAlert = (flyId) =>
+  deletionAlert = (flyId) =>
     Alert.alert(
       "Remove Fly",
       "Are you sure you want to remove this fly from your fly box? Doing so will remove this fly from any fish caught.",
@@ -20,19 +30,25 @@ export default function Fly({ navigation, fly }) {
       { cancelable: false }
     );
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.name}> {fly.attributes.name}</Text>
-      <Text style={styles.text}> {fly.attributes.category} </Text>
-      <Text style={styles.text}> {fly.attributes.size} </Text>
-      <TouchableOpacity onPress={() => navigation.navigate("EditFly")}>
-        <AntDesign id={fly.id} name="edit" color={"#264653"} size={20} />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => deletionAlert(fly.id)}>
-        <MaterialCommunityIcons name="hook-off" color={"#264653"} size={20} />
-      </TouchableOpacity>
-    </View>
-  );
+    render() {
+      return (
+        <View style={styles.container}>
+          <Text style={styles.name}> {this.props.fly.attributes.name}</Text>
+          <Text style={styles.text}> {this.props.fly.attributes.category} </Text>
+          <Text style={styles.text}> {this.props.fly.attributes.size} </Text>
+          <TouchableOpacity onPress={() => {
+            this.addSelectedFlyId()
+            this.props.navigation.navigate("EditFly")
+            }
+          }>
+            <AntDesign name="edit" color={"#264653"} size={20} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.deletionAlert(this.props.fly.id)}>
+            <MaterialCommunityIcons name="hook-off" color={"#264653"} size={20} />
+          </TouchableOpacity>
+        </View>
+      );
+    }
 }
 
 const styles = StyleSheet.create({
@@ -67,3 +83,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 });
+
+const mapDispatchToProps = (dispatch) => ({
+  setSelectedFlyId: (data) => dispatch(setSelectedFlyId(data)),
+});
+
+export default connect(null, mapDispatchToProps)(Fly);

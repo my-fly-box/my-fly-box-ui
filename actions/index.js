@@ -22,3 +22,8 @@ export const setCurrentFly = (data) => ({
 	type: 'SET_CURRENT_FLY',
 	data
 })
+
+export const setSelectedFlyId = (data) => ({
+	type: 'SET_FLY_ID',
+	data
+})
