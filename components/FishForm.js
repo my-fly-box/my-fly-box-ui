@@ -18,25 +18,30 @@ class FishForm extends Component {
     // this.props.updateFlyEntry('name', text)
   }
 
-  // handleColor = (text) => {
-  //   this.setState({ color: text })
-  //   this.props.updateFlyEntry('color', text)
-  // }
+  handleImage = (text) => {
+    this.setState({ image: text })
+    // this.props.updateFlyEntry('color', text)
+  }
 
-  // handleSize = (text) => {
-  //   this.setState({ size: text })
-  //   this.props.updateFlyEntry('size', text)
-  // }
+  handleLength = (text) => {
+    this.setState({ length: text })
+    // this.props.updateFlyEntry('size', text)
+  }
 
-  // handleType = (text) => {
-  //   this.setState({ category: text })
-  //   this.props.updateFlyEntry('category', text)
-  // }
+  handleWeight = (text) => {
+    this.setState({ weight: text })
+    // this.props.updateFlyEntry('category', text)
+  }
 
-  // handleAmount = (text) => {
-  //   this.setState({ amount: text })
-  //   this.props.updateFlyEntry('amount', text)
-  // }
+  handleLocation = (text) => {
+    this.setState({ location: text })
+    // this.props.updateFlyEntry('amount', text)
+	}
+	
+	handleFlyName = (text) => {
+    this.setState({ flyName: text })
+    // this.props.updateFlyEntry('amount', text)
+  }
 
 render() {
     return (
@@ -48,38 +53,48 @@ render() {
             onChangeText = {this.handleSpecies}
           />
 
-          {/* <Text style={styles.label}>Color</Text>
+					<Text style={styles.label}>Image</Text>
           <TextInput style={styles.input}
-            placeholder = "Enter Fly Color"
-            value={this.props.currentFlyEntry.color}
-            onChangeText = {this.handleColor}
+            placeholder = "Enter Image"
+            // value={this.state.species}
+            onChangeText = {this.handleImage}
           />
 
-          <Text style={styles.label}>Size</Text>
+					<Text style={styles.label}>Length</Text>
           <TextInput style={styles.input}
-            placeholder = "Enter Fly Size"
-            keyboardType = 'number-pad'
-            value={this.props.currentFlyEntry.size}
-            onChangeText = {this.handleSize}
+						placeholder = "Enter Length"
+						keyboardType = 'number-pad'
+            // value={this.state.species}
+            onChangeText = {this.handleLength}
           />
 
-          <Text style={styles.label}>Category</Text>
+					<Text style={styles.label}>Weight</Text>
           <TextInput style={styles.input}
-            placeholder = "Enter Fly Category"
-            value={this.props.currentFlyEntry.category}
-            onChangeText = {this.handleType}
+						placeholder = "Enter Weight"
+						keyboardType = 'number-pad'
+            // value={this.state.species}
+            onChangeText = {this.handleWeight}
           />
 
-          <Text style={styles.label}>Amount</Text>
+					<Text style={styles.label}>Location</Text>
           <TextInput style={styles.input}
-            placeholder = "Enter Fly Amount"
-            keyboardType = 'number-pad'
-            value={this.props.currentFlyEntry.amount}
-            onChangeText = {this.handleAmount} */}
-          {/* /> */}
+            placeholder = "Enter Location"
+            // value={this.state.species}
+            onChangeText = {this.handleLocation}
+          />
+
+					<Text style={styles.label}>Fly Name</Text>
+          <TextInput style={styles.input}
+            placeholder = "Select Fly"
+            // value={this.state.species}
+            onChangeText = {this.handleFlyName}
+          />
+
 					<TouchableOpacity style={styles.button}
             onPress = {() => {
-              alert('species: ' + this.state.species)
+							alert('species: ' + this.state.species + ' image: ' + this.state.image 
+								+ ' length: ' + this.state.length + ' weight: ' + this.state.weight
+								+ ' location: ' + this.state.location + ' fly name: ' + this.state.flyName)
               }}>
             <Text>state check</Text>
           </TouchableOpacity>
