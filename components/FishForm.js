@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-// import { updateFlyEntry } from '../actions'
+import { updateFishEntry } from '../actions'
 import { connect } from "react-redux";
 
 class FishForm extends Component {
@@ -15,7 +15,7 @@ class FishForm extends Component {
 
   handleSpecies = (text) => {
     this.setState({ species: text })
-    // this.props.updateFlyEntry('name', text)
+    this.props.updateFishEntry('species', text)
   }
 
   handleImage = (text) => {
@@ -49,7 +49,7 @@ render() {
           <Text style={styles.label}>Species Name</Text>
           <TextInput style={styles.input}
             placeholder = "Enter Species Name"
-            // value={this.state.species}
+            value={this.props.currentFishEntry.species}
             onChangeText = {this.handleSpecies}
           />
 
@@ -113,12 +113,12 @@ const styles = StyleSheet.create({
   },
 })
 
-// const mapStateToProps = state => ({
-//   currentFlyEntry: state.currentFlyEntry,
-// })
+const mapStateToProps = state => ({
+  currentFishEntry: state.currentFishEntry,
+})
 
-// const mapDispatchToProps = (dispatch) => ({
-//   updateFlyEntry: (name, data) => dispatch( updateFlyEntry(name, data) ),
-// })
+const mapDispatchToProps = (dispatch) => ({
+  updateFishEntry: (name, data) => dispatch( updateFishEntry(name, data) ),
+})
 
-export default connect(null, null)(FishForm);
+export default connect(mapStateToProps, mapDispatchToProps)(FishForm);
