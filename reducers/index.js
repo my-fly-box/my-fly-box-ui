@@ -3,12 +3,15 @@ import { currentFlies } from './currentFlies';
 import { currentFlyEntry } from './currentFlyEntry';
 import { currentFishEntry } from './currentFishEntry'
 import { selectedFlyId } from './selectedFlyId'
+import { currentFish } from './currentFish';
+
 
 const rootReducer = combineReducers({
 	currentFlies,
 	currentFlyEntry,
 	selectedFlyId,
-	currentFishEntry
+	currentFishEntry,
+	currentFish
 })
 
 export default rootReducer;

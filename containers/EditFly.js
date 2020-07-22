@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import FlyForm from '../components/FlyForm';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { setCurrentFly } from '../actions'
+import { setCurrentFly, clearFlyEntry } from '../actions'
 import { addUpdatedFly } from "../ApiCalls";
 import { connect } from "react-redux";
 
@@ -34,6 +34,7 @@ class EditFly extends Component {
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
                 <TouchableOpacity style={styles.button}
                     onPress = {() => {
+                    this.props.clearFlyEntry()
                     this.props.navigation.navigate('MyFlyBox');
                     }}>
                     <Text style={styles.button}>Cancel</Text>
@@ -41,6 +42,7 @@ class EditFly extends Component {
                 
                 <TouchableOpacity style={styles.button}
                     onPress = {() => {
+                    this.props.clearFlyEntry()
                     this.updateFly()
                     this.props.navigation.navigate('MyFlyBox');
                     }}>
@@ -73,7 +75,8 @@ const mapStateToProps = (state) => ({
   
   const mapDispatchToProps = (dispatch) => ({
     setCurrentFly: (data) => dispatch(setCurrentFly(data)),
-    setFlies: (data) => dispatch(addFly(data))
+    setFlies: (data) => dispatch(addFly(data)),
+    clearFlyEntry: () => dispatch( clearFlyEntry() )
   });
   
   export default connect(mapStateToProps, mapDispatchToProps)(EditFly);

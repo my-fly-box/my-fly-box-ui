@@ -40,3 +40,8 @@ export const updateFishEntry = (field, data) => ({
 export const clearFishEntry = () => ({
 	type: 'CLEAR_FISH_ENTRY',
 })
+
+export const setFish = data => ({
+	type: 'SET_FISH',
+	data
+})

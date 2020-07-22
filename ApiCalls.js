@@ -41,36 +41,49 @@ export const addUpdatedFly = async (flyData) => {
     console.error(error);
   }
 }
-export const deleteFly = async (flyId) => {
-  try {
-    const response = await fetch(
-      `https://my-fly-box-api.herokuapp.com/api/v1/flies/${flyId}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json;charset=utf-8",
-        },
-      }
-    );
-    const deletionResponse = await response.json();
-    console.log(deletionResponse);
-  } catch (error) {
-    console.error(error);
-  }
-};
 
-export const addFishToAPI = async (fishData) => {
-  try {
-    const response = await fetch('https://my-fly-box-api.herokuapp.com/api/v1/catches', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8'
-      },
-      body: JSON.stringify(fishData),
-    });
-    const fishDataResponse = await response.json();
-    return fishDataResponse;
-  } catch (error) {
-    console.error(error);
-  }
-};
+export const deleteFly = async (flyId) => {
+    try {
+      const response = await fetch(
+        `https://my-fly-box-api.herokuapp.com/api/v1/flies/${flyId}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+        }
+      );
+      const deletionResponse = await response.json();
+      console.log(deletionResponse);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  export const fetchFish = async () => {
+    try {
+      const response = await fetch(
+        "https://my-fly-box-api.herokuapp.com/api/v1/catches"
+      );
+      const fishData = await response.json();
+      return fishData;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  export const addFishToAPI = async (fishData) => {
+    try {
+      const response = await fetch('https://my-fly-box-api.herokuapp.com/api/v1/catches', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(fishData),
+      });
+      const fishDataResponse = await response.json();
+      return fishDataResponse;
+    } catch (error) {
+      console.error(error);
+    }
+  };

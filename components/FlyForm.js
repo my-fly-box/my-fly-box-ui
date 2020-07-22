@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import { updateFlyEntry } from '../actions'
+import { updateFlyEntry, clearFlyEntry } from '../actions'
 import { connect } from "react-redux";
 
 class FlyForm extends Component {
@@ -10,6 +10,10 @@ class FlyForm extends Component {
     size: '',
     category: '',
     amount: ''
+  }
+
+  componentDidMount() {
+    this.props.clearFlyEntry()
   }
 
   handleName = (text) => {
@@ -58,7 +62,7 @@ render() {
           <TextInput style={styles.input}
             placeholder = "Enter Fly Size"
             keyboardType = 'number-pad'
-            value={this.props.currentFlyEntry.size}
+            value={this.props.currentFlyEntry.size.toString()}
             onChangeText = {this.handleSize}
           />
 
@@ -97,6 +101,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => ({
   updateFlyEntry: (name, data) => dispatch( updateFlyEntry(name, data) ),
+  clearFlyEntry: () => dispatch( clearFlyEntry() )
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FlyForm);
