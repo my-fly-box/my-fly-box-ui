@@ -51,53 +51,53 @@ class FishForm extends Component {
 	}
 
 render() {
-    return (
-        <View>
-          <Text style={styles.label}>Species Name</Text>
-          <TextInput style={styles.input}
-            placeholder = "Enter Species Name"
-            value={this.props.currentFishEntry.species}
-            onChangeText = {this.handleSpecies}
-          />
+	return (
+			<View>
+				<Text style={styles.label}>Species Name</Text>
+				<TextInput style={styles.input}
+					placeholder = "Enter Species Name"
+					value={this.props.currentFishEntry.species}
+					onChangeText = {this.handleSpecies}
+				/>
 
-					<Text style={styles.label}>Image</Text>
-          <TextInput style={styles.input}
-            placeholder = "Enter Image"
-            value={this.props.currentFishEntry.image}
-            onChangeText = {this.handleImage}
-          />
+				<Text style={styles.label}>Image</Text>
+				<TextInput style={styles.input}
+					placeholder = "Enter Image"
+					value={this.props.currentFishEntry.image}
+					onChangeText = {this.handleImage}
+				/>
 
-					<Text style={styles.label}>Length</Text>
-          <TextInput style={styles.input}
-						placeholder = "Enter Length"
-						keyboardType = 'number-pad'
-            value={this.props.currentFishEntry.length}
-            onChangeText = {this.handleLength}
-          />
+				<Text style={styles.label}>Length</Text>
+				<TextInput style={styles.input}
+					placeholder = "Enter Length"
+					keyboardType = 'number-pad'
+					value={this.props.currentFishEntry.length}
+					onChangeText = {this.handleLength}
+				/>
 
-					<Text style={styles.label}>Weight</Text>
-          <TextInput style={styles.input}
-						placeholder = "Enter Weight"
-						keyboardType = 'number-pad'
-            value={this.props.currentFishEntry.weight}
-            onChangeText = {this.handleWeight}
-          />
+				<Text style={styles.label}>Weight</Text>
+				<TextInput style={styles.input}
+					placeholder = "Enter Weight"
+					keyboardType = 'number-pad'
+					value={this.props.currentFishEntry.weight}
+					onChangeText = {this.handleWeight}
+				/>
 
-					<Text style={styles.label}>Location</Text>
-          <TextInput style={styles.input}
-            placeholder = "Enter Location"
-            value={this.props.currentFishEntry.location}
-            onChangeText = {this.handleLocation}
-          />
+				<Text style={styles.label}>Location</Text>
+				<TextInput style={styles.input}
+					placeholder = "Enter Location"
+					value={this.props.currentFishEntry.location}
+					onChangeText = {this.handleLocation}
+				/>
 
-					<Text style={styles.label}>Select Fly Name</Text>
-					<RNPickerSelect
-            onValueChange={(value) => {
-							this.handleFlyId(value)
-						}}
-            items={this.mapCurrentFlies()}
-        	/>
-        </View>
+				<Text style={styles.label}>Select Fly Name</Text>
+				<RNPickerSelect
+					onValueChange={(value) => {
+						this.handleFlyId(value)
+					}}
+					items={this.mapCurrentFlies()}
+				/>
+			</View>
     )
   }
 }
