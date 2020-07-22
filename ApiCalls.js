@@ -58,3 +58,15 @@ export const deleteFly = async (flyId) => {
       console.error(error);
     }
   };
+
+  export const fetchFish = async () => {
+    try {
+      const response = await fetch(
+        "https://my-fly-box-api.herokuapp.com/api/v1/catches"
+      );
+      const fishData = await response.json();
+      return fishData;
+    } catch (error) {
+      console.error(error);
+    }
+  };
