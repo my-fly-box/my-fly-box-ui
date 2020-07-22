@@ -87,7 +87,7 @@ class FishCaught extends Component {
             navigation.navigate("AddFish");
           }}
         >
-          <Text style={styles.buttonText}>Add Fish</Text>
+          <Text color="white" style={styles.buttonText}>Add Fish</Text>
         </TouchableOpacity>
         {this.checkFish()}
       </View>
@@ -107,7 +107,6 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 13,
     fontFamily: "Helvetica-Bold",
-    color: "white",
     textAlign: "center",
   },
 });
