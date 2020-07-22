@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { connect } from "react-redux";
+import FishForm from '../components/FishForm'
 
 class AddFish extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class AddFish extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <FishForm />
         
         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
           <TouchableOpacity style={styles.button}
