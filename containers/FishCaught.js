@@ -7,6 +7,9 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
+// import fish.js
+
+// define check fish if else
 
 export default function FishCaught ({ navigation }) {
   return (
@@ -19,9 +22,14 @@ export default function FishCaught ({ navigation }) {
       >
         <Text style={styles.buttonText}>Add Fish</Text>
       </TouchableOpacity>
+      {CheckFish()}
     </View>
   );
 };
+
+//above where fish icons go
+
+// create mock out data fish objects
 
 const styles = StyleSheet.create({
   button: {
