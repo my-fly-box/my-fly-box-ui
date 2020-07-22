@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, FlatList } from "react-native";
 import Fly from "../components/Fly";
 import { setFlies } from "../actions";
 import { connect } from "react-redux";
-import { fetchFlies } from "../ApiCalls";
+import { fetchFlies, deleteFly } from "../ApiCalls"; 
 
 const FlatListItemSeparator = () => {
   return (
@@ -14,14 +14,30 @@ const FlatListItemSeparator = () => {
 class FlyBox extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      currentFlies: []
+    }
   }
 
   async componentDidMount() {
-    fetchFlies().then((data) => this.props.setFlies(data.data));
+    fetchFlies()
+    .then((data) => this.props.setFlies(data.data))
+    .then((fly) => this.setState({ currentFlies: fly.data }))
   }
 
   async componentDidUpdate() {
-    fetchFlies().then((data) => this.props.setFlies(data.data));
+    if (this.state.currentFlies.length != this.props.currentFlies.length) {
+      fetchFlies()
+      .then((data) => this.props.setFlies(data.data))
+      .then((fly) => this.setState({ currentFlies: fly.data }))
+    }
+  }
+
+  handleDelete = (flyId) => {
+    deleteFly(flyId)
+    fetchFlies()
+      .then((data) => this.props.setFlies(data.data))
+      .then((fly) => this.setState({ currentFlies: fly.data }))
   }
 
   checkFlyBox = () => {
@@ -32,7 +48,7 @@ class FlyBox extends Component {
           ItemSeparatorComponent={FlatListItemSeparator}
           data={this.props.currentFlies}
           renderItem={({ item }) => (
-            <Fly fly={item} navigation={this.props.navigation} />
+            <Fly fly={item} navigation={this.props.navigation} handleDelete={this.handleDelete} />
           )}
         />
       );

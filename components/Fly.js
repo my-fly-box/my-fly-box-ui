@@ -2,13 +2,12 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
 import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 import { setSelectedFlyId } from '../actions'
-import { deleteFly } from "../ApiCalls";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 
 class Fly extends Component{
-  constructor({ navigation, fly })  {
-    super( {navigation, fly} )
+  constructor({ navigation, fly, handleDelete })  {
+    super( {navigation, fly, handleDelete} )
   }
 
   addSelectedFlyId = () => {
@@ -25,7 +24,7 @@ class Fly extends Component{
           onPress: () => console.log("Cancel Pressed"),
           style: "cancel"
         },
-        { text: "OK", onPress: () => deleteFly(flyId) }
+        { text: "OK", onPress: () => this.props.handleDelete(flyId) }
       ],
       { cancelable: false }
     );
