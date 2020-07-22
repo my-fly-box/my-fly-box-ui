@@ -7,8 +7,8 @@ import { render } from "react-dom";
 import { connect } from "react-redux";
 
 class Fly extends Component{
-  constructor({ navigation, fly })  {
-    super( {navigation, fly} )
+  constructor(props)  {
+    super(props)
   }
 
   addSelectedFlyId = () => {
