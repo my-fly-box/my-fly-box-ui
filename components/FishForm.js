@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { updateFishEntry } from '../actions'
 import { connect } from "react-redux";
+import RNPickerSelect from 'react-native-picker-select';
 
 class FishForm extends Component {
   state = {
@@ -38,10 +39,16 @@ class FishForm extends Component {
 		this.props.updateFishEntry('location', text)
 	}
 	
-	handleFlyName = (text) => {
-		this.setState({ flyName: text })
-		this.props.updateFishEntry('flyName', text)
-  }
+	handleFlyId = (value) => {
+		this.setState({ flyName: value })
+		this.props.updateFishEntry('flyId', value)
+	}
+	
+	mapCurrentFlies = () => {
+		return this.props.currentFlies.map(fly => {
+			return {value: fly.attributes.id, label: fly.attributes.name}
+		})
+	}
 
 render() {
     return (
@@ -83,21 +90,13 @@ render() {
             onChangeText = {this.handleLocation}
           />
 
-					<Text style={styles.label}>Fly Name</Text>
-          <TextInput style={styles.input}
-            placeholder = "Select Fly"
-            value={this.props.currentFishEntry.flyName}
-            onChangeText = {this.handleFlyName}
-          />
-
-					<TouchableOpacity style={styles.button}
-            onPress = {() => {
-							alert('species: ' + this.state.species + ' image: ' + this.state.image 
-								+ ' length: ' + this.state.length + ' weight: ' + this.state.weight
-								+ ' location: ' + this.state.location + ' fly name: ' + this.state.flyName)
-              }}>
-            <Text>state check</Text>
-          </TouchableOpacity>
+					<Text style={styles.label}>Select Fly Name</Text>
+					<RNPickerSelect
+            onValueChange={(value) => {
+							this.handleFlyId(value)
+						}}
+            items={this.mapCurrentFlies()}
+        	/>
         </View>
     )
   }
@@ -114,6 +113,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => ({
+	currentFlies: state.currentFlies,
   currentFishEntry: state.currentFishEntry,
 })
 

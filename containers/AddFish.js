@@ -18,7 +18,7 @@ class AddFish extends Component {
         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
           <TouchableOpacity style={styles.button}
             onPress = {() => {
-              this.props.navigation.navigate('MyFlyBox');
+              this.props.navigation.navigate('FishCaught');
               this.props.clearFishEntry();
               }}>
             <Text style={styles.button}>Cancel</Text>
@@ -26,7 +26,7 @@ class AddFish extends Component {
         
           <TouchableOpacity style={styles.button}
             onPress = {() => {
-              this.props.navigation.navigate('MyFlyBox');
+              this.props.navigation.navigate('FishCaught');
               this.props.clearFishEntry();
               }}>
             <Text style={styles.button}>Submit</Text>
