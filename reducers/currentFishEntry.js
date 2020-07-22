@@ -13,7 +13,13 @@ export const currentFishEntry = (state = defaultFishState, action) => {
 			return state
 
 		case 'CLEAR_FISH_ENTRY':
-			return state = defaultFishState
+			return state = {
+				species: '',
+				image: '',
+				length: '',
+				weight: '',
+				location: '',
+				flyName: '' }
 		default:
 			return state
 	}

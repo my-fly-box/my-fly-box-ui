@@ -19,28 +19,28 @@ class FishForm extends Component {
   }
 
   handleImage = (text) => {
-    this.setState({ image: text })
-    // this.props.updateFlyEntry('color', text)
+		this.setState({ image: text })
+		this.props.updateFishEntry('image', text)
   }
 
   handleLength = (text) => {
-    this.setState({ length: text })
-    // this.props.updateFlyEntry('size', text)
+		this.setState({ length: text })
+		this.props.updateFishEntry('length', text)
   }
 
   handleWeight = (text) => {
-    this.setState({ weight: text })
-    // this.props.updateFlyEntry('category', text)
+		this.setState({ weight: text })
+		this.props.updateFishEntry('weight', text)
   }
 
   handleLocation = (text) => {
-    this.setState({ location: text })
-    // this.props.updateFlyEntry('amount', text)
+		this.setState({ location: text })
+		this.props.updateFishEntry('location', text)
 	}
 	
 	handleFlyName = (text) => {
-    this.setState({ flyName: text })
-    // this.props.updateFlyEntry('amount', text)
+		this.setState({ flyName: text })
+		this.props.updateFishEntry('flyName', text)
   }
 
 render() {
@@ -56,7 +56,7 @@ render() {
 					<Text style={styles.label}>Image</Text>
           <TextInput style={styles.input}
             placeholder = "Enter Image"
-            // value={this.state.species}
+            value={this.props.currentFishEntry.image}
             onChangeText = {this.handleImage}
           />
 
@@ -64,7 +64,7 @@ render() {
           <TextInput style={styles.input}
 						placeholder = "Enter Length"
 						keyboardType = 'number-pad'
-            // value={this.state.species}
+            value={this.props.currentFishEntry.length}
             onChangeText = {this.handleLength}
           />
 
@@ -72,21 +72,21 @@ render() {
           <TextInput style={styles.input}
 						placeholder = "Enter Weight"
 						keyboardType = 'number-pad'
-            // value={this.state.species}
+            value={this.props.currentFishEntry.weight}
             onChangeText = {this.handleWeight}
           />
 
 					<Text style={styles.label}>Location</Text>
           <TextInput style={styles.input}
             placeholder = "Enter Location"
-            // value={this.state.species}
+            value={this.props.currentFishEntry.location}
             onChangeText = {this.handleLocation}
           />
 
 					<Text style={styles.label}>Fly Name</Text>
           <TextInput style={styles.input}
             placeholder = "Select Fly"
-            // value={this.state.species}
+            value={this.props.currentFishEntry.flyName}
             onChangeText = {this.handleFlyName}
           />
 

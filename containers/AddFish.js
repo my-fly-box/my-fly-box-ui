@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { connect } from "react-redux";
 import FishForm from '../components/FishForm'
+import { clearFishEntry } from '../actions';
+
 
 class AddFish extends Component {
   constructor(props) {
@@ -17,7 +19,7 @@ class AddFish extends Component {
           <TouchableOpacity style={styles.button}
             onPress = {() => {
               this.props.navigation.navigate('MyFlyBox');
-              alert('go to home page')
+              this.props.clearFishEntry();
               }}>
             <Text style={styles.button}>Cancel</Text>
           </TouchableOpacity>
@@ -25,7 +27,7 @@ class AddFish extends Component {
           <TouchableOpacity style={styles.button}
             onPress = {() => {
               this.props.navigation.navigate('MyFlyBox');
-              alert('submit fish')
+              this.props.clearFishEntry();
               }}>
             <Text style={styles.button}>Submit</Text>
           </TouchableOpacity>
@@ -54,9 +56,8 @@ const styles = StyleSheet.create({
 //   currentFlyEntry: state.currentFlyEntry,
 // })
 
-// const mapDispatchToProps = (dispatch) => ({
-//   addFly: data => dispatch( addFly(data) ),
-//   clearFlyFields: () => dispatch( clearFlyEntry() ),
-// })
+const mapDispatchToProps = (dispatch) => ({
+  clearFishEntry: () => dispatch( clearFishEntry() ),
+})
 
-export default connect(null, null)(AddFish);
+export default connect(null, mapDispatchToProps)(AddFish);
