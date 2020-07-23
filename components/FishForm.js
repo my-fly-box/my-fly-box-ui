@@ -84,7 +84,7 @@ class FishForm extends Component {
           style={styles.input}
           placeholder="Enter Length"
           keyboardType="number-pad"
-          value={this.props.currentFishEntry.length}
+          value={this.props.currentFishEntry.length.toString()}
           onChangeText={this.handleLength}
         />
 
@@ -93,7 +93,7 @@ class FishForm extends Component {
           style={styles.input}
           placeholder="Enter Weight"
           keyboardType="number-pad"
-          value={this.props.currentFishEntry.weight}
+          value={this.props.currentFishEntry.weight.toString()}
           onChangeText={this.handleWeight}
         />
 
