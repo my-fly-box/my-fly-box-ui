@@ -41,7 +41,13 @@ export const clearFishEntry = () => ({
 	type: 'CLEAR_FISH_ENTRY',
 })
 
+// Actions for the currentFish Reducer
 export const setFish = data => ({
 	type: 'SET_FISH',
+	data
+})
+
+export const addFish = data => ({
+	type: 'ADD_FISH',
 	data
 })
