@@ -45,3 +45,13 @@ export const setFish = data => ({
 	type: 'SET_FISH',
 	data
 })
+
+export const setCurrentFish = (data) => ({
+	type: 'SET_CURRENT_FISH',
+	data
+})
+
+export const setSelectedFishId = (data) => ({
+	type: 'SET_FISH_ID',
+	data
+})
