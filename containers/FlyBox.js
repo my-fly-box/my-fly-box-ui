@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, FlatList } from "react-native";
 import Fly from "../components/Fly";
 import { setFlies } from "../actions";
 import { connect } from "react-redux";
-import { fetchFlies, deleteFly } from "../ApiCalls"; 
+import { fetchFlies, deleteFly } from "../ApiCalls";
 
 const FlatListItemSeparator = () => {
   return (
@@ -15,42 +15,63 @@ class FlyBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentFlies: []
-    }
+      currentFlies: [],
+      isLoading: true,
+    };
   }
 
   async componentDidMount() {
     fetchFlies()
-    .then((data) => this.props.setFlies(data.data))
-    .then((fly) => this.setState({ currentFlies: fly.data }))
+      .then((data) => this.props.setFlies(data.data))
+      .then((fly) =>
+        this.setState({ currentFlies: fly.data, isLoading: false })
+      );
   }
 
   async componentDidUpdate() {
     if (this.state.currentFlies.length != this.props.currentFlies.length) {
       fetchFlies()
-      .then((data) => this.props.setFlies(data.data))
-      .then((fly) => this.setState({ currentFlies: fly.data }))
+        .then((data) => this.props.setFlies(data.data))
+        .then((fly) => this.setState({ currentFlies: fly.data }));
     }
   }
 
   handleDelete = (flyId) => {
-    deleteFly(flyId)
+    deleteFly(flyId);
     fetchFlies()
       .then((data) => this.props.setFlies(data.data))
-      .then((fly) => this.setState({ currentFlies: fly.data }))
-  }
+      .then((fly) => this.setState({ currentFlies: fly.data }));
+  };
 
   checkFlyBox = () => {
-    if (this.props.currentFlies.length > 0) {
+    if (this.props.currentFlies.length > 0 && !this.state.isLoading) {
       return (
         <FlatList
           style={styles.fly}
           ItemSeparatorComponent={FlatListItemSeparator}
           data={this.props.currentFlies}
           renderItem={({ item }) => (
-            <Fly fly={item} navigation={this.props.navigation} handleDelete={this.handleDelete} />
+            <Fly
+              fly={item}
+              navigation={this.props.navigation}
+              handleDelete={this.handleDelete}
+            />
           )}
         />
+      );
+    } else if (this.state.isLoading) {
+      return (
+        <View
+          style={{
+            alignItems: "center",
+            justifyContent: "center",
+            paddingTop: 50,
+          }}
+        >
+          <Text style={{ fontSize: 30, fontWeight: "bold" }}>
+            Loading Fly Data...
+          </Text>
+        </View>
       );
     } else {
       return (
@@ -62,7 +83,7 @@ class FlyBox extends Component {
           }}
         >
           <Text style={{ fontSize: 30, fontWeight: "bold" }}>
-            Your fly box is empty.
+            It doesn't look like you have any flies saved to your fly box.
           </Text>
         </View>
       );
