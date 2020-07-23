@@ -60,6 +60,15 @@ class FishForm extends Component {
     });
   };
 
+  findFlyName = () => {
+    let currentFly = this.props.currentFlies.find(fly => fly.id == this.props.currentFishEntry.fly_id)
+    if(currentFly === undefined) {
+      return ""
+    } else {
+      return currentFly.attributes.name
+    }
+  }
+
   render() {
     return (
       <View>
@@ -112,6 +121,15 @@ class FishForm extends Component {
           }}
           items={this.mapCurrentFlies()}
         />
+
+        <Text style={styles.label}>Fly Used</Text>
+        <TextInput
+          style={styles.input}
+          editable={false}
+          placeholder="Fly Used"
+          value={this.findFlyName()}
+        />
+
       </View>
     );
   }
