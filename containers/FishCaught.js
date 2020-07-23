@@ -84,7 +84,7 @@ class FishCaught extends Component {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            navigation.navigate("AddFish");
+            this.props.navigation.navigate("AddFish");
           }}
         >
           <Text color="white" style={styles.buttonText}>Add Fish</Text>
