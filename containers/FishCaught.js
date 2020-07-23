@@ -7,7 +7,7 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
-import { fetchFish } from "../ApiCalls";
+import { fetchFish, deleteFish } from "../ApiCalls";
 import { setFish } from "../actions";
 import { connect } from "react-redux";
 import Fish from "../components/Fish";
@@ -33,9 +33,16 @@ class FishCaught extends Component {
     if (this.state.currentFish.length != this.props.currentFish.length) {
       fetchFish()
         .then((data) => this.props.setFish(data.data))
-        .then((fish) => this.setState({ currentFish: fish.data }))
+        .then((fish) => this.setState({ currentFish: fish.data }));
     }
   }
+
+  handleDelete = (fishId) => {
+    deleteFish(fishId);
+    fetchFish()
+      .then((data) => this.props.setFish(data.data))
+      .then((fish) => this.setState({ currentFish: fish.data }));
+  };
 
   checkFish = () => {
     if (this.props.currentFish.length > 0 && !this.state.isLoading) {
@@ -43,7 +50,11 @@ class FishCaught extends Component {
         <FlatList
           data={this.props.currentFish}
           renderItem={({ item }) => (
-            <Fish fish={item} navigation={this.props.navigation} />
+            <Fish
+              fish={item}
+              navigation={this.props.navigation}
+              handleDelete={this.handleDelete}
+            />
           )}
         />
       );
@@ -87,7 +98,9 @@ class FishCaught extends Component {
             this.props.navigation.navigate("AddFish");
           }}
         >
-          <Text color="white" style={styles.buttonText}>Add Fish</Text>
+          <Text color="white" style={styles.buttonText}>
+            Add Fish
+          </Text>
         </TouchableOpacity>
         {this.checkFish()}
       </View>
