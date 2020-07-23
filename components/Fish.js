@@ -1,15 +1,24 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { setSelectedFishId } from '../actions';
+import { connect } from "react-redux";
 
 class Fish extends Component {
   constructor({ navigation, fish }) {
     super({ navigation, fish });
   }
 
+  addSelectedFishId = () => {
+    this.props.setSelectedFishId(this.props.fish.id)
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate("EditFish")} >
+        <TouchableOpacity onPress={() => {
+          this.addSelectedFishId();
+          this.props.navigation.navigate("EditFish")
+        }} >
             <Image 
                 style={styles.fishImage}
                 source={{
@@ -48,4 +57,8 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Fish;
+const mapDispatchToProps = (dispatch) => ({
+  setSelectedFishId: (data) => dispatch(setSelectedFishId(data)),
+});
+
+export default connect(null, mapDispatchToProps)(Fish);
