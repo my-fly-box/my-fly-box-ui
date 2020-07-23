@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import FishForm from '../components/FishForm';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { setCurrentFish, clearFishEntry } from '../actions'
+import { setCurrentFish, clearFishEntry, updateFish } from '../actions'
 import { addUpdatedFish } from "../ApiCalls";
 import { connect } from "react-redux";
 
@@ -25,6 +25,9 @@ class EditFish extends Component {
 
     updateFish = () => {
         addUpdatedFish(this.state.selectedFish)
+          .then(data => {
+            this.props.updateFish(data)
+          })
     }
 
     render() {
@@ -42,8 +45,8 @@ class EditFish extends Component {
                 
                 <TouchableOpacity style={styles.button}
                     onPress = {() => {
-                    this.props.clearFishEntry()
                     this.updateFish()
+                    this.props.clearFishEntry()
                     this.props.navigation.navigate('FishCaught');
                     }}>
                     <Text style={styles.button}>Submit</Text>
@@ -70,13 +73,15 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => ({
     currentFish: state.currentFish,
-    selectedFishId: state.selectedFishId
+    selectedFishId: state.selectedFishId,
+    currentFishEntry: state.currentFishEntry
   });
   
   const mapDispatchToProps = (dispatch) => ({
     setCurrentFish: (data) => dispatch(setCurrentFish(data)),
     setFish: (data) => dispatch(addFish(data)),
-    clearFishEntry: () => dispatch( clearFishEntry() )
+    clearFishEntry: () => dispatch( clearFishEntry() ),
+    updateFish: (data) => dispatch(updateFish(data)),
   });
   
   export default connect(mapStateToProps, mapDispatchToProps)(EditFish);

@@ -61,3 +61,8 @@ export const setSelectedFishId = (data) => ({
 	type: 'SET_FISH_ID',
 	data
 })
+
+export const updateFish = (data) => ({
+	type: 'UPDATE_FISH',
+	data
+})
