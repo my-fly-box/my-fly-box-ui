@@ -10,6 +10,10 @@ class AddFly extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.clearFlyFields()
+  }
+
   addFly = () => {
     const currentFlyEntry = this.props.currentFlyEntry
     addFlyToAPI(currentFlyEntry)
@@ -26,7 +30,7 @@ class AddFly extends Component {
         <FlyForm />
         
         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
-          <TouchableOpacity style={styles.button}
+          <TouchableOpacity color='white' style={styles.button}
             onPress = {() => {
               this.props.clearFlyFields();
               this.props.navigation.navigate('MyFlyBox');
@@ -54,7 +58,7 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#00a8d5',
-    color: 'white',
+    // color: 'white',
     margin: 5,
     height: 35,
     justifyContent: 'center',
