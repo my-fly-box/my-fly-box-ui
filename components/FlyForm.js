@@ -77,7 +77,7 @@ render() {
           <TextInput style={styles.input}
             placeholder = "Enter Fly Amount"
             keyboardType = 'number-pad'
-            value={this.props.currentFlyEntry.amount}
+            value={this.props.currentFlyEntry.amount.toString()}
             onChangeText = {this.handleAmount}
           />
         </View>
