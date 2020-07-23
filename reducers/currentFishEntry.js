@@ -23,7 +23,7 @@ export const currentFishEntry = (state = defaultFishState, action) => {
         fly_id: "",
       });
 
-    case "SET_CURRENT_FLY":
+    case "SET_CURRENT_FISH":
       state = action.data;
 	  return state;
 	  
