@@ -25,6 +25,9 @@ class EditFly extends Component {
 
     updateFly = () => {
         addUpdatedFly(this.state.selectedFly)
+        .then(data => {
+          this.props.updateFly(data)
+        })
     }
 
     render() {
@@ -42,11 +45,11 @@ class EditFly extends Component {
                 
                 <TouchableOpacity style={styles.button}
                     onPress = {() => {
-                    this.props.clearFlyEntry()
                     this.updateFly()
+                    this.props.clearFlyEntry()
                     this.props.navigation.navigate('MyFlyBox');
                     }}>
-                    <Text style={styles.button}>Submit</Text>
+                    <Text style={styles.button}>Update</Text>
                 </TouchableOpacity>
             </View>
         </View>
