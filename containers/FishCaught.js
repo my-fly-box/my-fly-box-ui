@@ -29,21 +29,9 @@ class FishCaught extends Component {
       );
   }
 
-  // async componentDidUpdate() {
-  //   if (this.state.currentFish.length != this.props.currentFish.length) {
-  //     fetchFish()
-  //       .then((data) => this.props.setFish(data.data))
-  //       .then((fish) => this.setState({ currentFish: fish.data }));
-  //   }
-  // }
-
   handleDelete = (fishId) => {
     deleteFish(fishId);
     this.props.removeFish(fishId)
-    this.setState({ currentFish: this.props.currentFish, isLoading: false })
-    // fetchFish()
-    //   .then((data) => this.props.setFish(data.data))
-    //   .then((fish) => this.setState({ currentFish: fish.data }));
   };
 
   checkFish = () => {
