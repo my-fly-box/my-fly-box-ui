@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import FlyForm from '../components/FlyForm';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { setCurrentFly, clearFlyEntry } from '../actions'
+import { setCurrentFly, clearFlyEntry, updateFly } from '../actions'
 import { addUpdatedFly } from "../ApiCalls";
 import { connect } from "react-redux";
 
@@ -76,6 +76,7 @@ const mapStateToProps = (state) => ({
   const mapDispatchToProps = (dispatch) => ({
     setCurrentFly: (data) => dispatch(setCurrentFly(data)),
     setFlies: (data) => dispatch(addFly(data)),
+    updateFly: (data) => dispatch(updateFly(data)),
     clearFlyEntry: () => dispatch( clearFlyEntry() )
   });
   

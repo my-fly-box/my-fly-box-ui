@@ -4,6 +4,10 @@ export const currentFlies = (state = [], action) => {
 			return state = action.data
 		case 'ADD_FLY':
 			return [...state, action.data]
+		case 'UPDATE_FLY':
+			let updateFlyList = state.filter(fly => fly.id != action.data.data.id)
+    	updateFlyList.unshift(action.data.data)
+			return state = updateFlyList
 		default:
 			return state
 	}
