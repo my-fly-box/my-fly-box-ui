@@ -23,6 +23,14 @@ class AddFish extends Component {
   render() {
     return (
       <View style={styles.container}>
+        {/* working on getting camera integrated */}
+        <TouchableOpacity style={styles.button}
+            onPress = {() => {
+              this.props.navigation.navigate('PhotoSelector');
+              }}>
+            <Text style={styles.button}>Upload Image</Text>
+          </TouchableOpacity>
+
         <FishForm />
         
         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
