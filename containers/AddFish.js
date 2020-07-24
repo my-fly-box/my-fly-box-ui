@@ -25,13 +25,13 @@ class AddFish extends Component {
       <View style={styles.container}>
         <FishForm />
         
-        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
+        <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.button}
             onPress = {() => {
               this.props.navigation.navigate('FishCaught');
               this.props.clearFishEntry();
               }}>
-            <Text style={styles.button}>Cancel</Text>
+            <Text>Cancel</Text>
           </TouchableOpacity>
         
           <TouchableOpacity style={styles.button}
@@ -40,7 +40,7 @@ class AddFish extends Component {
               this.props.navigation.navigate('FishCaught');
               this.props.clearFishEntry();
               }}>
-            <Text style={styles.button}>Submit</Text>
+            <Text>Submit</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -52,14 +52,35 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 45,
+    width: "100%",
+    height:"100%",
+    justifyContent: 'center',
+  },
+  buttonContainer: {
+    width: "80%",
+    height:"100%", 
+    flex: 1, 
+    flexDirection: 'row',
+    alignSelf: "center",
   },
   button: {
-    backgroundColor: '#00a8d5',
+    backgroundColor: 'white',
     color: 'white',
+    flex: 1,
+    alignSelf: "center",
     margin: 5,
-    height: 35,
+    marginTop: "20%",
+    height: "20%",
+    width: "40%",
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth: 2,
+    borderColor: '#2A9D8F',
+    borderRadius: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
   },
 })
 
