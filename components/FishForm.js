@@ -65,8 +65,7 @@ class FishForm extends Component {
 
   render() {
     return (
-      <View>
-        <Text style={styles.label}>Species Name</Text>
+      <View style={styles.container}>
         <TextInput
           style={styles.input}
           placeholder="Enter Species Name"
@@ -74,7 +73,6 @@ class FishForm extends Component {
           onChangeText={this.handleSpecies}
         />
 
-        <Text style={styles.label}>Image</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter Image"
@@ -82,7 +80,6 @@ class FishForm extends Component {
           onChangeText={this.handleImage}
         />
 
-        <Text style={styles.label}>Length</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter Length"
@@ -91,7 +88,6 @@ class FishForm extends Component {
           onChangeText={this.handleLength}
         />
 
-        <Text style={styles.label}>Weight</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter Weight"
@@ -100,7 +96,8 @@ class FishForm extends Component {
           onChangeText={this.handleWeight}
         />
 
-        <Text style={styles.label}>Location</Text>
+
+
         <TextInput
           style={styles.input}
           placeholder="Enter Location"
@@ -108,15 +105,13 @@ class FishForm extends Component {
           onChangeText={this.handleLocation}
         />
 
-        <Text style={styles.label}>Select Fly Name</Text>
-        <RNPickerSelect
+        <RNPickerSelect style={styles}
           onValueChange={(value) => {
             this.handleFlyId(value);
           }}
           items={this.mapCurrentFlies()}
         />
 
-        <Text style={styles.label}>Fly Used</Text>
         <TextInput
           style={styles.input}
           editable={false}
@@ -130,13 +125,41 @@ class FishForm extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 50,
+    marginTop: "10%"
+  },
   label: {
     textAlign: "center",
   },
   input: {
-    backgroundColor: "white",
-    textAlign: "center",
+    backgroundColor: 'white',
+    textAlign: 'center',
+    width: '70%',
+    height: '20%',
+    marginBottom: '3%',
+    borderRadius: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
   },
+  inputIOS: {
+    alignSelf: "center",
+    backgroundColor: 'white',
+    textAlign: 'center',
+    width: '40%',
+    height: 40,
+    marginBottom: '3%',
+    borderRadius: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+  }
 });
 
 const mapStateToProps = (state) => ({
