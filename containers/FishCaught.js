@@ -6,6 +6,7 @@ import {
   Button,
   FlatList,
   TouchableOpacity,
+  ScrollView
 } from "react-native";
 import { fetchFish, deleteFish } from "../ApiCalls";
 import { setFish } from "../actions";
@@ -48,6 +49,7 @@ class FishCaught extends Component {
     if (this.props.currentFish.length > 0 && !this.state.isLoading) {
       return (
         <FlatList
+          style={styles.container}
           data={this.props.currentFish}
           renderItem={({ item }) => (
             <Fish
@@ -91,24 +93,29 @@ class FishCaught extends Component {
 
   render() {
     return (
-      <View>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            this.props.navigation.navigate("AddFish");
-          }}
-        >
-          <Text color="white" style={styles.buttonText}>
-            Add Fish
-          </Text>
-        </TouchableOpacity>
-        {this.checkFish()}
-      </View>
+        <View style={styles.container}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              this.props.navigation.navigate("AddFish");
+            }}
+          >
+            <Text color="white" style={styles.buttonText}>
+              Add Fish
+            </Text>
+          </TouchableOpacity>
+          {this.checkFish()}
+        </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    height: "100%",
+    width: "100%",
+    alignSelf: "center"
+  },
   button: {
     backgroundColor: "#264653",
     padding: 5,
