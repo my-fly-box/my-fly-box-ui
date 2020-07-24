@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setSelectedFishId: (data) => dispatch(setSelectedFishId(data)),
+  setSelectedFishId: data => dispatch( setSelectedFishId(data) ),
 });
 
 export default connect(null, mapDispatchToProps)(Fish);

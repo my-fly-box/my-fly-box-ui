@@ -9,6 +9,16 @@ export const addFly = data => ({
 	data
 })
 
+export const updateFly = (data) => ({
+	type: 'UPDATE_FLY',
+	data
+})
+
+export const removeFly = (id) => ({
+	type: 'REMOVE_FLY',
+	id
+})
+
 // Actions for the currentFlyEntry Reducers
 export const updateFlyEntry = (field, data) => ({
 	type: 'UPDATE_FLY_ENTRY',
@@ -25,6 +35,7 @@ export const setCurrentFly = (data) => ({
 	data
 })
 
+// Actions for the selectedFlyId Reducers
 export const setSelectedFlyId = (data) => ({
 	type: 'SET_FLY_ID',
 	data
@@ -57,6 +68,17 @@ export const setCurrentFish = (data) => ({
 	data
 })
 
+export const updateFish = (data) => ({
+	type: 'UPDATE_FISH',
+	data
+})
+
+export const removeFish = (id) => ({
+	type: 'REMOVE_FISH',
+	id
+})
+
+// Actions for the selectedFishId Reducers
 export const setSelectedFishId = (data) => ({
 	type: 'SET_FISH_ID',
 	data

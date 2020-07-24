@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { updateFlyEntry, clearFlyEntry } from '../actions'
 import { connect } from "react-redux";
 
@@ -110,7 +110,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => ({
   updateFlyEntry: (name, data) => dispatch( updateFlyEntry(name, data) ),
-  clearFlyEntry: () => dispatch( clearFlyEntry() )
+  clearFlyEntry: () => dispatch( clearFlyEntry() ),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FlyForm);

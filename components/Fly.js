@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setSelectedFlyId: (data) => dispatch(setSelectedFlyId(data)),
+  setSelectedFlyId: data => dispatch( setSelectedFlyId(data) ),
 });
 
 export default connect(null, mapDispatchToProps)(Fly);
