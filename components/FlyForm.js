@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { updateFlyEntry, clearFlyEntry } from '../actions'
 import { connect } from "react-redux";
 
@@ -43,22 +43,19 @@ class FlyForm extends Component {
 
 render() {
     return (
-        <View>
-          <Text style={styles.label}>Name</Text>
+        <View style={styles.container}>
           <TextInput style={styles.input}
             placeholder = "Enter Fly Name"
             value={this.props.currentFlyEntry.name}
             onChangeText = {this.handleName}
           />
 
-          <Text style={styles.label}>Color</Text>
           <TextInput style={styles.input}
             placeholder = "Enter Fly Color"
             value={this.props.currentFlyEntry.color}
             onChangeText = {this.handleColor}
           />
 
-          <Text style={styles.label}>Size</Text>
           <TextInput style={styles.input}
             placeholder = "Enter Fly Size"
             keyboardType = 'number-pad'
@@ -66,14 +63,12 @@ render() {
             onChangeText = {this.handleSize}
           />
 
-          <Text style={styles.label}>Category</Text>
           <TextInput style={styles.input}
             placeholder = "Enter Fly Category"
             value={this.props.currentFlyEntry.category}
             onChangeText = {this.handleType}
           />
 
-          <Text style={styles.label}>Amount</Text>
           <TextInput style={styles.input}
             placeholder = "Enter Fly Amount"
             keyboardType = 'number-pad'
@@ -86,12 +81,26 @@ render() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 45,
+  },
   label: {
     textAlign: 'center',
   },
   input: {
     backgroundColor: 'white',
     textAlign: 'center',
+    width: '70%',
+    height: '25%',
+    marginBottom: '3%',
+    borderRadius: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
   },
 })
 
@@ -101,7 +110,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => ({
   updateFlyEntry: (name, data) => dispatch( updateFlyEntry(name, data) ),
-  clearFlyEntry: () => dispatch( clearFlyEntry() )
+  clearFlyEntry: () => dispatch( clearFlyEntry() ),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FlyForm);

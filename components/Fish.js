@@ -67,10 +67,9 @@ class Fish extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    width: 200,
-    height: 200,
-    padding: 25,
-    backgroundColor: "#E8E9F3",
+    width: "65%",
+    height: "95%",
+    backgroundColor: "black",
     justifyContent: "center",
   },
   species: {
@@ -84,13 +83,13 @@ const styles = StyleSheet.create({
     color: "#7A5C58",
   },
   fishImage: {
-    width: 150,
+    width: "100%",
     height: 150,
   },
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setSelectedFishId: (data) => dispatch(setSelectedFishId(data)),
+  setSelectedFishId: data => dispatch( setSelectedFishId(data) ),
 });
 
 export default connect(null, mapDispatchToProps)(Fish);

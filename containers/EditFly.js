@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import FlyForm from '../components/FlyForm';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { setCurrentFly, clearFlyEntry } from '../actions'
+import { setCurrentFly, clearFlyEntry, updateFly } from '../actions'
 import { addUpdatedFly } from "../ApiCalls";
 import { connect } from "react-redux";
 
@@ -25,6 +25,9 @@ class EditFly extends Component {
 
     updateFly = () => {
         addUpdatedFly(this.state.selectedFly)
+        .then(data => {
+          this.props.updateFly(data)
+        })
     }
 
     render() {
@@ -42,11 +45,11 @@ class EditFly extends Component {
                 
                 <TouchableOpacity style={styles.button}
                     onPress = {() => {
-                    this.props.clearFlyEntry()
                     this.updateFly()
+                    this.props.clearFlyEntry()
                     this.props.navigation.navigate('MyFlyBox');
                     }}>
-                    <Text style={styles.button}>Submit</Text>
+                    <Text style={styles.button}>Update</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -70,13 +73,14 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => ({
     currentFlies: state.currentFlies,
-    selectedFlyId: state.selectedFlyId
+    selectedFlyId: state.selectedFlyId,
   });
   
   const mapDispatchToProps = (dispatch) => ({
-    setCurrentFly: (data) => dispatch(setCurrentFly(data)),
-    setFlies: (data) => dispatch(addFly(data)),
-    clearFlyEntry: () => dispatch( clearFlyEntry() )
+    setCurrentFly: data => dispatch( setCurrentFly(data) ),
+    setFlies: data => dispatch( addFly(data) ),
+    updateFly: data => dispatch( updateFly(data) ),
+    clearFlyEntry: () => dispatch( clearFlyEntry() ),
   });
   
   export default connect(mapStateToProps, mapDispatchToProps)(EditFly);
