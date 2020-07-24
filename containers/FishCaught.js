@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { fetchFish, deleteFish } from "../ApiCalls";
-import { setFish } from "../actions";
+import { setFish, removeFish } from "../actions";
 import { connect } from "react-redux";
 import Fish from "../components/Fish";
 
@@ -29,19 +29,21 @@ class FishCaught extends Component {
       );
   }
 
-  async componentDidUpdate() {
-    if (this.state.currentFish.length != this.props.currentFish.length) {
-      fetchFish()
-        .then((data) => this.props.setFish(data.data))
-        .then((fish) => this.setState({ currentFish: fish.data }));
-    }
-  }
+  // async componentDidUpdate() {
+  //   if (this.state.currentFish.length != this.props.currentFish.length) {
+  //     fetchFish()
+  //       .then((data) => this.props.setFish(data.data))
+  //       .then((fish) => this.setState({ currentFish: fish.data }));
+  //   }
+  // }
 
   handleDelete = (fishId) => {
     deleteFish(fishId);
-    fetchFish()
-      .then((data) => this.props.setFish(data.data))
-      .then((fish) => this.setState({ currentFish: fish.data }));
+    this.props.removeFish(fishId)
+    this.setState({ currentFish: this.props.currentFish, isLoading: false })
+    // fetchFish()
+    //   .then((data) => this.props.setFish(data.data))
+    //   .then((fish) => this.setState({ currentFish: fish.data }));
   };
 
   checkFish = () => {
@@ -130,6 +132,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setFish: (data) => dispatch(setFish(data)),
+  removeFish: (id) => dispatch(removeFish(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FishCaught);
