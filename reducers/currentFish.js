@@ -5,8 +5,8 @@ export const currentFish = (state = [], action) => {
 		case 'ADD_FISH':
 			return[...state, action.data]
 		case 'UPDATE_FISH':
-			const updateFishList = state.filter(fish => fish.id != action.data.data.id)
-      updateFishList.unshift(action.data.data)
+			let updateFishList = state.filter(fish => fish.id != action.data.data.id)
+    	updateFishList.unshift(action.data.data)
 			return state = updateFishList
 		case 'REMOVE_FISH':
 			state = state.filter(fish => fish.id != action.id)
