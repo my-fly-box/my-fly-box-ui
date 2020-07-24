@@ -73,14 +73,14 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => ({
     currentFlies: state.currentFlies,
-    selectedFlyId: state.selectedFlyId
+    selectedFlyId: state.selectedFlyId,
   });
   
   const mapDispatchToProps = (dispatch) => ({
-    setCurrentFly: (data) => dispatch(setCurrentFly(data)),
-    setFlies: (data) => dispatch(addFly(data)),
-    updateFly: (data) => dispatch(updateFly(data)),
-    clearFlyEntry: () => dispatch( clearFlyEntry() )
+    setCurrentFly: data => dispatch( setCurrentFly(data) ),
+    setFlies: data => dispatch( addFly(data) ),
+    updateFly: data => dispatch( updateFly(data) ),
+    clearFlyEntry: () => dispatch( clearFlyEntry() ),
   });
   
   export default connect(mapStateToProps, mapDispatchToProps)(EditFly);

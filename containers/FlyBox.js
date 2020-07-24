@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Button, FlatList } from "react-native";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 import Fly from "../components/Fly";
 import { setFlies, removeFly } from "../actions";
 import { connect } from "react-redux";
@@ -126,8 +126,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setFlies: data => dispatch(setFlies(data)),
-  removeFly: id => dispatch(removeFly(id)),
+  setFlies: data => dispatch( setFlies(data) ),
+  removeFly: id => dispatch( removeFly(id) ),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FlyBox);
