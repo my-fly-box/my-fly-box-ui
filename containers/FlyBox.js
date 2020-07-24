@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Button, FlatList } from "react-native";
 import Fly from "../components/Fly";
-import { setFlies } from "../actions";
+import { setFlies, removeFly } from "../actions";
 import { connect } from "react-redux";
 import { fetchFlies, deleteFly } from "../ApiCalls";
 
@@ -28,19 +28,9 @@ class FlyBox extends Component {
       );
   }
 
-  async componentDidUpdate() {
-    if (this.state.currentFlies.length != this.props.currentFlies.length) {
-      fetchFlies()
-        .then((data) => this.props.setFlies(data.data))
-        .then((fly) => this.setState({ currentFlies: fly.data }));
-    }
-  }
-
   handleDelete = (flyId) => {
     deleteFly(flyId);
-    fetchFlies()
-      .then((data) => this.props.setFlies(data.data))
-      .then((fly) => this.setState({ currentFlies: fly.data }));
+    this.props.removeFly(flyId);
   };
 
   checkFlyBox = () => {
@@ -136,7 +126,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setFlies: (data) => dispatch(setFlies(data)),
+  setFlies: data => dispatch(setFlies(data)),
+  removeFly: id => dispatch(removeFly(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FlyBox);
