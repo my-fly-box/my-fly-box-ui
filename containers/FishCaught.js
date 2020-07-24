@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  FlatList,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, Text, View, FlatList, TouchableOpacity } from "react-native";
 import { fetchFish, deleteFish } from "../ApiCalls";
 import { setFish, removeFish } from "../actions";
 import { connect } from "react-redux";
@@ -119,8 +112,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setFish: (data) => dispatch(setFish(data)),
-  removeFish: (id) => dispatch(removeFish(id))
+  setFish: data => dispatch( setFish(data) ),
+  removeFish: id => dispatch( removeFish(id) ),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FishCaught);

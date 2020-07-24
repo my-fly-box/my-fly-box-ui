@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, Text, View, TextInput } from "react-native";
 import { updateFishEntry, clearFishEntry } from "../actions";
 import { connect } from "react-redux";
 import RNPickerSelect from "react-native-picker-select";
@@ -151,8 +145,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  updateFishEntry: (name, data) => dispatch(updateFishEntry(name, data)),
-  clearFishEntry: () => dispatch(clearFishEntry()),
+  updateFishEntry: (name, data) => dispatch( updateFishEntry(name, data) ),
+  clearFishEntry: () => dispatch( clearFishEntry() ),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FishForm);

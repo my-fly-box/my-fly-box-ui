@@ -78,10 +78,10 @@ const mapStateToProps = (state) => ({
   });
   
   const mapDispatchToProps = (dispatch) => ({
-    setCurrentFish: (data) => dispatch(setCurrentFish(data)),
-    setFish: (data) => dispatch(addFish(data)),
+    setCurrentFish: data => dispatch( setCurrentFish(data) ),
+    setFish: data => dispatch( addFish(data) ),
     clearFishEntry: () => dispatch( clearFishEntry() ),
-    updateFish: (data) => dispatch(updateFish(data)),
+    updateFish: data => dispatch( updateFish(data) ),
   });
   
   export default connect(mapStateToProps, mapDispatchToProps)(EditFish);

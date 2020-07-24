@@ -67,6 +67,18 @@ describe('currentFlies Reducer', () => {
 	it("when receiving ADD_FLY action, should return an udpated array of Fly objects", () => {
 		const updatedFliesData = [
 			{
+				"id": "9",
+				"type": "fly",
+				"attributes": {
+					"id": 9,
+					"name": "New Tom",
+					"size": 6,
+					"color": "orange",
+					"category": "dirt fly",
+					"amount": 2
+					}
+			},
+			{
 				"id": "8",
 				"type": "fly",
 				"attributes": {
@@ -88,18 +100,6 @@ describe('currentFlies Reducer', () => {
 					"color": "Blue",
 					"category": "dry fly",
 					"amount": 3
-					}
-			},
-			{
-				"id": "9",
-				"type": "fly",
-				"attributes": {
-					"id": 9,
-					"name": "New Tom",
-					"size": 6,
-					"color": "orange",
-					"category": "dirt fly",
-					"amount": 2
 					}
 			}
 		]
