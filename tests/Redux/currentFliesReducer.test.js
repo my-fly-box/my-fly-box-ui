@@ -61,7 +61,7 @@ describe('currentFlies Reducer', () => {
     expect(result).toEqual(expectedResult)
 	})
 	
-	it("when receiving ADD_FLY action, should return an udpated array of Fly objects", () => {
+	it("when receiving ADD_FLY action, should return an updated array of Fly objects", () => {
 		const updatedFliesData = [
 			{
 				"id": "9",
@@ -108,7 +108,7 @@ describe('currentFlies Reducer', () => {
     expect(result).toEqual(expectedResult)
 	})
 	
-	it("when receiving UPDATE_FLY action, should return an updated currentFly array", () => {
+	it("when receiving UPDATE_FLY action, should return an updated currentFlies array", () => {
 		const updatedFliesData = [
 			{
 				"id": "9",
@@ -169,7 +169,7 @@ describe('currentFlies Reducer', () => {
     expect(result).toEqual(expectedResult)
 	})
 
-	it("when receiving REMOVE_FLY action, should return an updated currentFly array", () => {
+	it("when receiving REMOVE_FLY action, should return an updated currentFlies array", () => {
 		const updatedFliesData = [
 			{
 				"id": "8",
@@ -203,5 +203,5 @@ describe('currentFlies Reducer', () => {
 
     expect(result).toEqual(expectedResult)
 	})
-	
+
 })
