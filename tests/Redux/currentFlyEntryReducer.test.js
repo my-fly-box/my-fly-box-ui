@@ -1,7 +1,7 @@
 import { currentFlyEntry } from '../../reducers/currentFlyEntry'
 
 describe('currentFlyEntry Reducer', () => {
-	let intialState, currentState;
+	let intialState, currentFlyState;
 
 	beforeEach(() => {
 		intialState = {
@@ -10,15 +10,15 @@ describe('currentFlyEntry Reducer', () => {
 			color: '',
 			category: '',
 			amount: '' }
-		})
 
-		currentState = {
+		currentFlyState = {
 			name: 'Tom',
 			size: 2,
 			color: 'red',
 			category: 'midge',
 			amount: 5 
 		}
+	})
 
 	it("should return the intial state", () => {
 		const expectedResult = intialState
@@ -46,15 +46,15 @@ describe('currentFlyEntry Reducer', () => {
 
 	it("when receiving CLEAR_FLY_ENTRY action, should return a default property of the current fly entry objects", () => {
 		const action = {type: 'CLEAR_FLY_ENTRY'}
-		const result = currentFlyEntry(currentState, action)
+		const result = currentFlyEntry(currentFlyState, action)
 
     expect(result).toEqual(intialState)
 	})
 
 	it("when receiving SET_CURRENT_FLY action, should set state to current fly", () => {		
-		const action = {type: 'SET_CURRENT_FLY', data: currentState}
+		const action = {type: 'SET_CURRENT_FLY', data: currentFlyState}
 		const result = currentFlyEntry(intialState, action)
 
-    expect(result).toEqual(currentState)
+    expect(result).toEqual(currentFlyState)
 	})
 })
