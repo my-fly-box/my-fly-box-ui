@@ -1,7 +1,7 @@
 import * as actions from '../../actions/index';
 
 describe('Action Creators', () => {
-	let fliesData;
+	let fliesData, setFlyData;
 
 	beforeEach(() => {
 		fliesData = [
@@ -18,10 +18,17 @@ describe('Action Creators', () => {
 					}
 			}
 		]
+
+		setFlyData = {
+			"name": "Tom",
+			"size": 4,
+			"color": "red",
+			"category": "fliessss",
+			"amount": 1
+		}
 	})
 
 	describe('Should test of Action for the currentFlies Reducer', () => {
-
 		it('should have a type of SET_FLIES', () => {
 			const expectedAction1 = {
 				type: 'SET_FLIES',
@@ -97,34 +104,62 @@ describe('Action Creators', () => {
 		})
 	})
 
+	describe('Should test of Action for the currentFlyEntry Reducer', () => {
+		it('should have a type of UPDATE_FLY_ENTRY', () => {
+			const expectedAction1 = {
+				type: 'UPDATE_FLY_ENTRY',
+				field: "name",
+				data: "Bobby"
+			}
+	
+			const expectedAction2 = {
+				type: 'UPDATE_FLY_ENTRY',
+				field: "size",
+				data: 5
+			}
+	
+			const result1 = actions.updateFlyEntry('name', 'Bobby')
+			const result2 = actions.updateFlyEntry('size', 5)
+	
+			expect(result1).toEqual(expectedAction1);
+			expect(result2).toEqual(expectedAction2);
+		})
+	
+		it('should have a type of CLEAR_FLY_ENTRY', () => {
+			const expectedAction = {
+				type: 'CLEAR_FLY_ENTRY',
+			}
+	
+			const result = actions.clearFlyEntry()
+	
+			expect(result).toEqual(expectedAction);
+		})
 
-	it('should have a type of UPDATE_FLY_ENTRY', () => {
-		const expectedAction1 = {
-			type: 'UPDATE_FLY_ENTRY',
-			field: "name",
-			data: "Bobby"
-		}
-
-		const expectedAction2 = {
-			type: 'UPDATE_FLY_ENTRY',
-			field: "size",
-			data: 5
-		}
-
-		const result1 = actions.updateFlyEntry('name', 'Bobby')
-		const result2 = actions.updateFlyEntry('size', 5)
-
-		expect(result1).toEqual(expectedAction1);
-		expect(result2).toEqual(expectedAction2);
+		it('should have a type of SET_CURRENT_FLY', () => {
+			const expectedAction = {
+				type: 'SET_CURRENT_FLY',
+				data: setFlyData
+			}
+	
+			const result = actions.setCurrentFly(setFlyData)
+	
+			expect(result).toEqual(expectedAction);
+		})
 	})
 
-	it('should have a type of CLEAR_FLY_ENTRY', () => {
-		const expectedAction = {
-			type: 'CLEAR_FLY_ENTRY',
-		}
+	describe('Should test of Action for the selectedFlyId Reducer', () => {
+		it('should have a type of SET_FLY_ID', () => {
+			const expectedAction = {
+				type: 'SET_FLY_ID',
+				data: setFlyData
+			}
+	
+			const result = actions.setSelectedFlyId(setFlyData)
+	
+			expect(result).toEqual(expectedAction);
+		})
 
-		const result = actions.clearFlyEntry()
-
-		expect(result).toEqual(expectedAction);
 	})
+
+
 })
