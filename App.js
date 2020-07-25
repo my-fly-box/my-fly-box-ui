@@ -14,6 +14,7 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import rootReducer from "./reducers";
+import PhotoSelector from "./components/PhotoSelector";
 
 const Tab = createMaterialBottomTabNavigator();
 const FlyBoxStack = createStackNavigator();
@@ -154,6 +155,20 @@ function FishContainer() {
         component={AddFish}
         options={{
           title: "Add Fish Information",
+          headerStyle: {
+            backgroundColor: "#2A9D8F",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+        }}
+      />
+      <FishStack.Screen
+        name="PhotoSelector"
+        component={PhotoSelector}
+        options={{
+          title: "Upload or take a photo of your catch!",
           headerStyle: {
             backgroundColor: "#2A9D8F",
           },
