@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for my-fly-box-ui/reducers/currentFlies.js</title>
+    <title>Code coverage report for my-fly-box-ui/reducers/currentFish.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">my-fly-box-ui/reducers</a> currentFlies.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">my-fly-box-ui/reducers</a> currentFish.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">41.67% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/12</span>
+                <span class='fraction'>3/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.67% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/6</span>
+                <span class='fraction'>2/6</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">30% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/10</span>
+                <span class='fraction'>3/10</span>
             </div>
         
             
@@ -73,34 +73,34 @@
 <a name='L14'></a><a href='#L14'>14</a>
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
-<a name='L17'></a><a href='#L17'>17</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L17'></a><a href='#L17'>17</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const currentFlies = (state = [], action) =&gt; {
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const currentFish = (state = [], action) =&gt; {
 	switch(action.type) {
-		case 'SET_FLIES':
-			return state = action.data
-		case 'ADD_FLY':
-			return [action.data, ...state]
-<span class="branch-2 cbranch-no" title="branch not covered" >		case 'UPDATE_FLY':</span>
-			let updateFlyList = <span class="cstat-no" title="statement not covered" >state.filter(<span class="fstat-no" title="function not covered" >fl</span>y =&gt; <span class="cstat-no" title="statement not covered" >fly.id != action.data.data.id)</span></span>
-<span class="cstat-no" title="statement not covered" >    	updateFlyList.unshift(action.data.data)</span>
-<span class="cstat-no" title="statement not covered" >			return state = updateFlyList</span>
-<span class="branch-3 cbranch-no" title="branch not covered" >		case 'REMOVE_FLY':</span>
-<span class="cstat-no" title="statement not covered" >			state = state.filter(<span class="fstat-no" title="function not covered" >fl</span>y =&gt; <span class="cstat-no" title="statement not covered" >fly.id != action.id)</span></span>
+<span class="branch-0 cbranch-no" title="branch not covered" >		case 'SET_FISH':</span>
+<span class="cstat-no" title="statement not covered" >			return state = action.data</span>
+<span class="branch-1 cbranch-no" title="branch not covered" >		case 'ADD_FISH':</span>
+<span class="cstat-no" title="statement not covered" >			return[action.data, ...state]</span>
+<span class="branch-2 cbranch-no" title="branch not covered" >		case 'UPDATE_FISH':</span>
+			let updateFishList = <span class="cstat-no" title="statement not covered" >state.filter(<span class="fstat-no" title="function not covered" >fi</span>sh =&gt; <span class="cstat-no" title="statement not covered" >fish.id != action.data.data.id)</span></span>
+<span class="cstat-no" title="statement not covered" >    	updateFishList.unshift(action.data.data)</span>
+<span class="cstat-no" title="statement not covered" >			return state = updateFishList</span>
+<span class="branch-3 cbranch-no" title="branch not covered" >		case 'REMOVE_FISH':</span>
+<span class="cstat-no" title="statement not covered" >			state = state.filter(<span class="fstat-no" title="function not covered" >fi</span>sh =&gt; <span class="cstat-no" title="statement not covered" >fish.id != action.id)</span></span>
 <span class="cstat-no" title="statement not covered" >			return state</span>
 		default:
 			return state

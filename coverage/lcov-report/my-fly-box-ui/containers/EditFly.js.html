@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">13.64% </span>
+                <span class="strong">11.11% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/22</span>
+                <span class='fraction'>3/27</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>0/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">15.79% </span>
+                <span class="strong">12.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/19</span>
+                <span class='fraction'>3/24</span>
             </div>
         
             
@@ -135,7 +135,14 @@
 <a name='L76'></a><a href='#L76'>76</a>
 <a name='L77'></a><a href='#L77'>77</a>
 <a name='L78'></a><a href='#L78'>78</a>
-<a name='L79'></a><a href='#L79'>79</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -163,6 +170,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -172,12 +182,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -209,6 +221,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -216,7 +230,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component }  from 'react';
 import FlyForm from '../components/FlyForm';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { setCurrentFly } from '../actions'
+import { setCurrentFly, clearFlyEntry, updateFly } from '../actions'
 import { addUpdatedFly } from "../ApiCalls";
 import { connect } from "react-redux";
 &nbsp;
@@ -240,6 +254,9 @@ class EditFly extends Component {
 &nbsp;
     updateFly = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        addUpdatedFly(this.state.selectedFly)</span>
+        .then(<span class="fstat-no" title="function not covered" >da</span>ta =&gt; {
+<span class="cstat-no" title="statement not covered" >          this.props.updateFly(data)</span>
+        })
     }
 &nbsp;
 <span class="fstat-no" title="function not covered" >    re</span>nder() {
@@ -249,6 +266,7 @@ class EditFly extends Component {
             &lt;View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}&gt;
                 &lt;TouchableOpacity style={styles.button}
                     onPress = {<span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >                    this.props.clearFlyEntry()</span>
 <span class="cstat-no" title="statement not covered" >                    this.props.navigation.navigate('MyFlyBox');</span>
                     }}&gt;
                     &lt;Text style={styles.button}&gt;Cancel&lt;/Text&gt;
@@ -257,9 +275,10 @@ class EditFly extends Component {
                 &lt;TouchableOpacity style={styles.button}
                     onPress = {<span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >                    this.updateFly()</span>
+<span class="cstat-no" title="statement not covered" >                    this.props.clearFlyEntry()</span>
 <span class="cstat-no" title="statement not covered" >                    this.props.navigation.navigate('MyFlyBox');</span>
                     }}&gt;
-                    &lt;Text style={styles.button}&gt;Submit&lt;/Text&gt;
+                    &lt;Text style={styles.button}&gt;Update&lt;/Text&gt;
                 &lt;/TouchableOpacity&gt;
             &lt;/View&gt;
         &lt;/View&gt;
@@ -283,12 +302,14 @@ const styles = StyleSheet.create({
 &nbsp;
 const mapStateToProps = <span class="fstat-no" title="function not covered" >(s</span>tate) =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
     currentFlies: state.currentFlies,
-    selectedFlyId: state.selectedFlyId
+    selectedFlyId: state.selectedFlyId,
   });
   
   const mapDispatchToProps = <span class="fstat-no" title="function not covered" >(d</span>ispatch) =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
-    setCurrentFly: <span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; <span class="cstat-no" title="statement not covered" >dispatch(setCurrentFly(data)),</span>
-    setFlies: <span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; <span class="cstat-no" title="statement not covered" >dispatch(addFly(data))</span>
+    setCurrentFly: <span class="fstat-no" title="function not covered" >da</span>ta =&gt; <span class="cstat-no" title="statement not covered" >dispatch( setCurrentFly(data) ),</span>
+    setFlies: <span class="fstat-no" title="function not covered" >da</span>ta =&gt; <span class="cstat-no" title="statement not covered" >dispatch( addFly(data) ),</span>
+    updateFly: <span class="fstat-no" title="function not covered" >da</span>ta =&gt; <span class="cstat-no" title="statement not covered" >dispatch( updateFly(data) ),</span>
+    clearFlyEntry: <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >dispatch( clearFlyEntry() ),</span>
   });
   
   export default connect(mapStateToProps, mapDispatchToProps)(EditFly);</pre></td></tr></table></pre>
@@ -298,7 +319,7 @@ const mapStateToProps = <span class="fstat-no" title="function not covered" >(s<
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Jul 22 2020 11:18:20 GMT-0600 (Mountain Daylight Time)
+                at Sat Jul 25 2020 11:18:25 GMT-0600 (Mountain Daylight Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
