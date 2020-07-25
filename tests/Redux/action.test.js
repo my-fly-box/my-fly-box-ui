@@ -55,7 +55,7 @@ describe('Action Creators', () => {
 
 	})
 
-	describe('Should test of Action for the currentFlies Reducer', () => {
+	describe('Should test the Action for the currentFlies Reducer', () => {
 		it('should have a type of SET_FLIES', () => {
 			const expectedAction1 = {
 				type: 'SET_FLIES',
@@ -131,7 +131,7 @@ describe('Action Creators', () => {
 		})
 	})
 
-	describe('Should test of Action for the currentFlyEntry Reducer', () => {
+	describe('Should test the Action for the currentFlyEntry Reducer', () => {
 		it('should have a type of UPDATE_FLY_ENTRY', () => {
 			const expectedAction1 = {
 				type: 'UPDATE_FLY_ENTRY',
@@ -174,7 +174,7 @@ describe('Action Creators', () => {
 		})
 	})
 
-	describe('Should test of Action for the selectedFlyId Reducer', () => {
+	describe('Should test the Action for the selectedFlyId Reducer', () => {
 		it('should have a type of SET_FLY_ID', () => {
 			const expectedAction = {
 				type: 'SET_FLY_ID',
@@ -187,7 +187,7 @@ describe('Action Creators', () => {
 		})
 	})
 
-	describe('Should test of Action for the currentFish Reducer', () => {
+	describe('Should test the Action for the currentFish Reducer', () => {
 		it('should have a type of SET_FISH', () => {
 			const expectedAction = {
 				type: 'SET_FISH',
@@ -242,6 +242,54 @@ describe('Action Creators', () => {
 			}
 	
 			const result = actions.removeFish(3)
+	
+			expect(result).toEqual(expectedAction);
+		})
+	})
+
+	describe('Should test the Action for the currentFishEntry Reducer', () => {
+		it('should have a type of UPDATE_FISH_ENTRY', () => {
+			const expectedAction = {
+				type: 'UPDATE_FISH_ENTRY',
+				field: 'species',
+				data: 'Trout'
+			}
+	
+			const result = actions.updateFishEntry('species', 'Trout')
+	
+			expect(result).toEqual(expectedAction);
+		})
+
+		it('should have a type of SET_CURRENT_FISH', () => {
+			const expectedAction = {
+				type: 'SET_CURRENT_FISH',
+				data: setFishData
+			}
+	
+			const result = actions.setCurrentFish(setFishData)
+	
+			expect(result).toEqual(expectedAction);
+		})
+
+		it('should have a type of CLEAR_FISH_ENTRY', () => {
+			const expectedAction = {
+				type: 'CLEAR_FISH_ENTRY',
+			}
+	
+			const result = actions.clearFishEntry()
+	
+			expect(result).toEqual(expectedAction);
+		})
+	})
+
+	describe('Should test the Action for the selectedFishId Reducer', () => {
+		it('should have a type of SET_FISH_ID', () => {
+			const expectedAction = {
+				type: 'SET_FISH_ID',
+				data: setFishData
+			}
+	
+			const result = actions.setSelectedFishId(setFishData)
 	
 			expect(result).toEqual(expectedAction);
 		})
