@@ -26,8 +26,8 @@ function MyTabs() {
   return (
     <Tab.Navigator
       initialRouteName="MyFlyBox"
-      activeColor={"white"}
-      barStyle={{ backgroundColor: "#2A9D8F" }}
+      activeColor={"#f7841f"}
+      barStyle={{ backgroundColor: "#212326" }}
     >
       <Tab.Screen
         name="MyFlyBox"
@@ -72,9 +72,9 @@ function FlyBoxContainer() {
         options={{
           title: "My Fly Box",
           headerStyle: {
-            backgroundColor: "#2A9D8F",
+            backgroundColor: "#212326",
           },
-          headerTintColor: "#fff",
+          headerTintColor: "#ffffff",
           headerTitleStyle: {
             fontWeight: "bold",
           },
@@ -84,11 +84,11 @@ function FlyBoxContainer() {
         name="EditFly"
         component={EditFly}
         options={{
-          title: "Edit Fly Information",
+          title: "Edit Fly Info",
           headerStyle: {
-            backgroundColor: "#2A9D8F",
+            backgroundColor: "#212326",
           },
-          headerTintColor: "#fff",
+          headerTintColor: "#ffffff",
           headerTitleStyle: {
             fontWeight: "bold",
           },
@@ -105,11 +105,11 @@ function AddFlyContainer() {
         name="AddFly"
         component={AddFly}
         options={{
-          title: "My Fly Box",
+          title: "Add New Fly Info",
           headerStyle: {
-            backgroundColor: "#2A9D8F",
+            backgroundColor: "#212326",
           },
-          headerTintColor: "#fff",
+          headerTintColor: "#ffffff",
           headerTitleStyle: {
             fontWeight: "bold",
           },
@@ -128,9 +128,9 @@ function FishContainer() {
         options={{
           title: "Fish Caught",
           headerStyle: {
-            backgroundColor: "#2A9D8F",
+            backgroundColor: "#212326",
           },
-          headerTintColor: "#fff",
+          headerTintColor: "#ffffff",
           headerTitleStyle: {
             fontWeight: "bold",
           },
@@ -142,9 +142,9 @@ function FishContainer() {
         options={{
           title: "Edit Fish Information",
           headerStyle: {
-            backgroundColor: "#2A9D8F",
+            backgroundColor: "#212326",
           },
-          headerTintColor: "#fff",
+          headerTintColor: "#ffffff",
           headerTitleStyle: {
             fontWeight: "bold",
           },
@@ -156,9 +156,9 @@ function FishContainer() {
         options={{
           title: "Add Fish Information",
           headerStyle: {
-            backgroundColor: "#2A9D8F",
+            backgroundColor: "#212326",
           },
-          headerTintColor: "#fff",
+          headerTintColor: "#ffffff",
           headerTitleStyle: {
             fontWeight: "bold",
           },
@@ -170,9 +170,9 @@ function FishContainer() {
         options={{
           title: "Upload or take a photo of your catch!",
           headerStyle: {
-            backgroundColor: "#2A9D8F",
+            backgroundColor: "#212326",
           },
-          headerTintColor: "#fff",
+          headerTintColor: "#ffffff",
           headerTitleStyle: {
             fontWeight: "bold",
           },
@@ -197,7 +197,6 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },
