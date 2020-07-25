@@ -14,7 +14,7 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import rootReducer from "./reducers";
-import PhotoSelector from "./components/Camera";
+import PhotoSelector from "./components/PhotoSelector";
 
 const Tab = createMaterialBottomTabNavigator();
 const FlyBoxStack = createStackNavigator();
