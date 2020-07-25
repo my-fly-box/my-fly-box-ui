@@ -18,9 +18,9 @@ class FishForm extends Component {
     this.props.clearFishEntry();
   }
 
-  handleChange = (name, text) => {
-    this.setState({ name: text });
-    this.props.updateFishEntry(name, text);
+  handleChange = (property, text) => {
+    this.setState({ property: text });
+    this.props.updateFishEntry(property, text);
   };
 
   mapCurrentFlies = () => {
