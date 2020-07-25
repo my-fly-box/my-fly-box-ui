@@ -1,7 +1,7 @@
 import * as actions from '../../actions/index';
 
 describe('Action Creators', () => {
-	let fliesData, setFlyData;
+	let fliesData, setFlyData, fishData, setFishData;
 
 	beforeEach(() => {
 		fliesData = [
@@ -26,6 +26,33 @@ describe('Action Creators', () => {
 			"category": "fliessss",
 			"amount": 1
 		}
+
+		fishData = [
+			{
+					"id": "37",
+					"type": "catch",
+					"attributes": {
+							"id": 37,
+							"species": "Brook Trout",
+							"location": "William’s Fok",
+							"length": 4,
+							"weight": 5,
+							"image": "Img",
+							"fly_id": 18
+					}
+			}
+		]
+
+		setFishData = {
+			"id": 35,
+			"species": "Walleye",
+			"location": "Lake Minnetonka",
+			"length": 4,
+			"weight": 5,
+			"image": "None",
+			"fly_id": 20
+		}
+
 	})
 
 	describe('Should test of Action for the currentFlies Reducer', () => {
@@ -158,8 +185,66 @@ describe('Action Creators', () => {
 	
 			expect(result).toEqual(expectedAction);
 		})
-
 	})
 
+	describe('Should test of Action for the currentFish Reducer', () => {
+		it('should have a type of SET_FISH', () => {
+			const expectedAction = {
+				type: 'SET_FISH',
+				data: fishData
+			}
+	
+			const result = actions.setFish(fishData)
+	
+			expect(result).toEqual(expectedAction);
+		})
+
+		it('should have a type of ADD_FISH', () => {
+			const expectedAction = {
+				type: 'ADD_FISH',
+				data: setFishData
+			}
+	
+			const result = actions.addFish(setFishData)
+	
+			expect(result).toEqual(expectedAction);
+		})
+
+		it('should have a type of UPDATE_FISH', () => {
+			const updatedFlyData = {
+				"id": "37",
+				"type": "catch",
+				"attributes": {
+						"id": 37,
+						"species": "Brook Trout",
+						"location": "William’s Fok",
+						"length": 45,
+						"weight": 56,
+						"image": "Image",
+						"fly_id": 18
+				}
+			}
+
+			const expectedAction = {
+				type: 'UPDATE_FISH',
+				data: updatedFlyData
+			}
+	
+			const result = actions.updateFish(updatedFlyData)
+	
+			expect(result).toEqual(expectedAction);
+		})
+
+		it('should have a type of REMOVE_FISH', () => {
+			const expectedAction = {
+				type: 'REMOVE_FISH',
+				id: 3
+			}
+	
+			const result = actions.removeFish(3)
+	
+			expect(result).toEqual(expectedAction);
+		})
+	})
 
 })
