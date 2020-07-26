@@ -29,17 +29,6 @@ class FishForm extends Component {
     });
   };
 
-  findFlyName = () => {
-    let currentFly = this.props.currentFlies.find(
-      (fly) => fly.id == this.props.currentFishEntry.fly_id
-    );
-    if (currentFly === undefined) {
-      return "";
-    } else {
-      return currentFly.attributes.name;
-    }
-  };
-
   render() {
     return (
       <View style={styles.container}>
@@ -81,18 +70,15 @@ class FishForm extends Component {
         />
 
         <RNPickerSelect
+          placeholder={{
+            value: "Select the Fly Used",
+            label: "Select the Fly Used",
+          }}
           style={styles}
           onValueChange={(value) => {
             this.handleChange("fly_id", parseInt(value));
           }}
           items={this.mapCurrentFlies()}
-        />
-
-        <TextInput
-          style={styles.input}
-          editable={false}
-          placeholder="Fly Used"
-          value={this.findFlyName()}
         />
       </View>
     );
@@ -126,14 +112,16 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     backgroundColor: "white",
     textAlign: "center",
-    width: "40%",
-    height: 40,
-    marginBottom: "3%",
+    width: "70%",
     borderRadius: 5,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
+    paddingVertical: 12,
+    paddingHorizontal: 10,
+    borderColor: "gray",
+    paddingRight: 30,
   },
 });
 
