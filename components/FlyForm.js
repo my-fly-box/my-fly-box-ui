@@ -16,30 +16,10 @@ class FlyForm extends Component {
     this.props.clearFlyEntry()
   }
 
-  handleName = (text) => {
-    this.setState({ name: text })
-    this.props.updateFlyEntry('name', text)
-  }
-
-  handleColor = (text) => {
-    this.setState({ color: text })
-    this.props.updateFlyEntry('color', text)
-  }
-
-  handleSize = (text) => {
-    this.setState({ size: text })
-    this.props.updateFlyEntry('size', text)
-  }
-
-  handleType = (text) => {
-    this.setState({ category: text })
-    this.props.updateFlyEntry('category', text)
-  }
-
-  handleAmount = (text) => {
-    this.setState({ amount: text })
-    this.props.updateFlyEntry('amount', text)
-  }
+  handleChange = (property, text) => {
+    this.setState({ property: text });
+    this.props.updateFlyEntry(property, text);
+  };
 
 render() {
     return (
@@ -47,33 +27,33 @@ render() {
           <TextInput style={styles.input}
             placeholder = "Enter Fly Name"
             value={this.props.currentFlyEntry.name}
-            onChangeText = {this.handleName}
+            onChangeText={(text) => this.handleChange("name", text)}
           />
 
           <TextInput style={styles.input}
             placeholder = "Enter Fly Color"
             value={this.props.currentFlyEntry.color}
-            onChangeText = {this.handleColor}
+            onChangeText={(text) => this.handleChange("color", text)}
           />
 
           <TextInput style={styles.input}
             placeholder = "Enter Fly Size"
             keyboardType = 'number-pad'
             value={this.props.currentFlyEntry.size.toString()}
-            onChangeText = {this.handleSize}
+            onChangeText={(text) => this.handleChange("size", text)}
           />
 
           <TextInput style={styles.input}
             placeholder = "Enter Fly Category"
             value={this.props.currentFlyEntry.category}
-            onChangeText = {this.handleType}
+            onChangeText={(text) => this.handleChange("category", text)}
           />
 
           <TextInput style={styles.input}
             placeholder = "Enter Fly Amount"
             keyboardType = 'number-pad'
             value={this.props.currentFlyEntry.amount.toString()}
-            onChangeText = {this.handleAmount}
+            onChangeText={(text) => this.handleChange("amount", text)}
           />
         </View>
     )

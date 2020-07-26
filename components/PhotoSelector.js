@@ -33,8 +33,8 @@ class PhotoSelector extends Component {
   takePicture = async () => {
     if (this.camera) {
       let photo = await this.camera.takePictureAsync();
-      // this.uploadPhoto(photo.base64)
-      console.log(photo)
+      this.uploadPhoto(photo.uri)
+      console.log('photo', photo)
 
       // need to test this once the endpoint for uploadPhoto is running to make sure it still has time to run - added so the user is brought back to add fish page to see the returned data
       this.props.navigation.navigate('AddFish');
@@ -46,25 +46,28 @@ class PhotoSelector extends Component {
     let photo = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images
     });
-    // this.uploadPhoto(photo.uri)
+    this.uploadPhoto(photo.uri)
     console.log(photo)
 
     // need to test this once the endpoint for uploadPhoto is running to make sure it still has time to run - added so the user is brought back to add fish page to see the returned data
     this.props.navigation.navigate('AddFish');
   }
 
-  uploadPhoto = (photo) => {
-    fetch("https://my-fly-box-api.herokuapp.com/api/v1/photo", {
-    method: 'POST',
+  uploadPhoto = async (photo) => {
+    const response = await fetch("https://my-fly-box-api.herokuapp.com/api/v1/images", {
+    method: "POST",
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json;charset=utf-8",
     },
     body: JSON.stringify({
-      imgsource: photo,
-    }),
+      base_64: photo,
+    })
   })
+
+  const imageResponse = await response.json();
+  console.log(imageResponse)
   }
+
 
   render(){
     const { hasPermission } = this.state
