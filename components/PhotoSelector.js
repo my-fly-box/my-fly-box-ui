@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View ,TouchableOpacity,Platform, } from 'react-native';
+import { StyleSheet, Text, View ,TouchableOpacity,Platform,} from 'react-native';
 import { Camera } from 'expo-camera';
 import * as Permissions from 'expo-permissions';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
+import * as FileSystem from 'expo-file-system';
 
 class PhotoSelector extends Component {
   constructor(props) {
@@ -33,8 +34,8 @@ class PhotoSelector extends Component {
   takePicture = async () => {
     if (this.camera) {
       let photo = await this.camera.takePictureAsync();
-      this.uploadPhoto(photo.uri)
-      console.log('photo', photo)
+      const base64 = await FileSystem.readAsStringAsync(photo.uri, { encoding: 'base64' });
+      this.uploadPhoto(base64)
 
       // need to test this once the endpoint for uploadPhoto is running to make sure it still has time to run - added so the user is brought back to add fish page to see the returned data
       this.props.navigation.navigate('AddFish');
@@ -46,8 +47,8 @@ class PhotoSelector extends Component {
     let photo = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images
     });
-    this.uploadPhoto(photo.uri)
-    console.log(photo)
+    const base64 = await FileSystem.readAsStringAsync(photo.uri, { encoding: 'base64' });
+    this.uploadPhoto(base64)
 
     // need to test this once the endpoint for uploadPhoto is running to make sure it still has time to run - added so the user is brought back to add fish page to see the returned data
     this.props.navigation.navigate('AddFish');
