@@ -32,13 +32,10 @@ class Fly extends Component {
   render() {
     return (
       <View style={styles.container}>
-
         <Text style={styles.name}> {this.props.fly.attributes.name}</Text>
 
         <View style={styles.categoryContainer}>
-            <Text style={styles.text}>
-              {this.props.fly.attributes.category}{" "}
-            </Text>
+          <Text style={styles.text}>{this.props.fly.attributes.category} </Text>
         </View>
 
         <View style={styles.flyInfoContainer}>
@@ -95,7 +92,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
     elevation: 3,
-      },
+  },
   name: {
     fontSize: 17,
     fontFamily: "Helvetica Neue",
@@ -111,7 +108,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 15,
     fontFamily: "Helvetica Neue",
-    fontWeight: '400',
+    fontWeight: "400",
     color: "#212326",
   },
   categoryContainer: {
@@ -119,8 +116,7 @@ const styles = StyleSheet.create({
   },
   deleteContainer: {
     paddingHorizontal: 7,
-    // paddingVertical: 3,
-  }
+  },
 });
 
 const mapDispatchToProps = (dispatch) => ({

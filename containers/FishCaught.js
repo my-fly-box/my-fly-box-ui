@@ -6,7 +6,7 @@ import {
   Button,
   FlatList,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
 } from "react-native";
 import { fetchFish, deleteFish } from "../ApiCalls";
 import { setFish, removeFish } from "../actions";
@@ -32,14 +32,14 @@ class FishCaught extends Component {
 
   handleDelete = (fishId) => {
     deleteFish(fishId);
-    this.props.removeFish(fishId)
+    this.props.removeFish(fishId);
   };
 
   checkFish = () => {
     if (this.props.currentFish.length > 0 && !this.state.isLoading) {
       return (
         <FlatList
-          style={styles.container}
+          style={styles.fish}
           data={this.props.currentFish}
           renderItem={({ item }) => (
             <Fish
@@ -83,50 +83,58 @@ class FishCaught extends Component {
 
   render() {
     return (
-        <View style={styles.container}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-              this.props.navigation.navigate("AddFish");
-            }}
-          >
-            <Text color="white" style={styles.buttonText}>
-              Add Fish
-            </Text>
-          </TouchableOpacity>
-          {this.checkFish()}
-        </View>
+      <View style={styles.container}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            this.props.navigation.navigate("AddFish");
+          }}
+        >
+          <Text color="white" style={styles.buttonText}>
+            Add Fish
+          </Text>
+        </TouchableOpacity>
+        {this.checkFish()}
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    height: "100%",
-    width: "100%",
-    alignSelf: "center",
+    flex: 1,
+    backgroundColor: "#f8f8ff",
+    padding: 10,
+    alignItems: "center",
+  },
+  fish: {
+    height: 60,
+    width: "98%",
   },
   button: {
-    backgroundColor: 'white',
-    color: 'white',
+    backgroundColor: "#f7841f",
     alignSelf: "center",
-    margin: 5,
-    margin: "10%",
-    height: "10%",
-    width: "40%",
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 2,
-    borderColor: '#2A9D8F',
-    borderRadius: 3,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
+    margin: "5%",
+    height: 50,
+    width: 150,
+    justifyContent: "center",
+    alignItems: "center",
+    borderWidth: 0.2,
+    borderColor: "#212326",
+    borderRadius: 5,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
   },
   buttonText: {
     fontSize: 18,
-    fontFamily: "Helvetica",
+    color: "#ffffff",
+    fontFamily: "Helvetica-Bold",
     textAlign: "center",
   },
 });
@@ -136,8 +144,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setFish: data => dispatch( setFish(data) ),
-  removeFish: id => dispatch( removeFish(id) ),
+  setFish: (data) => dispatch(setFish(data)),
+  removeFish: (id) => dispatch(removeFish(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FishCaught);

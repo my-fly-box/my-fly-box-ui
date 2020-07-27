@@ -21,18 +21,16 @@ class AddFish extends Component {
   render() {
     return (
       <View style={styles.container}>
-        {/* working on getting camera integrated */}
+        <Text style={styles.intro}>Add information about your fish:</Text>
 
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-              this.props.navigation.navigate("PhotoSelector");
-            }}
-          >
-            <Text>Upload Image</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          style={styles.imageButton}
+          onPress={() => {
+            this.props.navigation.navigate("PhotoSelector");
+          }}
+        >
+          <Text style={styles.buttonText}>Upload Image</Text>
+        </TouchableOpacity>
 
         <FishForm />
 
@@ -44,7 +42,7 @@ class AddFish extends Component {
               this.props.clearFishEntry();
             }}
           >
-            <Text>Cancel</Text>
+            <Text style={styles.buttonText}>Cancel</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -55,7 +53,7 @@ class AddFish extends Component {
               this.props.clearFishEntry();
             }}
           >
-            <Text>Submit</Text>
+            <Text style={styles.buttonText}>Submit</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -67,35 +65,70 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 45,
-    width: "100%",
-    height: "100%",
     justifyContent: "center",
+    backgroundColor: "#f8f8ff",
+  },
+  intro: {
+    flex: 0.15,
+    alignSelf: "center",
+    fontSize: 20,
+    fontFamily: "Helvetica Neue",
+    fontWeight: "bold",
+    color: "#0b7d83",
   },
   buttonContainer: {
-    width: "80%",
-    height: "100%",
     flex: 1,
     flexDirection: "row",
+    justifyContent: "center",
+    width: "80%",
     alignSelf: "center",
   },
-  button: {
-    backgroundColor: "white",
-    color: "white",
-    flex: 1,
+  imageButton: {
+    backgroundColor: "#f7841f",
     alignSelf: "center",
-    margin: 5,
-    marginTop: "20%",
-    height: "20%",
-    width: "40%",
+    marginHorizontal: "5%",
+    marginVertical: "4%",
+    height: 50,
+    width: 130,
     justifyContent: "center",
     alignItems: "center",
-    borderWidth: 2,
-    borderColor: "#2A9D8F",
-    borderRadius: 3,
+    borderWidth: 0.2,
+    borderColor: "#212326",
+    borderRadius: 5,
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
+  },
+  button: {
+    backgroundColor: "#f7841f",
+    alignSelf: "center",
+    marginHorizontal: "5%",
+    height: 50,
+    width: 130,
+    justifyContent: "center",
+    alignItems: "center",
+    borderWidth: 0.2,
+    borderColor: "#212326",
+    borderRadius: 5,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
+  },
+  buttonText: {
+    fontSize: 15,
+    color: "#ffffff",
+    fontFamily: "Helvetica-Bold",
+    textAlign: "center",
   },
 });
 
