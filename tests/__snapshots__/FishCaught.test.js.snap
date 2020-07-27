@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FishCaught renders the FlyBox 1`] = `
+<View
+  style={
+    Object {
+      "alignSelf": "center",
+      "height": "100%",
+      "width": "100%",
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": "white",
+        "borderColor": "#2A9D8F",
+        "borderRadius": 3,
+        "borderWidth": 2,
+        "color": "white",
+        "height": "10%",
+        "justifyContent": "center",
+        "margin": "10%",
+        "opacity": 1,
+        "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.8,
+        "shadowRadius": 2,
+        "width": "40%",
+      }
+    }
+  >
+    <Text
+      color="white"
+      style={
+        Object {
+          "fontFamily": "Helvetica",
+          "fontSize": 18,
+          "textAlign": "center",
+        }
+      }
+    >
+      Add Fish
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+        "paddingTop": 50,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 30,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Loading Fish Data...
+    </Text>
+  </View>
+</View>
+`;
