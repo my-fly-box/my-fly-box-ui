@@ -48,7 +48,7 @@ class FishForm extends Component {
 
         <TextInput
           style={styles.input}
-          placeholder="Enter Length"
+          placeholder="Enter Length (in)"
           keyboardType="number-pad"
           value={this.props.currentFishEntry.length.toString()}
           onChangeText={(text) => this.handleChange("length", parseInt(text))}
@@ -56,7 +56,7 @@ class FishForm extends Component {
 
         <TextInput
           style={styles.input}
-          placeholder="Enter Weight"
+          placeholder="Enter Weight (lb)"
           keyboardType="number-pad"
           value={this.props.currentFishEntry.weight.toString()}
           onChangeText={(text) => this.handleChange("weight", parseInt(text))}
@@ -74,7 +74,7 @@ class FishForm extends Component {
             value: "Select the Fly Used",
             label: "Select the Fly Used",
           }}
-          style={styles}
+          style={{ ...pickerStyles }}
           onValueChange={(value) => {
             this.handleChange("fly_id", parseInt(value));
           }}
@@ -91,53 +91,51 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingTop: 50,
-    marginTop: "10%",
-  },
-  label: {
-    textAlign: "center",
+    marginVertical: "10%",
   },
   input: {
-    backgroundColor: "white",
+    color: "#212326",
+    fontSize: 18,
     textAlign: "center",
     width: "70%",
-    height: "20%",
+    height: 55,
     marginBottom: "3%",
+    borderWidth: 0.2,
+    borderColor: "#212326",
     borderRadius: 5,
+    backgroundColor: "#ffffff",
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
   },
+});
+
+const pickerStyles = StyleSheet.create({
   inputIOS: {
+    fontSize: 18,
     alignSelf: "center",
-    backgroundColor: "white",
     textAlign: "center",
     width: "70%",
-    borderRadius: 5,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
+    height: 55,
     paddingVertical: 12,
     paddingHorizontal: 10,
+    borderWidth: 1,
     borderColor: "gray",
-    paddingRight: 30,
+    borderRadius: 4,
+    backgroundColor: "white",
+    borderRadius: 5,
+    borderWidth: 0.2,
+    borderColor: "#212326",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
   },
-  inputAndroid: {
-    alignSelf: "center",
-    backgroundColor: "white",
-    textAlign: "center",
-    width: "70%",
-    borderRadius: 5,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    paddingVertical: 12,
-    paddingHorizontal: 10,
-    borderColor: "gray",
-    paddingRight: 30,
-	},
 });
 
 const mapStateToProps = (state) => ({
