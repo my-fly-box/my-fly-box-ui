@@ -1,15 +1,9 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Button, FlatList } from "react-native";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 import Fly from "../components/Fly";
-import { setFlies } from "../actions";
+import { setFlies, removeFly } from "../actions";
 import { connect } from "react-redux";
 import { fetchFlies, deleteFly } from "../ApiCalls";
-
-const FlatListItemSeparator = () => {
-  return (
-    <View style={{ height: 1.5, width: "100%", backgroundColor: "#7A5C58" }} />
-  );
-};
 
 class FlyBox extends Component {
   constructor(props) {
@@ -28,28 +22,24 @@ class FlyBox extends Component {
       );
   }
 
-  async componentDidUpdate() {
-    if (this.state.currentFlies.length != this.props.currentFlies.length) {
-      fetchFlies()
-        .then((data) => this.props.setFlies(data.data))
-        .then((fly) => this.setState({ currentFlies: fly.data }));
-    }
-  }
-
   handleDelete = (flyId) => {
     deleteFly(flyId);
-    fetchFlies()
-      .then((data) => this.props.setFlies(data.data))
-      .then((fly) => this.setState({ currentFlies: fly.data }));
+    this.props.removeFly(flyId);
   };
 
   checkFlyBox = () => {
     if (this.props.currentFlies.length > 0 && !this.state.isLoading) {
+      // sorting flies in alphabetical order:
+      let flies = this.props.currentFlies.sort((a, b) => {
+        let nameA = a.attributes.name.toUpperCase();
+        let nameB = b.attributes.name.toUpperCase();
+        return (nameA < nameB) ? -1 : (nameA > nameB) ? 1 : 0;
+      })
+      
       return (
         <FlatList
           style={styles.fly}
-          ItemSeparatorComponent={FlatListItemSeparator}
-          data={this.props.currentFlies}
+          data={flies}
           renderItem={({ item }) => (
             <Fly
               fly={item}
@@ -93,13 +83,6 @@ class FlyBox extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.headerFont}>Fly Name</Text>
-          <Text style={styles.headerFont}>Fly Type</Text>
-          <Text style={styles.headerFont}>Size</Text>
-          <Text style={styles.headerFont}>Edit</Text>
-          <Text style={styles.headerFont}>Delete</Text>
-        </View>
         {this.checkFlyBox()}
       </View>
     );
@@ -109,20 +92,13 @@ class FlyBox extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#E8E9F3",
+    backgroundColor: "#f8f8ff",
+    padding: 10,
+    alignItems: "center",
   },
   fly: {
-    height: 44,
-    width: "100%",
-  },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    width: "100%",
-    paddingVertical: 10,
-    borderBottomColor: "#2A9D8F",
-    borderBottomWidth: 2,
-    backgroundColor: "#BDC667",
+    height: 60,
+    width: "98%",
   },
   headerFont: {
     fontSize: 18,
@@ -136,7 +112,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setFlies: (data) => dispatch(setFlies(data)),
+  setFlies: data => dispatch( setFlies(data) ),
+  removeFly: id => dispatch( removeFly(id) ),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FlyBox);
