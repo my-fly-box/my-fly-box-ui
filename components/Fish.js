@@ -45,18 +45,25 @@ class Fish extends Component {
             }}
           />
           <Text style={styles.species}>
-            Species: {this.props.fish.attributes.species}
+            {this.props.fish.attributes.species}
           </Text>
-          <Text style={styles.location}>
+          <Text style={styles.info}>
             Location: {this.props.fish.attributes.location}{" "}
+          </Text>
+          <Text style={styles.info}>
+            Weight: {this.props.fish.attributes.weight} lbs
+          </Text>
+          <Text style={styles.info}>
+            Length: {this.props.fish.attributes.length} in
           </Text>
           <TouchableOpacity
             onPress={() => this.deletionAlert(this.props.fish.id)}
           >
             <FontAwesome
               name="remove"
-              color={"#264653"}
-              size={13}
+              color={"#212326"}
+              size={30}
+              style={styles.removeButton}
             />
           </TouchableOpacity>
         </TouchableOpacity>
@@ -67,25 +74,50 @@ class Fish extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    width: "65%",
-    height: "95%",
-    backgroundColor: "black",
+    width: "75%",
+    height: "75%",
+    backgroundColor: 	"#E8E8E8",
+    alignSelf: "center",
+    borderWidth: 3,
+    flexDirection: "column",
     justifyContent: "center",
+    borderRadius: 5,
+    margin: "2%",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
   },
   species: {
-    fontSize: 10,
+    fontSize: 18,
     fontFamily: "Helvetica-Bold",
-    color: "#7A5C58",
+    color: '#2A9D8F',
+    margin: "3%",
+    alignSelf: "center",
+    textDecorationLine: "underline"
   },
-  location: {
-    fontSize: 10,
+  info: {
+    fontSize: 17,
     fontFamily: "Helvetica",
-    color: "#7A5C58",
+    color: "#212326",
+    marginLeft: "10%",
+    margin: "1%"
   },
   fishImage: {
-    width: "100%",
-    height: 150,
+    width: "80%",
+    alignSelf: "center",
+    height: "60%",
+    borderWidth: 2,
+    borderColor: "#212326",
   },
+  removeButton: {
+    alignSelf: "flex-end",
+    marginRight: "2%"
+  }
 });
 
 const mapDispatchToProps = (dispatch) => ({
