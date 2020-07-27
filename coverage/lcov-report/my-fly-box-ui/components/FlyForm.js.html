@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">13.04% </span>
+                <span class="strong">12% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/23</span>
+                <span class='fraction'>3/25</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>0/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">14.29% </span>
+                <span class="strong">13.04% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/21</span>
+                <span class='fraction'>3/23</span>
             </div>
         
             
@@ -158,7 +158,21 @@
 <a name='L99'></a><a href='#L99'>99</a>
 <a name='L100'></a><a href='#L100'>100</a>
 <a name='L101'></a><a href='#L101'>101</a>
-<a name='L102'></a><a href='#L102'>102</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -172,6 +186,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -199,11 +217,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -251,17 +264,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import { updateFlyEntry } from '../actions'
+import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { updateFlyEntry, clearFlyEntry } from '../actions'
 import { connect } from "react-redux";
 &nbsp;
 class FlyForm extends Component {
@@ -271,6 +299,10 @@ class FlyForm extends Component {
     size: '',
     category: '',
     amount: ''
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  co</span>mponentDidMount() {
+<span class="cstat-no" title="statement not covered" >    this.props.clearFlyEntry()</span>
   }
 &nbsp;
   handleName = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(t</span>ext) =&gt; {</span>
@@ -300,41 +332,36 @@ class FlyForm extends Component {
 &nbsp;
 <span class="fstat-no" title="function not covered" >re</span>nder() {
 <span class="cstat-no" title="statement not covered" >    return (</span>
-        &lt;View&gt;
-          &lt;Text style={styles.label}&gt;Name&lt;/Text&gt;
+        &lt;View style={styles.container}&gt;
           &lt;TextInput style={styles.input}
             placeholder = "Enter Fly Name"
             value={this.props.currentFlyEntry.name}
             onChangeText = {this.handleName}
           /&gt;
 &nbsp;
-          &lt;Text style={styles.label}&gt;Color&lt;/Text&gt;
           &lt;TextInput style={styles.input}
             placeholder = "Enter Fly Color"
             value={this.props.currentFlyEntry.color}
             onChangeText = {this.handleColor}
           /&gt;
 &nbsp;
-          &lt;Text style={styles.label}&gt;Size&lt;/Text&gt;
           &lt;TextInput style={styles.input}
             placeholder = "Enter Fly Size"
             keyboardType = 'number-pad'
-            value={this.props.currentFlyEntry.size}
+            value={this.props.currentFlyEntry.size.toString()}
             onChangeText = {this.handleSize}
           /&gt;
 &nbsp;
-          &lt;Text style={styles.label}&gt;Category&lt;/Text&gt;
           &lt;TextInput style={styles.input}
             placeholder = "Enter Fly Category"
             value={this.props.currentFlyEntry.category}
             onChangeText = {this.handleType}
           /&gt;
 &nbsp;
-          &lt;Text style={styles.label}&gt;Amount&lt;/Text&gt;
           &lt;TextInput style={styles.input}
             placeholder = "Enter Fly Amount"
             keyboardType = 'number-pad'
-            value={this.props.currentFlyEntry.amount}
+            value={this.props.currentFlyEntry.amount.toString()}
             onChangeText = {this.handleAmount}
           /&gt;
         &lt;/View&gt;
@@ -343,12 +370,26 @@ class FlyForm extends Component {
 }
 &nbsp;
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 45,
+  },
   label: {
     textAlign: 'center',
   },
   input: {
     backgroundColor: 'white',
     textAlign: 'center',
+    width: '70%',
+    height: '25%',
+    marginBottom: '3%',
+    borderRadius: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
   },
 })
 &nbsp;
@@ -358,6 +399,7 @@ const mapStateToProps = <span class="fstat-no" title="function not covered" >st<
 &nbsp;
 const mapDispatchToProps = <span class="fstat-no" title="function not covered" >(d</span>ispatch) =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
   updateFlyEntry: <span class="fstat-no" title="function not covered" >(n</span>ame, data) =&gt; <span class="cstat-no" title="statement not covered" >dispatch( updateFlyEntry(name, data) ),</span>
+  clearFlyEntry: <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >dispatch( clearFlyEntry() ),</span>
 })
 &nbsp;
 export default connect(mapStateToProps, mapDispatchToProps)(FlyForm);</pre></td></tr></table></pre>
@@ -367,7 +409,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(FlyForm);</pre></td>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Jul 22 2020 11:18:20 GMT-0600 (Mountain Daylight Time)
+                at Sat Jul 25 2020 13:07:03 GMT-0600 (Mountain Daylight Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

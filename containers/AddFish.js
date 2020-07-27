@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { connect } from "react-redux";
-import FishForm from '../components/FishForm'
-import { clearFishEntry } from '../actions';
+import FishForm from "../components/FishForm";
+import { clearFishEntry, addFish } from "../actions";
 import { addFishToAPI } from "../ApiCalls";
 
 class AddFish extends Component {
@@ -10,31 +10,56 @@ class AddFish extends Component {
     super(props);
   }
 
+  addFish = () => {
+    const currentFishEntry = this.props.currentFishEntry;
+    addFishToAPI(currentFishEntry).then((data) => {
+      this.props.addFish(data.data);
+      this.props.clearFishEntry();
+    });
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <FishForm />
-        
-        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
-          <TouchableOpacity style={styles.button}
-            onPress = {() => {
-              this.props.navigation.navigate('FishCaught');
-              this.props.clearFishEntry();
-              }}>
-            <Text style={styles.button}>Cancel</Text>
+        {/* working on getting camera integrated */}
+
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              this.props.navigation.navigate("PhotoSelector");
+            }}
+          >
+            <Text>Upload Image</Text>
           </TouchableOpacity>
-        
-          <TouchableOpacity style={styles.button}
-            onPress = {() => {
-              addFishToAPI(this.props.currentFishEntry)
-              this.props.navigation.navigate('FishCaught');
+        </View>
+
+        <FishForm />
+
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              this.props.navigation.navigate("FishCaught");
               this.props.clearFishEntry();
-              }}>
-            <Text style={styles.button}>Submit</Text>
+            }}
+          >
+            <Text>Cancel</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              this.addFish();
+              this.props.navigation.navigate("FishCaught");
+              this.props.clearFishEntry();
+            }}
+          >
+            <Text>Submit</Text>
           </TouchableOpacity>
         </View>
       </View>
-    )
+    );
   }
 }
 
@@ -42,23 +67,45 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 45,
+    width: "100%",
+    height: "100%",
+    justifyContent: "center",
+  },
+  buttonContainer: {
+    width: "80%",
+    height: "100%",
+    flex: 1,
+    flexDirection: "row",
+    alignSelf: "center",
   },
   button: {
-    backgroundColor: '#00a8d5',
-    color: 'white',
+    backgroundColor: "white",
+    color: "white",
+    flex: 1,
+    alignSelf: "center",
     margin: 5,
-    height: 35,
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginTop: "20%",
+    height: "20%",
+    width: "40%",
+    justifyContent: "center",
+    alignItems: "center",
+    borderWidth: 2,
+    borderColor: "#2A9D8F",
+    borderRadius: 3,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
   },
-})
+});
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   currentFishEntry: state.currentFishEntry,
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
-  clearFishEntry: () => dispatch( clearFishEntry() ),
-})
+  clearFishEntry: () => dispatch(clearFishEntry()),
+  addFish: (data) => dispatch(addFish(data)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddFish);

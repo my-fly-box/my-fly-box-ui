@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
-import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
-import { setSelectedFlyId } from '../actions'
+import { FontAwesome } from "@expo/vector-icons";
+import { setSelectedFlyId } from "../actions";
 import { render } from "react-dom";
 import { connect } from "react-redux";
 
-class Fly extends Component{
-  constructor(props)  {
-    super(props)
+class Fly extends Component {
+  constructor(props) {
+    super(props);
   }
 
   addSelectedFlyId = () => {
-    this.props.setSelectedFlyId(this.props.fly.id)
-  }
-  
+    this.props.setSelectedFlyId(this.props.fly.id);
+  };
+
   deletionAlert = (flyId) =>
     Alert.alert(
       "Remove Fly",
@@ -22,65 +22,105 @@ class Fly extends Component{
         {
           text: "Cancel",
           onPress: () => console.log("Cancel Pressed"),
-          style: "cancel"
+          style: "cancel",
         },
-        { text: "OK", onPress: () => this.props.handleDelete(flyId) }
+        { text: "OK", onPress: () => this.props.handleDelete(flyId) },
       ],
       { cancelable: false }
     );
 
-    render() {
-      return (
-        <View style={styles.container}>
-          <Text style={styles.name}> {this.props.fly.attributes.name}</Text>
-          <Text style={styles.text}> {this.props.fly.attributes.category} </Text>
-          <Text style={styles.text}> {this.props.fly.attributes.size} </Text>
-          <TouchableOpacity onPress={() => {
-            this.addSelectedFlyId()
-            this.props.navigation.navigate("EditFly")
-            }
-          }>
-            <AntDesign name="edit" color={"#264653"} size={20} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.deletionAlert(this.props.fly.id)}>
-            <MaterialCommunityIcons name="hook-off" color={"#264653"} size={20} />
+  render() {
+    return (
+      <View style={styles.container}>
+
+        <Text style={styles.name}> {this.props.fly.attributes.name}</Text>
+
+        <View style={styles.categoryContainer}>
+            <Text style={styles.text}>
+              {this.props.fly.attributes.category}{" "}
+            </Text>
+        </View>
+
+        <View style={styles.flyInfoContainer}>
+          <Text style={styles.text}>
+            Size: {this.props.fly.attributes.size}{" "}
+          </Text>
+          <Text style={styles.text}>
+            Color: {this.props.fly.attributes.color}{" "}
+          </Text>
+          <Text style={styles.text}>
+            Amount: {this.props.fly.attributes.amount}{" "}
+          </Text>
+          <TouchableOpacity
+            onPress={() => {
+              this.addSelectedFlyId();
+              this.props.navigation.navigate("EditFly");
+            }}
+          >
+            <FontAwesome name="chevron-right" color={"#f7841f"} size={20} />
           </TouchableOpacity>
         </View>
-      );
-    }
+
+        <View style={styles.deleteContainer}>
+          <TouchableOpacity
+            onPress={() => this.deletionAlert(this.props.fly.id)}
+          >
+            <FontAwesome name="remove" color={"#212326"} size={18} />
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "row",
+    flexDirection: "column",
     justifyContent: "space-around",
-    paddingVertical: 15,
-  },
+    paddingVertical: 7,
+    paddingHorizontal: 3,
+    marginVertical: 5,
+    height: 115,
+    width: "100%",
+    borderWidth: 0.2,
+    borderColor: "#212326",
+    borderRadius: 5,
+    backgroundColor: "#ffffff",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
+      },
   name: {
     fontSize: 17,
-    fontFamily: "Helvetica-Bold",
-    color: "#7A5C58",
+    fontFamily: "Helvetica Neue",
+    fontWeight: "bold",
+    color: "#0b7d83",
+    paddingHorizontal: 4,
+  },
+  flyInfoContainer: {
+    flexDirection: "row",
+    paddingHorizontal: 7,
+    justifyContent: "space-between",
   },
   text: {
     fontSize: 15,
-    fontFamily: "Helvetica",
-    color: "#7A5C58",
+    fontFamily: "Helvetica Neue",
+    fontWeight: '400',
+    color: "#212326",
   },
-  button: {
-    backgroundColor: "#264653",
-    padding: 5,
-    alignItems: "center",
-    alignSelf: "center",
-    width: 40,
-    borderRadius: 5,
+  categoryContainer: {
+    paddingHorizontal: 7,
   },
-  buttonText: {
-    fontSize: 13,
-    fontFamily: "Helvetica-Bold",
-    color: "white",
-    textAlign: "center",
-  },
+  deleteContainer: {
+    paddingHorizontal: 7,
+    // paddingVertical: 3,
+  }
 });
 
 const mapDispatchToProps = (dispatch) => ({

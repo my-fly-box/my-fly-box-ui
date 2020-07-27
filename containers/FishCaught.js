@@ -6,9 +6,10 @@ import {
   Button,
   FlatList,
   TouchableOpacity,
+  ScrollView
 } from "react-native";
-import { fetchFish } from "../ApiCalls";
-import { setFish } from "../actions";
+import { fetchFish, deleteFish } from "../ApiCalls";
+import { setFish, removeFish } from "../actions";
 import { connect } from "react-redux";
 import Fish from "../components/Fish";
 
@@ -29,21 +30,23 @@ class FishCaught extends Component {
       );
   }
 
-  async componentDidUpdate() {
-    if (this.state.currentFish.length != this.props.currentFish.length) {
-      fetchFish()
-        .then((data) => this.props.setFish(data.data))
-        .then((fish) => this.setState({ currentFish: fish.data }))
-    }
-  }
+  handleDelete = (fishId) => {
+    deleteFish(fishId);
+    this.props.removeFish(fishId)
+  };
 
   checkFish = () => {
     if (this.props.currentFish.length > 0 && !this.state.isLoading) {
       return (
         <FlatList
+          style={styles.container}
           data={this.props.currentFish}
           renderItem={({ item }) => (
-            <Fish fish={item} navigation={this.props.navigation} />
+            <Fish
+              fish={item}
+              navigation={this.props.navigation}
+              handleDelete={this.handleDelete}
+            />
           )}
         />
       );
@@ -80,33 +83,50 @@ class FishCaught extends Component {
 
   render() {
     return (
-      <View>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            this.props.navigation.navigate("AddFish");
-          }}
-        >
-          <Text color="white" style={styles.buttonText}>Add Fish</Text>
-        </TouchableOpacity>
-        {this.checkFish()}
-      </View>
+        <View style={styles.container}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              this.props.navigation.navigate("AddFish");
+            }}
+          >
+            <Text color="white" style={styles.buttonText}>
+              Add Fish
+            </Text>
+          </TouchableOpacity>
+          {this.checkFish()}
+        </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  button: {
-    backgroundColor: "#264653",
-    padding: 5,
-    alignItems: "center",
+  container: {
+    height: "100%",
+    width: "100%",
     alignSelf: "center",
-    width: 70,
-    borderRadius: 5,
+  },
+  button: {
+    backgroundColor: 'white',
+    color: 'white',
+    alignSelf: "center",
+    margin: 5,
+    margin: "10%",
+    height: "10%",
+    width: "40%",
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: '#2A9D8F',
+    borderRadius: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
   },
   buttonText: {
-    fontSize: 13,
-    fontFamily: "Helvetica-Bold",
+    fontSize: 18,
+    fontFamily: "Helvetica",
     textAlign: "center",
   },
 });
@@ -116,7 +136,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setFish: (data) => dispatch(setFish(data)),
+  setFish: data => dispatch( setFish(data) ),
+  removeFish: id => dispatch( removeFish(id) ),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FishCaught);
