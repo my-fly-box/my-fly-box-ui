@@ -123,6 +123,21 @@ const styles = StyleSheet.create({
     borderColor: "gray",
     paddingRight: 30,
   },
+  inputAndroid: {
+    alignSelf: "center",
+    backgroundColor: "white",
+    textAlign: "center",
+    width: "70%",
+    borderRadius: 5,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    paddingVertical: 12,
+    paddingHorizontal: 10,
+    borderColor: "gray",
+    paddingRight: 30,
+	},
 });
 
 const mapStateToProps = (state) => ({
