@@ -49,6 +49,7 @@ class Fly extends Component {
             Amount: {this.props.fly.attributes.amount}{" "}
           </Text>
           <TouchableOpacity
+            testID="editButton"
             onPress={() => {
               this.addSelectedFlyId();
               this.props.navigation.navigate("EditFly");
@@ -60,6 +61,7 @@ class Fly extends Component {
 
         <View style={styles.deleteContainer}>
           <TouchableOpacity
+            testID="deleteButton"
             onPress={() => this.deletionAlert(this.props.fly.id)}
           >
             <FontAwesome name="remove" color={"#212326"} size={18} />
