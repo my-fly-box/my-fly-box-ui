@@ -136,3 +136,25 @@ export const deleteFish = async (fishId) => {
     console.error(error);
   }
 };
+
+// Image upload for species identification:
+export const uploadPhoto = async (photo) => {
+  try {
+    const response = await fetch(
+      "https://my-fly-box-api.herokuapp.com/api/v1/images",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+        },
+        body: JSON.stringify({
+          base_64: photo,
+        }),
+      }
+    );
+    const imageResponse = await response.json();
+    return imageResponse;
+  } catch (error) {
+    console.error(error);
+  }
+};

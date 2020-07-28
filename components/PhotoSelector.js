@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  TouchableOpacity,
-  Platform,
-} from "react-native";
+import { Text, View, TouchableOpacity, Platform } from "react-native";
 import { Camera } from "expo-camera";
 import * as Permissions from "expo-permissions";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
@@ -12,6 +7,7 @@ import * as ImagePicker from "expo-image-picker";
 import * as FileSystem from "expo-file-system";
 import { connect } from "react-redux";
 import { updateFishEntry } from "../actions";
+import { uploadPhoto } from "../ApiCalls";
 
 class PhotoSelector extends Component {
   constructor(props) {
@@ -46,7 +42,8 @@ class PhotoSelector extends Component {
         encoding: "base64",
       });
       await this.props.updateFishEntry("image", base64);
-      // this.uploadPhoto(base64);
+      // This is where we would then call the uploadPhoto post request to send the image to identify the species. This is working properly in development, but not on Heroku on a production level. Commenting out the invocation to avoid errors while this error is being researched.
+      // uploadPhoto(base64);
       this.props.navigation.navigate("AddFish");
     }
   };
@@ -59,26 +56,9 @@ class PhotoSelector extends Component {
       encoding: "base64",
     });
     await this.props.updateFishEntry("image", base64);
-    // this.uploadPhoto(base64);
+    // This is where we would then call the uploadPhoto post request to send the image to identify the species. This is working properly in development, but not on Heroku on a production level. Commenting out the invocation to avoid errors while this error is being researched.
+    // uploadPhoto(base64);
     this.props.navigation.navigate("AddFish");
-  };
-
-  uploadPhoto = async (photo) => {
-    const response = await fetch(
-      "https://my-fly-box-api.herokuapp.com/api/v1/images",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json;charset=utf-8",
-        },
-        body: JSON.stringify({
-          base_64: photo,
-        }),
-      }
-    );
-
-    const imageResponse = await response.json();
-    console.log(imageResponse);
   };
 
   render() {
