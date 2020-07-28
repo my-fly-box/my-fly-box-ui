@@ -22,7 +22,7 @@ exports[`AddFly renders the AddFly 1`] = `
         "fontFamily": "Helvetica Neue",
         "fontSize": 20,
         "fontWeight": "bold",
-        "marginBottom": 10,
+        "marginBottom": "15%",
       }
     }
   >
@@ -34,10 +34,23 @@ exports[`AddFly renders the AddFly 1`] = `
         "alignItems": "center",
         "flex": 1,
         "justifyContent": "center",
-        "paddingTop": 45,
+        "marginVertical": "10%",
+        "paddingTop": 10,
       }
     }
   >
+    <Text
+      style={
+        Object {
+          "color": "#212326",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "marginBottom": 5,
+        }
+      }
+    >
+      Fly Name:
+    </Text>
     <TextInput
       allowFontScaling={true}
       onChangeText={[Function]}
@@ -68,6 +81,18 @@ exports[`AddFly renders the AddFly 1`] = `
       underlineColorAndroid="transparent"
       value=""
     />
+    <Text
+      style={
+        Object {
+          "color": "#212326",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "marginBottom": 5,
+        }
+      }
+    >
+      Fly Color:
+    </Text>
     <TextInput
       allowFontScaling={true}
       onChangeText={[Function]}
@@ -98,6 +123,18 @@ exports[`AddFly renders the AddFly 1`] = `
       underlineColorAndroid="transparent"
       value=""
     />
+    <Text
+      style={
+        Object {
+          "color": "#212326",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "marginBottom": 5,
+        }
+      }
+    >
+      Fly Size:
+    </Text>
     <TextInput
       allowFontScaling={true}
       keyboardType="number-pad"
@@ -129,10 +166,22 @@ exports[`AddFly renders the AddFly 1`] = `
       underlineColorAndroid="transparent"
       value=""
     />
+    <Text
+      style={
+        Object {
+          "color": "#212326",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "marginBottom": 5,
+        }
+      }
+    >
+      Type of Fly:
+    </Text>
     <TextInput
       allowFontScaling={true}
       onChangeText={[Function]}
-      placeholder="Enter Fly Category"
+      placeholder="Enter Fly Type"
       rejectResponderTermination={true}
       style={
         Object {
@@ -159,6 +208,18 @@ exports[`AddFly renders the AddFly 1`] = `
       underlineColorAndroid="transparent"
       value=""
     />
+    <Text
+      style={
+        Object {
+          "color": "#212326",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "marginBottom": 5,
+        }
+      }
+    >
+      Quantity:
+    </Text>
     <TextInput
       allowFontScaling={true}
       keyboardType="number-pad"

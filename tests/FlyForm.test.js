@@ -20,7 +20,7 @@ describe("FlyForm", () => {
     const nameInput = getByPlaceholder("Enter Fly Name");
     const colorInput = getByPlaceholder("Enter Fly Color");
     const sizeInput = getByPlaceholder("Enter Fly Size");
-    const categoryInput = getByPlaceholder("Enter Fly Category");
+    const categoryInput = getByPlaceholder("Enter Fly Type");
     const amountInput = getByPlaceholder("Enter Fly Amount");
 
     expect(nameInput).toBeTruthy();

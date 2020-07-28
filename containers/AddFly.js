@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     fontFamily: "Helvetica Neue",
     fontWeight: "bold",
     color: "#0b7d83",
-    marginBottom: 10,
+    marginBottom: "15%",
   },
 
   buttonContainer: {
