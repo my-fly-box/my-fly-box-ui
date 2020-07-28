@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import FishForm from "../components/FishForm";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { setCurrentFish, clearFishEntry, updateFish } from "../actions";
 import { addUpdatedFish } from "../ApiCalls";
 import { connect } from "react-redux";
@@ -31,11 +31,35 @@ class EditFish extends Component {
     });
   };
 
+  findFlyName = () => {
+    let currentFly = this.props.currentFlies.find(
+      (fly) => fly.id == this.props.currentFishEntry.fly_id
+    );
+    if (currentFly === undefined) {
+      return "";
+    } else {
+      return currentFly.attributes.name;
+    }
+  };
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.intro}>Make changes to the selected fish:</Text>
+
+        <Image
+          style={styles.fishImage}
+          source={{
+            uri: `data:image/gif;base64,${this.props.currentFishEntry.image}`,
+          }}
+        />
+        
         <FishForm />
+
+        <Text style={styles.previousFly}>
+          Previously Selected Fly Used: {this.findFlyName()}
+        </Text>
+
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.button}
@@ -64,25 +88,39 @@ class EditFish extends Component {
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop: 45,
-    justifyContent: "center",
+    paddingTop: 30,
+    height: "90%",
     backgroundColor: "#f8f8ff",
   },
   intro: {
-    flex: 0.15,
     alignSelf: "center",
     fontSize: 20,
     fontFamily: "Helvetica Neue",
     fontWeight: "bold",
     color: "#0b7d83",
   },
+  fishImage: {
+    alignSelf: "center",
+    width: 180,
+    height: 110,
+    margin: 10,
+    borderWidth: 2,
+    borderRadius: 5,
+    borderColor: "#212326",
+  },
+  previousFly: {
+    alignSelf: "center",
+    fontSize: 13,
+    fontWeight: "300",
+    color: "#212326",
+    marginBottom: 5,
+  },
   buttonContainer: {
-    flex: 1,
     flexDirection: "row",
     justifyContent: "center",
     width: "80%",
     alignSelf: "center",
+    marginTop: 10,
   },
   button: {
     backgroundColor: "#f7841f",
@@ -116,6 +154,7 @@ const mapStateToProps = (state) => ({
   currentFish: state.currentFish,
   selectedFishId: state.selectedFishId,
   currentFishEntry: state.currentFishEntry,
+  currentFlies: state.currentFlies,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -32,6 +32,7 @@ class FishForm extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text style={styles.label}>Species:</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter Species Name"
@@ -39,13 +40,7 @@ class FishForm extends Component {
           onChangeText={(text) => this.handleChange("species", text)}
         />
 
-        <TextInput
-          style={styles.input}
-          placeholder="Enter Image"
-          value={this.props.currentFishEntry.image}
-          onChangeText={(text) => this.handleChange("image", text)}
-        />
-
+        <Text style={styles.label}>Length of the Fish:</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter Length (in)"
@@ -54,6 +49,7 @@ class FishForm extends Component {
           onChangeText={(text) => this.handleChange("length", parseInt(text))}
         />
 
+        <Text style={styles.label}>Weight of the Fish:</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter Weight (lb)"
@@ -62,6 +58,7 @@ class FishForm extends Component {
           onChangeText={(text) => this.handleChange("weight", parseInt(text))}
         />
 
+        <Text style={styles.label}>Location Caught:</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter Location"
@@ -69,6 +66,7 @@ class FishForm extends Component {
           onChangeText={(text) => this.handleChange("location", text)}
         />
 
+        <Text style={styles.label}>Fly Used:</Text>
         <RNPickerSelect
           placeholder={{
             value: "Select the Fly Used",
@@ -90,16 +88,22 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: 50,
-    marginVertical: "10%",
+    paddingTop: 10,
+    marginVertical: "3%",
+  },
+  label: {
+    color: "#212326",
+    fontSize: 14,
+    fontWeight: "500",
+    marginBottom: 5,
   },
   input: {
     color: "#212326",
-    fontSize: 18,
+    fontSize: 14,
     textAlign: "center",
     width: "70%",
-    height: 55,
-    marginBottom: "3%",
+    height: 45,
+    marginBottom: 5,
     borderWidth: 0.2,
     borderColor: "#212326",
     borderRadius: 5,
@@ -117,11 +121,11 @@ const styles = StyleSheet.create({
 
 const pickerStyles = StyleSheet.create({
   inputIOS: {
-    fontSize: 18,
+    fontSize: 14,
     alignSelf: "center",
     textAlign: "center",
     width: "70%",
-    height: 55,
+    height: 45,
     paddingVertical: 12,
     paddingHorizontal: 10,
     borderWidth: 1,

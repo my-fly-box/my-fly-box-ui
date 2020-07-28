@@ -69,7 +69,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#f8f8ff",
   },
   intro: {
-    flex: 0.15,
     alignSelf: "center",
     fontSize: 20,
     fontFamily: "Helvetica Neue",
@@ -87,7 +86,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#f7841f",
     alignSelf: "center",
     marginHorizontal: "5%",
-    marginVertical: "4%",
+    marginTop: "4%",
+    marginBottom: "7%",
     height: 50,
     width: 130,
     justifyContent: "center",

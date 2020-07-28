@@ -47,8 +47,7 @@ class Fish extends Component {
           <Image
             style={styles.fishImage}
             source={{
-              uri:
-                "https://images.unsplash.com/photo-1594088979895-6086bd8d1f83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
+              uri: `data:image/gif;base64,${this.props.fish.attributes.image}`,
             }}
           />
           <Text style={styles.species}>
