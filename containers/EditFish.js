@@ -89,9 +89,10 @@ class EditFish extends Component {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 30,
-    height: "90%",
+    height: "100%",
     backgroundColor: "#f8f8ff",
   },
+
   intro: {
     alignSelf: "center",
     fontSize: 20,
@@ -99,6 +100,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#0b7d83",
   },
+
   fishImage: {
     alignSelf: "center",
     width: 180,
@@ -106,8 +108,10 @@ const styles = StyleSheet.create({
     margin: 10,
     borderWidth: 2,
     borderRadius: 5,
+    marginTop: 30,
     borderColor: "#212326",
   },
+
   previousFly: {
     alignSelf: "center",
     fontSize: 13,
@@ -115,13 +119,16 @@ const styles = StyleSheet.create({
     color: "#212326",
     marginBottom: 5,
   },
+
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "center",
     width: "80%",
     alignSelf: "center",
     marginTop: 10,
+    marginBottom: 40
   },
+
   button: {
     backgroundColor: "#f7841f",
     alignSelf: "center",
@@ -142,6 +149,7 @@ const styles = StyleSheet.create({
     shadowRadius: 2.22,
     elevation: 3,
   },
+
   buttonText: {
     fontSize: 15,
     color: "#ffffff",

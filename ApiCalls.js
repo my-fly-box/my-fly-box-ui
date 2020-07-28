@@ -1,7 +1,5 @@
 // Network Request Calls for Flies
 
-const fetch = require("node-fetch");
-
 export const fetchFlies = async () => {
   try {
     const response = await fetch(

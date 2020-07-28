@@ -96,10 +96,12 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: "center",
   },
+  
   fly: {
     height: 60,
     width: "98%",
   },
+  
   headerFont: {
     fontSize: 18,
     fontWeight: "bold",

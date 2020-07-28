@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { setSelectedFlyId } from "../actions";
-import { render } from "react-dom";
 import { connect } from "react-redux";
 
 class Fly extends Component {
@@ -95,6 +94,7 @@ const styles = StyleSheet.create({
     shadowRadius: 2.22,
     elevation: 3,
   },
+
   name: {
     fontSize: 17,
     fontFamily: "Helvetica Neue",
@@ -102,20 +102,24 @@ const styles = StyleSheet.create({
     color: "#0b7d83",
     paddingHorizontal: 4,
   },
+
   flyInfoContainer: {
     flexDirection: "row",
     paddingHorizontal: 7,
     justifyContent: "space-between",
   },
+
   text: {
     fontSize: 15,
     fontFamily: "Helvetica Neue",
     fontWeight: "400",
     color: "#212326",
   },
+
   categoryContainer: {
     paddingHorizontal: 7,
   },
+
   deleteContainer: {
     paddingHorizontal: 7,
   },

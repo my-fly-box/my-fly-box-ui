@@ -32,6 +32,7 @@ class FishForm extends Component {
   render() {
     return (
       <View style={styles.container}>
+
         <Text style={styles.label}>Species:</Text>
         <TextInput
           style={styles.input}
@@ -78,6 +79,7 @@ class FishForm extends Component {
           }}
           items={this.mapCurrentFlies()}
         />
+
       </View>
     );
   }
@@ -91,12 +93,14 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     marginVertical: "3%",
   },
+  
   label: {
     color: "#212326",
     fontSize: 14,
     fontWeight: "500",
     marginBottom: 5,
   },
+  
   input: {
     color: "#212326",
     fontSize: 14,

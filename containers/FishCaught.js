@@ -3,10 +3,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
   FlatList,
   TouchableOpacity,
-  ScrollView,
 } from "react-native";
 import { fetchFish, deleteFish } from "../ApiCalls";
 import { setFish, removeFish } from "../actions";
@@ -107,10 +105,12 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: "center",
   },
+
   fish: {
     height: 60,
     width: "98%",
   },
+
   button: {
     backgroundColor: "#f7841f",
     alignSelf: "center",
@@ -131,6 +131,7 @@ const styles = StyleSheet.create({
     shadowRadius: 2.22,
     elevation: 3,
   },
+
   buttonText: {
     fontSize: 18,
     color: "#ffffff",
