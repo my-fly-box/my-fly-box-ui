@@ -4,6 +4,7 @@ exports[`AddFly renders the AddFly 1`] = `
 <View
   style={
     Object {
+      "backgroundColor": "#f8f8ff",
       "flex": 1,
       "height": "100%",
       "justifyContent": "center",
@@ -12,6 +13,21 @@ exports[`AddFly renders the AddFly 1`] = `
     }
   }
 >
+  <Text
+    style={
+      Object {
+        "alignSelf": "center",
+        "color": "#0b7d83",
+        "flex": 0.2,
+        "fontFamily": "Helvetica Neue",
+        "fontSize": 20,
+        "fontWeight": "bold",
+        "marginBottom": 10,
+      }
+    }
+  >
+    Please enter the fly's information:
+  </Text>
   <View
     style={
       Object {
@@ -29,18 +45,22 @@ exports[`AddFly renders the AddFly 1`] = `
       rejectResponderTermination={true}
       style={
         Object {
-          "backgroundColor": "white",
+          "backgroundColor": "#ffffff",
+          "borderColor": "#212326",
           "borderRadius": 5,
+          "borderWidth": 0.2,
+          "color": "#212326",
+          "elevation": 3,
           "fontSize": 18,
           "height": "25%",
           "marginBottom": "3%",
           "shadowColor": "#000",
           "shadowOffset": Object {
-            "height": 2,
+            "height": 1,
             "width": 0,
           },
-          "shadowOpacity": 0.8,
-          "shadowRadius": 2,
+          "shadowOpacity": 0.22,
+          "shadowRadius": 2.22,
           "textAlign": "center",
           "width": "70%",
         }
@@ -55,18 +75,22 @@ exports[`AddFly renders the AddFly 1`] = `
       rejectResponderTermination={true}
       style={
         Object {
-          "backgroundColor": "white",
+          "backgroundColor": "#ffffff",
+          "borderColor": "#212326",
           "borderRadius": 5,
+          "borderWidth": 0.2,
+          "color": "#212326",
+          "elevation": 3,
           "fontSize": 18,
           "height": "25%",
           "marginBottom": "3%",
           "shadowColor": "#000",
           "shadowOffset": Object {
-            "height": 2,
+            "height": 1,
             "width": 0,
           },
-          "shadowOpacity": 0.8,
-          "shadowRadius": 2,
+          "shadowOpacity": 0.22,
+          "shadowRadius": 2.22,
           "textAlign": "center",
           "width": "70%",
         }
@@ -82,18 +106,22 @@ exports[`AddFly renders the AddFly 1`] = `
       rejectResponderTermination={true}
       style={
         Object {
-          "backgroundColor": "white",
+          "backgroundColor": "#ffffff",
+          "borderColor": "#212326",
           "borderRadius": 5,
+          "borderWidth": 0.2,
+          "color": "#212326",
+          "elevation": 3,
           "fontSize": 18,
           "height": "25%",
           "marginBottom": "3%",
           "shadowColor": "#000",
           "shadowOffset": Object {
-            "height": 2,
+            "height": 1,
             "width": 0,
           },
-          "shadowOpacity": 0.8,
-          "shadowRadius": 2,
+          "shadowOpacity": 0.22,
+          "shadowRadius": 2.22,
           "textAlign": "center",
           "width": "70%",
         }
@@ -108,18 +136,22 @@ exports[`AddFly renders the AddFly 1`] = `
       rejectResponderTermination={true}
       style={
         Object {
-          "backgroundColor": "white",
+          "backgroundColor": "#ffffff",
+          "borderColor": "#212326",
           "borderRadius": 5,
+          "borderWidth": 0.2,
+          "color": "#212326",
+          "elevation": 3,
           "fontSize": 18,
           "height": "25%",
           "marginBottom": "3%",
           "shadowColor": "#000",
           "shadowOffset": Object {
-            "height": 2,
+            "height": 1,
             "width": 0,
           },
-          "shadowOpacity": 0.8,
-          "shadowRadius": 2,
+          "shadowOpacity": 0.22,
+          "shadowRadius": 2.22,
           "textAlign": "center",
           "width": "70%",
         }
@@ -135,18 +167,22 @@ exports[`AddFly renders the AddFly 1`] = `
       rejectResponderTermination={true}
       style={
         Object {
-          "backgroundColor": "white",
+          "backgroundColor": "#ffffff",
+          "borderColor": "#212326",
           "borderRadius": 5,
+          "borderWidth": 0.2,
+          "color": "#212326",
+          "elevation": 3,
           "fontSize": 18,
           "height": "25%",
           "marginBottom": "3%",
           "shadowColor": "#000",
           "shadowOffset": Object {
-            "height": 2,
+            "height": 1,
             "width": 0,
           },
-          "shadowOpacity": 0.8,
-          "shadowRadius": 2,
+          "shadowOpacity": 0.22,
+          "shadowRadius": 2.22,
           "textAlign": "center",
           "width": "70%",
         }
@@ -161,9 +197,7 @@ exports[`AddFly renders the AddFly 1`] = `
         "alignSelf": "center",
         "flex": 1,
         "flexDirection": "row",
-        "height": "30%",
         "justifyContent": "center",
-        "marginTop": "5%",
         "width": "80%",
       }
     }
@@ -182,29 +216,35 @@ exports[`AddFly renders the AddFly 1`] = `
         Object {
           "alignItems": "center",
           "alignSelf": "center",
-          "backgroundColor": "white",
-          "borderColor": "#2A9D8F",
-          "borderRadius": 3,
-          "borderWidth": 2,
-          "color": "black",
-          "flex": 1,
-          "height": "20%",
+          "backgroundColor": "#f7841f",
+          "borderColor": "#212326",
+          "borderRadius": 5,
+          "borderWidth": 0.2,
+          "elevation": 3,
+          "height": 50,
           "justifyContent": "center",
-          "margin": 5,
+          "marginHorizontal": "5%",
           "opacity": 1,
           "shadowColor": "#000",
           "shadowOffset": Object {
-            "height": 2,
+            "height": 1,
             "width": 0,
           },
-          "shadowOpacity": 0.8,
-          "shadowRadius": 2,
-          "width": "40%",
+          "shadowOpacity": 0.22,
+          "shadowRadius": 2.22,
+          "width": 130,
         }
       }
     >
       <Text
-        style={Object {}}
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "Helvetica-Bold",
+            "fontSize": 15,
+            "textAlign": "center",
+          }
+        }
       >
         Cancel
       </Text>
@@ -223,29 +263,35 @@ exports[`AddFly renders the AddFly 1`] = `
         Object {
           "alignItems": "center",
           "alignSelf": "center",
-          "backgroundColor": "white",
-          "borderColor": "#2A9D8F",
-          "borderRadius": 3,
-          "borderWidth": 2,
-          "color": "black",
-          "flex": 1,
-          "height": "20%",
+          "backgroundColor": "#f7841f",
+          "borderColor": "#212326",
+          "borderRadius": 5,
+          "borderWidth": 0.2,
+          "elevation": 3,
+          "height": 50,
           "justifyContent": "center",
-          "margin": 5,
+          "marginHorizontal": "5%",
           "opacity": 1,
           "shadowColor": "#000",
           "shadowOffset": Object {
-            "height": 2,
+            "height": 1,
             "width": 0,
           },
-          "shadowOpacity": 0.8,
-          "shadowRadius": 2,
-          "width": "40%",
+          "shadowOpacity": 0.22,
+          "shadowRadius": 2.22,
+          "width": 130,
         }
       }
     >
       <Text
-        style={Object {}}
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "Helvetica-Bold",
+            "fontSize": 15,
+            "textAlign": "center",
+          }
+        }
       >
         Submit
       </Text>

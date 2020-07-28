@@ -84,7 +84,7 @@ function FlyBoxContainer() {
         name="EditFly"
         component={EditFly}
         options={{
-          title: "Edit Fly Info",
+          title: "Edit Fly",
           headerStyle: {
             backgroundColor: "#212326",
           },
@@ -105,7 +105,7 @@ function AddFlyContainer() {
         name="AddFly"
         component={AddFly}
         options={{
-          title: "Add New Fly Info",
+          title: "Add New Fly",
           headerStyle: {
             backgroundColor: "#212326",
           },
@@ -140,7 +140,7 @@ function FishContainer() {
         name="EditFish"
         component={EditFish}
         options={{
-          title: "Edit Fish Information",
+          title: "Edit Fish",
           headerStyle: {
             backgroundColor: "#212326",
           },
@@ -154,7 +154,7 @@ function FishContainer() {
         name="AddFish"
         component={AddFish}
         options={{
-          title: "Add Fish Information",
+          title: "Add Fish",
           headerStyle: {
             backgroundColor: "#212326",
           },

@@ -32,6 +32,7 @@ class FishForm extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text style={styles.label}>Species:</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter Species Name"
@@ -39,29 +40,25 @@ class FishForm extends Component {
           onChangeText={(text) => this.handleChange("species", text)}
         />
 
+        <Text style={styles.label}>Length of the Fish:</Text>
         <TextInput
           style={styles.input}
-          placeholder="Enter Image"
-          value={this.props.currentFishEntry.image}
-          onChangeText={(text) => this.handleChange("image", text)}
-        />
-
-        <TextInput
-          style={styles.input}
-          placeholder="Enter Length"
+          placeholder="Enter Length (in)"
           keyboardType="number-pad"
           value={this.props.currentFishEntry.length.toString()}
           onChangeText={(text) => this.handleChange("length", parseInt(text))}
         />
 
+        <Text style={styles.label}>Weight of the Fish:</Text>
         <TextInput
           style={styles.input}
-          placeholder="Enter Weight"
+          placeholder="Enter Weight (lb)"
           keyboardType="number-pad"
           value={this.props.currentFishEntry.weight.toString()}
           onChangeText={(text) => this.handleChange("weight", parseInt(text))}
         />
 
+        <Text style={styles.label}>Location Caught:</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter Location"
@@ -69,12 +66,13 @@ class FishForm extends Component {
           onChangeText={(text) => this.handleChange("location", text)}
         />
 
+        <Text style={styles.label}>Fly Used:</Text>
         <RNPickerSelect
           placeholder={{
             value: "Select the Fly Used",
             label: "Select the Fly Used",
           }}
-          style={styles}
+          style={{ ...pickerStyles }}
           onValueChange={(value) => {
             this.handleChange("fly_id", parseInt(value));
           }}
@@ -90,54 +88,58 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: 50,
-    marginTop: "10%",
+    paddingTop: 10,
+    marginVertical: "3%",
   },
   label: {
-    textAlign: "center",
+    color: "#212326",
+    fontSize: 14,
+    fontWeight: "500",
+    marginBottom: 5,
   },
   input: {
-    backgroundColor: "white",
+    color: "#212326",
+    fontSize: 14,
     textAlign: "center",
     width: "70%",
-    height: "20%",
-    marginBottom: "3%",
+    height: 45,
+    marginBottom: 5,
+    borderWidth: 0.2,
+    borderColor: "#212326",
     borderRadius: 5,
+    backgroundColor: "#ffffff",
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
   },
+});
+
+const pickerStyles = StyleSheet.create({
   inputIOS: {
+    fontSize: 14,
     alignSelf: "center",
-    backgroundColor: "white",
     textAlign: "center",
     width: "70%",
-    borderRadius: 5,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
+    height: 45,
     paddingVertical: 12,
     paddingHorizontal: 10,
+    borderWidth: 1,
     borderColor: "gray",
-    paddingRight: 30,
+    borderRadius: 4,
+    backgroundColor: "white",
+    borderRadius: 5,
+    borderWidth: 0.2,
+    borderColor: "#212326",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
   },
-  inputAndroid: {
-    alignSelf: "center",
-    backgroundColor: "white",
-    textAlign: "center",
-    width: "70%",
-    borderRadius: 5,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    paddingVertical: 12,
-    paddingHorizontal: 10,
-    borderColor: "gray",
-    paddingRight: 30,
-	},
 });
 
 const mapStateToProps = (state) => ({

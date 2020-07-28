@@ -4,65 +4,74 @@ exports[`AddFish renders the AddFish 1`] = `
 <View
   style={
     Object {
+      "backgroundColor": "#f8f8ff",
       "flex": 1,
-      "height": "100%",
       "justifyContent": "center",
       "paddingTop": 45,
-      "width": "100%",
     }
   }
 >
-  <View
+  <Text
     style={
       Object {
         "alignSelf": "center",
-        "flex": 1,
-        "flexDirection": "row",
-        "height": "100%",
-        "width": "80%",
+        "color": "#0b7d83",
+        "fontFamily": "Helvetica Neue",
+        "fontSize": 20,
+        "fontWeight": "bold",
       }
     }
   >
-    <View
-      accessible={true}
-      focusable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
+    Add information about your fish:
+  </Text>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": "#f7841f",
+        "borderColor": "#212326",
+        "borderRadius": 5,
+        "borderWidth": 0.2,
+        "elevation": 3,
+        "height": 50,
+        "justifyContent": "center",
+        "marginBottom": "7%",
+        "marginHorizontal": "5%",
+        "marginTop": "4%",
+        "opacity": 1,
+        "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 1,
+          "width": 0,
+        },
+        "shadowOpacity": 0.22,
+        "shadowRadius": 2.22,
+        "width": 130,
+      }
+    }
+  >
+    <Text
       style={
         Object {
-          "alignItems": "center",
-          "alignSelf": "center",
-          "backgroundColor": "white",
-          "borderColor": "#2A9D8F",
-          "borderRadius": 3,
-          "borderWidth": 2,
-          "color": "white",
-          "flex": 1,
-          "height": "20%",
-          "justifyContent": "center",
-          "margin": 5,
-          "marginTop": "20%",
-          "opacity": 1,
-          "shadowColor": "#000",
-          "shadowOffset": Object {
-            "height": 2,
-            "width": 0,
-          },
-          "shadowOpacity": 0.8,
-          "shadowRadius": 2,
-          "width": "40%",
+          "color": "#ffffff",
+          "fontFamily": "Helvetica-Bold",
+          "fontSize": 15,
+          "textAlign": "center",
         }
       }
     >
-      <Text>
-        Upload Image
-      </Text>
-    </View>
+      Upload Image
+    </Text>
   </View>
   <View
     style={
@@ -70,11 +79,23 @@ exports[`AddFish renders the AddFish 1`] = `
         "alignItems": "center",
         "flex": 1,
         "justifyContent": "center",
-        "marginTop": "10%",
-        "paddingTop": 50,
+        "marginVertical": "3%",
+        "paddingTop": 10,
       }
     }
   >
+    <Text
+      style={
+        Object {
+          "color": "#212326",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "marginBottom": 5,
+        }
+      }
+    >
+      Species:
+    </Text>
     <TextInput
       allowFontScaling={true}
       onChangeText={[Function]}
@@ -82,17 +103,22 @@ exports[`AddFish renders the AddFish 1`] = `
       rejectResponderTermination={true}
       style={
         Object {
-          "backgroundColor": "white",
+          "backgroundColor": "#ffffff",
+          "borderColor": "#212326",
           "borderRadius": 5,
-          "height": "20%",
-          "marginBottom": "3%",
+          "borderWidth": 0.2,
+          "color": "#212326",
+          "elevation": 3,
+          "fontSize": 14,
+          "height": 45,
+          "marginBottom": 5,
           "shadowColor": "#000",
           "shadowOffset": Object {
-            "height": 2,
+            "height": 1,
             "width": 0,
           },
-          "shadowOpacity": 0.8,
-          "shadowRadius": 2,
+          "shadowOpacity": 0.22,
+          "shadowRadius": 2.22,
           "textAlign": "center",
           "width": "70%",
         }
@@ -100,50 +126,42 @@ exports[`AddFish renders the AddFish 1`] = `
       underlineColorAndroid="transparent"
       value=""
     />
-    <TextInput
-      allowFontScaling={true}
-      onChangeText={[Function]}
-      placeholder="Enter Image"
-      rejectResponderTermination={true}
+    <Text
       style={
         Object {
-          "backgroundColor": "white",
-          "borderRadius": 5,
-          "height": "20%",
-          "marginBottom": "3%",
-          "shadowColor": "#000",
-          "shadowOffset": Object {
-            "height": 2,
-            "width": 0,
-          },
-          "shadowOpacity": 0.8,
-          "shadowRadius": 2,
-          "textAlign": "center",
-          "width": "70%",
+          "color": "#212326",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "marginBottom": 5,
         }
       }
-      underlineColorAndroid="transparent"
-      value=""
-    />
+    >
+      Length of the Fish:
+    </Text>
     <TextInput
       allowFontScaling={true}
       keyboardType="number-pad"
       onChangeText={[Function]}
-      placeholder="Enter Length"
+      placeholder="Enter Length (in)"
       rejectResponderTermination={true}
       style={
         Object {
-          "backgroundColor": "white",
+          "backgroundColor": "#ffffff",
+          "borderColor": "#212326",
           "borderRadius": 5,
-          "height": "20%",
-          "marginBottom": "3%",
+          "borderWidth": 0.2,
+          "color": "#212326",
+          "elevation": 3,
+          "fontSize": 14,
+          "height": 45,
+          "marginBottom": 5,
           "shadowColor": "#000",
           "shadowOffset": Object {
-            "height": 2,
+            "height": 1,
             "width": 0,
           },
-          "shadowOpacity": 0.8,
-          "shadowRadius": 2,
+          "shadowOpacity": 0.22,
+          "shadowRadius": 2.22,
           "textAlign": "center",
           "width": "70%",
         }
@@ -151,25 +169,42 @@ exports[`AddFish renders the AddFish 1`] = `
       underlineColorAndroid="transparent"
       value=""
     />
+    <Text
+      style={
+        Object {
+          "color": "#212326",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "marginBottom": 5,
+        }
+      }
+    >
+      Weight of the Fish:
+    </Text>
     <TextInput
       allowFontScaling={true}
       keyboardType="number-pad"
       onChangeText={[Function]}
-      placeholder="Enter Weight"
+      placeholder="Enter Weight (lb)"
       rejectResponderTermination={true}
       style={
         Object {
-          "backgroundColor": "white",
+          "backgroundColor": "#ffffff",
+          "borderColor": "#212326",
           "borderRadius": 5,
-          "height": "20%",
-          "marginBottom": "3%",
+          "borderWidth": 0.2,
+          "color": "#212326",
+          "elevation": 3,
+          "fontSize": 14,
+          "height": 45,
+          "marginBottom": 5,
           "shadowColor": "#000",
           "shadowOffset": Object {
-            "height": 2,
+            "height": 1,
             "width": 0,
           },
-          "shadowOpacity": 0.8,
-          "shadowRadius": 2,
+          "shadowOpacity": 0.22,
+          "shadowRadius": 2.22,
           "textAlign": "center",
           "width": "70%",
         }
@@ -177,6 +212,18 @@ exports[`AddFish renders the AddFish 1`] = `
       underlineColorAndroid="transparent"
       value=""
     />
+    <Text
+      style={
+        Object {
+          "color": "#212326",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "marginBottom": 5,
+        }
+      }
+    >
+      Location Caught:
+    </Text>
     <TextInput
       allowFontScaling={true}
       onChangeText={[Function]}
@@ -184,17 +231,22 @@ exports[`AddFish renders the AddFish 1`] = `
       rejectResponderTermination={true}
       style={
         Object {
-          "backgroundColor": "white",
+          "backgroundColor": "#ffffff",
+          "borderColor": "#212326",
           "borderRadius": 5,
-          "height": "20%",
-          "marginBottom": "3%",
+          "borderWidth": 0.2,
+          "color": "#212326",
+          "elevation": 3,
+          "fontSize": 14,
+          "height": 45,
+          "marginBottom": 5,
           "shadowColor": "#000",
           "shadowOffset": Object {
-            "height": 2,
+            "height": 1,
             "width": 0,
           },
-          "shadowOpacity": 0.8,
-          "shadowRadius": 2,
+          "shadowOpacity": 0.22,
+          "shadowRadius": 2.22,
           "textAlign": "center",
           "width": "70%",
         }
@@ -202,6 +254,18 @@ exports[`AddFish renders the AddFish 1`] = `
       underlineColorAndroid="transparent"
       value=""
     />
+    <Text
+      style={
+        Object {
+          "color": "#212326",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "marginBottom": 5,
+        }
+      }
+    >
+      Fly Used:
+    </Text>
     <View
       style={
         Array [
@@ -241,18 +305,20 @@ exports[`AddFish renders the AddFish 1`] = `
                 Object {
                   "alignSelf": "center",
                   "backgroundColor": "white",
-                  "borderColor": "gray",
+                  "borderColor": "#212326",
                   "borderRadius": 5,
+                  "borderWidth": 0.2,
+                  "elevation": 3,
+                  "fontSize": 14,
+                  "height": 45,
                   "paddingHorizontal": 10,
-                  "paddingRight": 30,
                   "paddingVertical": 12,
-                  "shadowColor": "#000",
                   "shadowOffset": Object {
-                    "height": 2,
+                    "height": 1,
                     "width": 0,
                   },
-                  "shadowOpacity": 0.8,
-                  "shadowRadius": 2,
+                  "shadowOpacity": 0.22,
+                  "shadowRadius": 2.22,
                   "textAlign": "center",
                   "width": "70%",
                 },
@@ -516,7 +582,7 @@ exports[`AddFish renders the AddFish 1`] = `
         "alignSelf": "center",
         "flex": 1,
         "flexDirection": "row",
-        "height": "100%",
+        "justifyContent": "center",
         "width": "80%",
       }
     }
@@ -535,29 +601,36 @@ exports[`AddFish renders the AddFish 1`] = `
         Object {
           "alignItems": "center",
           "alignSelf": "center",
-          "backgroundColor": "white",
-          "borderColor": "#2A9D8F",
-          "borderRadius": 3,
-          "borderWidth": 2,
-          "color": "white",
-          "flex": 1,
-          "height": "20%",
+          "backgroundColor": "#f7841f",
+          "borderColor": "#212326",
+          "borderRadius": 5,
+          "borderWidth": 0.2,
+          "elevation": 3,
+          "height": 50,
           "justifyContent": "center",
-          "margin": 5,
-          "marginTop": "20%",
+          "marginHorizontal": "5%",
           "opacity": 1,
           "shadowColor": "#000",
           "shadowOffset": Object {
-            "height": 2,
+            "height": 1,
             "width": 0,
           },
-          "shadowOpacity": 0.8,
-          "shadowRadius": 2,
-          "width": "40%",
+          "shadowOpacity": 0.22,
+          "shadowRadius": 2.22,
+          "width": 130,
         }
       }
     >
-      <Text>
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "Helvetica-Bold",
+            "fontSize": 15,
+            "textAlign": "center",
+          }
+        }
+      >
         Cancel
       </Text>
     </View>
@@ -575,29 +648,36 @@ exports[`AddFish renders the AddFish 1`] = `
         Object {
           "alignItems": "center",
           "alignSelf": "center",
-          "backgroundColor": "white",
-          "borderColor": "#2A9D8F",
-          "borderRadius": 3,
-          "borderWidth": 2,
-          "color": "white",
-          "flex": 1,
-          "height": "20%",
+          "backgroundColor": "#f7841f",
+          "borderColor": "#212326",
+          "borderRadius": 5,
+          "borderWidth": 0.2,
+          "elevation": 3,
+          "height": 50,
           "justifyContent": "center",
-          "margin": 5,
-          "marginTop": "20%",
+          "marginHorizontal": "5%",
           "opacity": 1,
           "shadowColor": "#000",
           "shadowOffset": Object {
-            "height": 2,
+            "height": 1,
             "width": 0,
           },
-          "shadowOpacity": 0.8,
-          "shadowRadius": 2,
-          "width": "40%",
+          "shadowOpacity": 0.22,
+          "shadowRadius": 2.22,
+          "width": 130,
         }
       }
     >
-      <Text>
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "Helvetica-Bold",
+            "fontSize": 15,
+            "textAlign": "center",
+          }
+        }
+      >
         Submit
       </Text>
     </View>
