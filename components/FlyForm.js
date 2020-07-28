@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import { StyleSheet, View, TextInput } from "react-native";
 import { updateFlyEntry, clearFlyEntry } from "../actions";
 import { connect } from "react-redux";
 
@@ -19,7 +19,7 @@ class FlyForm extends Component {
   handleChange = (property, text) => {
     this.setState({ property: text });
     this.props.updateFlyEntry(property, text);
-  };
+  }
 
   render() {
     return (
@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 45,
   },
+
   input: {
     color: "#212326",
     fontSize: 18,

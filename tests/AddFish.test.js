@@ -32,10 +32,13 @@ describe('AddFish', () => {
   it('renders the AddFish', async () => {
     const testStore = createStore(rootReducer)
     const testWrapper = <Provider store={testStore}><AddFish /></Provider>
+
     fetchFlies.mockResolvedValueOnce(mockFlyData)
+
     const snap = renderer.create(
       testWrapper
     ).toJSON();
+
     expect(snap).toMatchSnapshot();
   })
 }) 

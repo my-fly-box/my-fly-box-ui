@@ -10,9 +10,11 @@ describe('App', () => {
   it.skip('renders the App', () => {
     const testStore = createStore(rootReducer)
     const testWrapper = <Provider store={testStore}></Provider>
+    
     const snap = renderer.create(
       testWrapper
     ).toJSON();
+    
     expect(snap).toMatchSnapshot();
   })
 }) 
