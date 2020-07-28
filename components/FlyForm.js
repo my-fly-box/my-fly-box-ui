@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, TextInput } from "react-native";
+import { StyleSheet, View, TextInput, Text } from "react-native";
 import { updateFlyEntry, clearFlyEntry } from "../actions";
 import { connect } from "react-redux";
 
@@ -19,11 +19,12 @@ class FlyForm extends Component {
   handleChange = (property, text) => {
     this.setState({ property: text });
     this.props.updateFlyEntry(property, text);
-  }
+  };
 
   render() {
     return (
       <View style={styles.container}>
+        <Text style={styles.label}>Fly Name:</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter Fly Name"
@@ -31,6 +32,7 @@ class FlyForm extends Component {
           onChangeText={(text) => this.handleChange("name", text)}
         />
 
+        <Text style={styles.label}>Fly Color:</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter Fly Color"
@@ -38,6 +40,7 @@ class FlyForm extends Component {
           onChangeText={(text) => this.handleChange("color", text)}
         />
 
+        <Text style={styles.label}>Fly Size:</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter Fly Size"
@@ -46,13 +49,15 @@ class FlyForm extends Component {
           onChangeText={(text) => this.handleChange("size", text)}
         />
 
+        <Text style={styles.label}>Type of Fly:</Text>
         <TextInput
           style={styles.input}
-          placeholder="Enter Fly Category"
+          placeholder="Enter Fly Type"
           value={this.props.currentFlyEntry.category}
           onChangeText={(text) => this.handleChange("category", text)}
         />
 
+        <Text style={styles.label}>Quantity:</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter Fly Amount"
@@ -70,7 +75,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: 45,
+    paddingTop: 10,
+    marginVertical: "10%",
+  },
+
+  label: {
+    color: "#212326",
+    fontSize: 14,
+    fontWeight: "500",
+    marginBottom: 5,
   },
 
   input: {

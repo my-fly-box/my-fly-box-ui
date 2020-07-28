@@ -34,7 +34,6 @@ class EditFly extends Component {
   render() {
     return (
       <View style={styles.container}>
-
         <Text style={styles.intro}>Make changes to the selected fly:</Text>
 
         <FlyForm />
@@ -71,7 +70,7 @@ const styles = StyleSheet.create({
     paddingTop: 45,
     backgroundColor: "#f8f8ff",
   },
-  
+
   intro: {
     flex: 0.2,
     alignSelf: "center",
@@ -79,7 +78,7 @@ const styles = StyleSheet.create({
     fontFamily: "Helvetica Neue",
     fontWeight: "bold",
     color: "#0b7d83",
-    marginBottom: 10,
+    marginBottom: "15%",
   },
 
   buttonContainer: {
