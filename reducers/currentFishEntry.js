@@ -25,7 +25,7 @@ export const currentFishEntry = (state = defaultFishState, action) => {
 
     case "SET_CURRENT_FISH":
       state = action.data;
-	  return state;
+	    return state;
 	  
     default:
       return state;

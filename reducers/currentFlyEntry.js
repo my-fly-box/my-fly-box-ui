@@ -20,6 +20,7 @@ export const currentFlyEntry = (state = {
 				color: '',
 				category: '',
 				amount: '' }
+				
 		default:
 			return state
 	}
