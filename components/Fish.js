@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
     shadowRadius: 2.22,
     elevation: 3,
   },
+  
   species: {
     fontSize: 18,
     fontFamily: "Helvetica-Bold",
@@ -110,6 +111,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     textDecorationLine: "underline",
   },
+  
   info: {
     fontSize: 17,
     fontFamily: "Helvetica",
@@ -117,6 +119,7 @@ const styles = StyleSheet.create({
     marginLeft: "10%",
     margin: "1%",
   },
+  
   fishImage: {
     width: 220,
     alignSelf: "center",
@@ -125,6 +128,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: "#212326",
   },
+  
   removeButton: {
     alignSelf: "flex-end",
     marginRight: "2%",
