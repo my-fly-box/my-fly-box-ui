@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
     height: "90%",
     backgroundColor: "#f8f8ff",
   },
+  
   intro: {
     alignSelf: "center",
     fontSize: 20,
@@ -99,6 +100,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#0b7d83",
   },
+  
   fishImage: {
     alignSelf: "center",
     width: 180,
@@ -108,6 +110,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: "#212326",
   },
+  
   previousFly: {
     alignSelf: "center",
     fontSize: 13,
@@ -115,6 +118,7 @@ const styles = StyleSheet.create({
     color: "#212326",
     marginBottom: 5,
   },
+  
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "center",
@@ -122,6 +126,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginTop: 10,
   },
+  
   button: {
     backgroundColor: "#f7841f",
     alignSelf: "center",
@@ -142,6 +147,7 @@ const styles = StyleSheet.create({
     shadowRadius: 2.22,
     elevation: 3,
   },
+  
   buttonText: {
     fontSize: 15,
     color: "#ffffff",
