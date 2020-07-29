@@ -20,8 +20,8 @@
 ![Editing a Fly](https://media.giphy.com/media/Z9yzlS7ptogyhq7Tik/giphy.gif)
 
 ##### Adding a Fish
-![Adding a Fish](https://media.giphy.com/media/KxV2hn7L1oadlMPOTM/giphy.gif)
- -->
+![Adding a Fish](https://media.giphy.com/media/KxV2hn7L1oadlMPOTM/giphy.gif) -->
+
 
 # MyFlyBox
 
@@ -46,7 +46,7 @@ The front-end repository of the app can be found [here](https://github.com/my-fl
 ## Project Images / Gifs
 
 ##### Adding a New Fly
-<iframe src="https://giphy.com/embed/ie1KHPIPkBJGwpffMa" width="304" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/ie1KHPIPkBJGwpffMa">via GIPHY</a></p>
+![Adding a new Fly](https://giphy.com/gifs/ie1KHPIPkBJGwpffMa/html5)
 
 
 ## Setup
