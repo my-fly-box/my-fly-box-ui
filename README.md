@@ -46,7 +46,7 @@ The front-end repository of the app can be found [here](https://github.com/my-fl
 ## Project Images / Gifs
 
 ##### Adding a New Fly
-![Adding a new Fly](https://giphy.com/gifs/ie1KHPIPkBJGwpffMa/html5)
+![Adding a new Fly](https://media.giphy.com/media/ie1KHPIPkBJGwpffMa/giphy.gif)
 
 
 ## Setup
