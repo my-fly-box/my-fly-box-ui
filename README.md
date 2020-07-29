@@ -1,28 +1,3 @@
-<!-- 
-#### Screenshots
-##### Main Page
-<img src="https://user-images.githubusercontent.com/52939140/88739078-dad2c600-d0f6-11ea-9e4e-15170e19fe13.png" width="300">
-
-##### Forms
-<div style={display: flex}>
-<img src="https://user-images.githubusercontent.com/52939140/88739084-de664d00-d0f6-11ea-8f52-4f68ad927bd3.png" width="300">
-<img src="https://user-images.githubusercontent.com/52939140/88739753-8a5c6800-d0f8-11ea-82d5-79ba7a6fbeb5.png" width="300">
-</div>
-
-##### Fish Page
-<img src="https://user-images.githubusercontent.com/52939140/88739087-e0301080-d0f6-11ea-942f-3231a4a623d6.png" width="300">
-
-#### In Action
-##### Adding Fly to FlyBox
-![Adding a Fly to FlyBox](https://media.giphy.com/media/RNKE3X0E8Yh6BFyhSo/giphy.gif)
-
-##### Editing a Fly
-![Editing a Fly](https://media.giphy.com/media/Z9yzlS7ptogyhq7Tik/giphy.gif)
-
-##### Adding a Fish
-![Adding a Fish](https://media.giphy.com/media/KxV2hn7L1oadlMPOTM/giphy.gif) -->
-
-
 # MyFlyBox
 
 ## Abstract
@@ -43,10 +18,28 @@ The front-end repository of the app can be found [here](https://github.com/my-fl
 * Expo
 
 
-## Project Images / Gifs
+## UI/UX
 
 ##### Adding a New Fly
 ![Adding a new Fly](https://media.giphy.com/media/ie1KHPIPkBJGwpffMa/giphy.gif)
+
+##### Editing a Fly
+![Editing a Fly](https://media.giphy.com/media/PlfplGvX4lBX7ugmap/giphy.gif)
+
+##### Deleting a Fly
+![Deleting a Fly](https://media.giphy.com/media/KfBgBrfV3zIJbOhs8X/giphy.gif)
+
+##### Adding a New Fish - Image Selector
+![Adding a new Fish](https://media.giphy.com/media/Sw6R43UqGDpaL3HQdX/giphy.gif)
+
+##### Adding a New Fish - Species Identifier
+![Adding a new Fish](https://media.giphy.com/media/RhZUDpUJucjGA9RIB7/giphy.gif)
+
+##### Editing a Fish 
+![Editing a Fish](https://media.giphy.com/media/eiurTC6QYBl4Kbx97f/giphy.gif)
+
+##### Deleting a Fish
+![Deleting a Fish](https://media.giphy.com/media/WQ5l0FQkR8I94dCPo9/giphy.gif)
 
 
 ## Setup
