@@ -33,6 +33,7 @@ The front-end repository of the app can be found [here](https://github.com/my-fl
 ![Adding a new Fish](https://media.giphy.com/media/Sw6R43UqGDpaL3HQdX/giphy.gif)
 
 ##### Adding a New Fish - Species Identifier
+The user is unsure what species of fish they have caught, so they enter "Unknown" under the species input field. When submitting the fish, MyFlyBox uses the uploaded image to identify and update the species name for them (in this case, it looks like the user has caught a Rainbow Trout). 
 ![Adding a new Fish](https://media.giphy.com/media/RhZUDpUJucjGA9RIB7/giphy.gif)
 
 ##### Editing a Fish 
