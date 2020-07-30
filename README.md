@@ -6,7 +6,7 @@
 
 MyFlyBox is a modern way for Colorado fly fishers to organize and keep track of their flies. A user can input a new fly into their box, make edits, or remove the fly entirely. Additionally, the user can either take or upload an image of a fish they've caught, add in information regarding the fish (including species, length, weight, location caught, and fly used) and save it to their MyFlyBox app as a convenient way to look back on the fish they've caught. If the user is unsure of the species, MyFlyBox will use the image provided to identify the species for them.
 
-The front-end repository of the app can be found [here](https://github.com/my-fly-box/my-fly-box-ui), and the back-end repository can be found [here](https://github.com/my-fly-box/my-fly-box-api).
+The front-end repository of the app can be found [here](https://github.com/my-fly-box/my-fly-box-ui), and the back-end repository can be found [here](https://github.com/my-fly-box/my-fly-box-api). Additionally, the back-end production site can be found [here](https://my-fly-box-api.herokuapp.com/).
 
 
 ## Technologies Used (Front-End)
@@ -16,6 +16,7 @@ The front-end repository of the app can be found [here](https://github.com/my-fl
 * React Native Testing Library
 * Jest
 * Expo
+* TravisCI
 
 
 ## UI/UX
