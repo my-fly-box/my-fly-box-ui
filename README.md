@@ -1,3 +1,5 @@
+<img width="554" alt="Screen Shot 2020-07-30 at 1 26 37 PM" src="https://user-images.githubusercontent.com/54180641/88965698-5c963100-d268-11ea-8608-1e1f98a78cea.png">
+
 # MyFlyBox
 
 ## Abstract
